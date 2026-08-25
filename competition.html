@@ -3,6 +3,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition | ACM Programming Jam 2026</title>
+    <meta name="description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <!-- JAM.26 icons / social -->
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#6C4DFF">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="JAM.26">
+    <meta property="og:title" content="Competition | ACM Programming Jam 2026">
+    <meta property="og:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <meta property="og:url" content="https://ai-programming-jam.shoug-tech.com/competition.html">
+    <meta property="og:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Competition | ACM Programming Jam 2026">
+    <meta name="twitter:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <meta name="twitter:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
+    <!-- /JAM.26 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;family=Space+Grotesk:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
@@ -71,6 +91,9 @@
                 linear-gradient(to bottom, rgba(17, 17, 17, 0.1) 1px, transparent 1px);
         }
     </style>
+    <!-- EN/AR language support -->
+    <script>try{if(localStorage.getItem("jam-lang")==="ar"){document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","ar");}}catch(e){}</script>
+    <script defer src="i18n.js"></script>
 </head>
 <body class="bg-jam-bg text-jam-text font-sans antialiased overflow-x-hidden selection:bg-jam-purple selection:text-white w-full h-full min-h-screen flex flex-col">
 
@@ -78,7 +101,7 @@
     <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group shrink-0">
-                <span class="w-8 h-8 bg-[#6C4DFF] border-[3px] border-[#111111] flex items-center justify-center font-mono font-bold text-white text-[10px] group-hover:bg-[#00C2A8] transition-colors">J26</span>
+                <span class="w-8 h-8 shrink-0 flex items-center justify-center"><svg viewBox="0 0 64 64" class="w-8 h-8" aria-hidden="true"><rect x="3" y="3" width="58" height="58" fill="#6C4DFF" stroke="#111111" stroke-width="5" class="group-hover:fill-[#111111] transition-colors"/><path d="M20 13 C12 13 18 28 10 32 C18 36 12 51 20 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M44 13 C52 13 46 28 54 32 C46 36 52 51 44 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M32 18 C33.5 27.5 36.5 30.5 46 32 C36.5 33.5 33.5 36.5 32 46 C30.5 36.5 27.5 33.5 18 32 C27.5 30.5 30.5 27.5 32 18Z" fill="#FFFFFF"/></svg></span>
                 <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
 
@@ -499,7 +522,7 @@
                     What are we looking for?
                 </h2>
                 <p class="text-xl font-medium max-w-2xl bg-[#E5E5E5] px-6 py-2 border-2 border-jam-text font-mono inline-block">
-                    Full judging criteria will be available before competition day.
+                    Projects are scored out of 100 points across seven categories.
                 </p>
             </div>
 
@@ -508,10 +531,10 @@
                 
                 <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
-                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Functionality</h3>
-                        <div class="bg-jam-text text-jam-teal font-mono px-2 py-1 text-xs">SYS_CHK</div>
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Functional Completeness</h3>
+                        <div class="bg-jam-text text-jam-teal font-mono px-2 py-1 text-xs">20%</div>
                     </div>
-                    <p class="font-medium text-lg mb-6 flex-grow">Does the application actually work? Does it meet the core requirements of the challenge?</p>
+                    <p class="font-medium text-lg mb-6 flex-grow">Does the application meet the provided requirements and function correctly?</p>
                     <div class="font-mono text-sm bg-[#111111] text-jam-teal p-3 border-2 border-jam-text">
                         <div>&gt; RUNNING DIAGNOSTIC...</div>
                         <div class="mt-1">STATUS: <span class="text-white bg-jam-teal px-1">EVALUATING</span></div>
@@ -522,10 +545,10 @@
                 
                 <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
-                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-teal transition-colors">Engineering</h3>
-                        <div class="bg-jam-text text-[#FFD035] font-mono px-2 py-1 text-xs">ARCH_CHK</div>
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-teal transition-colors">Technical Implementation</h3>
+                        <div class="bg-jam-text text-[#FFD035] font-mono px-2 py-1 text-xs">20%</div>
                     </div>
-                    <p class="font-medium text-lg mb-6 flex-grow">Is the solution thoughtfully structured and implemented? Is the code clean and maintainable?</p>
+                    <p class="font-medium text-lg mb-6 flex-grow">How effectively were authentication, persistent data, application logic, GitHub, and deployment implemented?</p>
                     <div class="font-mono text-sm bg-[#111111] text-[#FFD035] p-3 border-2 border-jam-text">
                         <div>&gt; ANALYZING STRUCTURE...</div>
                         <div class="mt-1">STATUS: <span class="text-jam-text bg-[#FFD035] px-1">EVALUATING</span></div>
@@ -536,10 +559,10 @@
                 
                 <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
-                        <h3 class="font-black text-2xl uppercase group-hover:text-[#FFD035] transition-colors">User Experience</h3>
-                        <div class="bg-jam-text text-[#FF75B5] font-mono px-2 py-1 text-xs">UI_CHK</div>
+                        <h3 class="font-black text-2xl uppercase group-hover:text-[#FFD035] transition-colors">UI/UX &amp; Design</h3>
+                        <div class="bg-jam-text text-[#FF75B5] font-mono px-2 py-1 text-xs">15%</div>
                     </div>
-                    <p class="font-medium text-lg mb-6 flex-grow">Is the application understandable and usable? Is the interface intuitive?</p>
+                    <p class="font-medium text-lg mb-6 flex-grow">Is the application intuitive, coherent, responsive, and easy to use?</p>
                     <div class="font-mono text-sm bg-[#111111] text-[#FF75B5] p-3 border-2 border-jam-text">
                         <div>&gt; TESTING INTERFACE...</div>
                         <div class="mt-1">STATUS: <span class="text-white bg-[#FF75B5] px-1">EVALUATING</span></div>
@@ -550,10 +573,10 @@
                 
                 <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group lg:col-span-1 md:col-span-2">
                     <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
-                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-orange transition-colors">Adaptability</h3>
-                        <div class="bg-jam-text text-jam-orange font-mono px-2 py-1 text-xs">AGILE_CHK</div>
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-orange transition-colors">Problem Solving &amp; Adaptability</h3>
+                        <div class="bg-jam-text text-jam-orange font-mono px-2 py-1 text-xs">20%</div>
                     </div>
-                    <p class="font-medium text-lg mb-6 flex-grow">How effectively did the team respond to changes introduced during development?</p>
+                    <p class="font-medium text-lg mb-6 flex-grow">How effectively did the team debug problems and respond to the unexpected requirement change?</p>
                     <div class="font-mono text-sm bg-[#111111] text-jam-orange p-3 border-2 border-jam-text">
                         <div>&gt; MEASURING DELTA...</div>
                         <div class="mt-1">STATUS: <span class="text-white bg-jam-orange px-1">EVALUATING</span></div>
@@ -564,14 +587,38 @@
                 
                 <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group lg:col-span-2 md:col-span-2">
                     <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
-                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Presentation</h3>
-                        <div class="bg-jam-text text-white font-mono px-2 py-1 text-xs">PITCH_CHK</div>
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Final Demonstration</h3>
+                        <div class="bg-jam-text text-white font-mono px-2 py-1 text-xs">5%</div>
                     </div>
-                    <p class="font-medium text-lg mb-6 flex-grow">Can the team clearly demonstrate and explain what they built and the decisions they made?</p>
+                    <p class="font-medium text-lg mb-6 flex-grow">Can the team clearly demonstrate and explain its solution?</p>
                     <div class="font-mono text-sm bg-[#111111] text-white p-3 border-2 border-jam-text">
                         <div>&gt; AWAITING DEMO...</div>
                         <div class="mt-1">STATUS: <span class="text-black bg-white px-1">PENDING</span></div>
                         <div class="mt-2 text-xs opacity-70">[                    ]</div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-teal transition-colors">System Understanding &amp; Planning</h3>
+                        <div class="bg-jam-text text-jam-teal font-mono px-2 py-1 text-xs">10%</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Can the team explain its Excalidraw diagram and how the major parts of the system interact?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-jam-teal p-3 border-2 border-jam-text">
+                        <div>&gt; READING DIAGRAM...</div>
+                        <div class="mt-1">STATUS: <span class="text-jam-text bg-jam-teal px-1">EVALUATING</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-teal transition-colors">Production Readiness &amp; Performance</h3>
+                        <div class="bg-jam-text text-jam-teal font-mono px-2 py-1 text-xs">10%</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Has the application been deployed correctly, connected to a domain, prepared for search discovery, and evaluated with PageSpeed Insights?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-jam-teal p-3 border-2 border-jam-text">
+                        <div>&gt; CHECKING DEPLOYMENT...</div>
+                        <div class="mt-1">STATUS: <span class="text-jam-text bg-jam-teal px-1">EVALUATING</span></div>
                     </div>
                 </div>
                 
@@ -775,18 +822,25 @@
     </section>
 
     
-    <footer class="bg-jam-bg border-t-4 border-jam-text py-12 px-6 lg:px-12 text-center">
-        <div class="font-black text-4xl mb-4 tracking-tighter">JAM.26</div>
-        <div class="font-mono text-sm opacity-70 mb-8 max-w-md mx-auto">
-            ACM Programming Jam 2026. A web application building competition. No generic hackathons. Build something real.
-        </div>
-        <div class="flex justify-center gap-6 font-bold text-sm">
-            <a href="index.html" class="hover:text-jam-purple hover:underline">HOME</a>
-            <a href="workshops.html" class="hover:text-jam-purple hover:underline">WORKSHOPS</a>
-            <a href="rules.html" class="hover:text-jam-purple hover:underline">RULES</a>
-            <a href="faq.html" class="hover:text-jam-purple hover:underline">FAQ</a>
+    <footer class="border-t-4 border-[#111111] bg-white text-[#111111] py-10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-sm font-bold">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-4 h-4 bg-[#111111]"></span>
+                <span class="text-lg tracking-tight">JAM.26</span>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
+                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">Home</a>
+                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <span class="text-[#6C4DFF]">Competition</span>
+                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">Rules</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">Team</a>
+                <a href="team-formation.html" class="hover:text-[#6C4DFF] transition-colors">Register</a>
+            </nav>
+            <div class="flex flex-col items-center md:items-end gap-1">
+                <div class="text-gray-500">© 2026 ACM Programming Jam</div>
+                <div>Made by <a href="https://blueprint.shoug-tech.com/" target="_blank" rel="noopener" class="text-[#6C4DFF] underline decoration-2 underline-offset-4 hover:text-[#111111] transition-colors">Blueprint</a></div>
+            </div>
         </div>
     </footer>
-
-
 </body></html>

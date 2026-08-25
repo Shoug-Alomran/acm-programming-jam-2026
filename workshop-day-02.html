@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 02 | Workshops | JAM.26</title>
     <meta name="description" content="Turning the plan into a working application, and diagnosing problems when things break.">
+    <!-- JAM.26 icons / social -->
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#6C4DFF">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="JAM.26">
+    <meta property="og:title" content="Day 02 | Workshops | JAM.26">
+    <meta property="og:description" content="Turning the plan into a working application, and diagnosing problems when things break.">
+    <meta property="og:url" content="https://ai-programming-jam.shoug-tech.com/workshop-day-02.html">
+    <meta property="og:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Day 02 | Workshops | JAM.26">
+    <meta name="twitter:description" content="Turning the plan into a working application, and diagnosing problems when things break.">
+    <meta name="twitter:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
+    <!-- /JAM.26 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,13 +33,16 @@
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         ::selection { background-color: #00C2A8; color: #111111; }
     </style>
+    <!-- EN/AR language support -->
+    <script>try{if(localStorage.getItem("jam-lang")==="ar"){document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","ar");}}catch(e){}</script>
+    <script defer src="i18n.js"></script>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
     <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group shrink-0">
-                <span class="w-8 h-8 bg-[#6C4DFF] border-[3px] border-[#111111] flex items-center justify-center font-mono font-bold text-white text-[10px] group-hover:bg-[#00C2A8] transition-colors">J26</span>
+                <span class="w-8 h-8 shrink-0 flex items-center justify-center"><svg viewBox="0 0 64 64" class="w-8 h-8" aria-hidden="true"><rect x="3" y="3" width="58" height="58" fill="#6C4DFF" stroke="#111111" stroke-width="5" class="group-hover:fill-[#111111] transition-colors"/><path d="M20 13 C12 13 18 28 10 32 C18 36 12 51 20 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M44 13 C52 13 46 28 54 32 C46 36 52 51 44 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M32 18 C33.5 27.5 36.5 30.5 46 32 C36.5 33.5 33.5 36.5 32 46 C30.5 36.5 27.5 33.5 18 32 C27.5 30.5 30.5 27.5 32 18Z" fill="#FFFFFF"/></svg></span>
                 <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
@@ -182,18 +204,26 @@
 
     </main>
 
-    <footer class="border-t-4 border-[#111111] bg-white py-10 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-sm font-bold">
-            <a href="index.html" class="hover:text-[#6C4DFF]">JAM.26</a>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="workshops.html" class="hover:text-[#6C4DFF]">WORKSHOPS</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF]">COMPETITION</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF]">RULES</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF]">FAQ</a>
+    <footer class="border-t-4 border-[#111111] bg-white text-[#111111] py-10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-sm font-bold">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-4 h-4 bg-[#111111]"></span>
+                <span class="text-lg tracking-tight">JAM.26</span>
             </div>
-            <div class="text-gray-500">ORGANIZED BY ACM CLUB</div>
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
+                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">Home</a>
+                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">Competition</a>
+                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">Rules</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">Team</a>
+                <a href="team-formation.html" class="hover:text-[#6C4DFF] transition-colors">Register</a>
+            </nav>
+            <div class="flex flex-col items-center md:items-end gap-1">
+                <div class="text-gray-500">© 2026 ACM Programming Jam</div>
+                <div>Made by <a href="https://blueprint.shoug-tech.com/" target="_blank" rel="noopener" class="text-[#6C4DFF] underline decoration-2 underline-offset-4 hover:text-[#111111] transition-colors">Blueprint</a></div>
+            </div>
         </div>
     </footer>
-
 </body>
 </html>
