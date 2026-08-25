@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition | ACM Programming Jam 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;family=Space+Grotesk:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jam: {
+                            bg: '#F7F7F2',
+                            text: '#111111',
+                            purple: '#6C4DFF',
+                            teal: '#00C2A8',
+                            orange: '#FF5C35',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal': '6px 6px 0px 0px #111111',
+                        'brutal-lg': '12px 12px 0px 0px #111111',
+                        'brutal-sm': '3px 3px 0px 0px #111111',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        
+        ::-webkit-scrollbar {
+            width: 16px;
+            height: 16px;
+            background: #F7F7F2;
+            border-left: 4px solid #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6C4DFF;
+            border: 4px solid #111111;
+        }
+        ::-webkit-scrollbar-corner {
+            background: #F7F7F2;
+        }
+        
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(17, 17, 17, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(17, 17, 17, 0.1) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-jam-bg text-jam-text font-sans antialiased overflow-x-hidden selection:bg-jam-purple selection:text-white w-full h-full min-h-screen flex flex-col">
+
+    
+    <nav class="fixed top-0 left-0 w-full bg-jam-bg border-b-4 border-jam-text z-50 h-20 flex items-center px-6 lg:px-12 justify-between">
+        <div class="flex items-center gap-4">
+            <div class="font-black text-2xl tracking-tighter">JAM.26</div>
+            <div class="hidden md:flex font-mono text-sm border-l-4 border-jam-text pl-4 ml-2">
+                <span class="text-jam-purple animate-pulse mr-2">●</span> v2.0.26
+            </div>
+        </div>
+        <div class="hidden lg:flex items-center gap-8 font-bold">
+            <a href="index.html" class="hover:text-jam-purple transition-colors relative group">
+                HOME
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-jam-purple scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+            <a href="workshops.html" class="hover:text-jam-purple transition-colors relative group">
+                WORKSHOPS
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-jam-purple scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+            <a href="#" class="text-jam-purple relative group">
+                COMPETITION
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-jam-purple"></span>
+            </a>
+            <a href="team.html" class="hover:text-jam-purple transition-colors relative group">
+                ABOUT
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-jam-purple scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+        </div>
+        <button class="bg-jam-teal text-jam-text border-4 border-jam-text px-6 py-2 font-bold shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all active:bg-jam-purple active:text-white">
+            REGISTER
+        </button>
+    </nav>
+
+    
+    <header class="pt-32 pb-20 px-6 lg:px-12 min-h-[90vh] flex items-center bg-grid border-b-4 border-jam-text relative">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="flex flex-col gap-6 z-10">
+                <div class="font-mono font-bold text-jam-purple bg-white border-2 border-jam-text px-3 py-1 inline-flex self-start shadow-brutal-sm">
+                    /COMPETITION
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] uppercase tracking-tight">
+                    No Tutorial<br>This Time.<br>
+                    <span class="text-jam-purple">You Build It.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl max-w-xl font-medium border-l-4 border-jam-teal pl-6 py-2 bg-white/50 backdrop-blur-sm">
+                    Competition day puts everything from the workshops into practice. Your team receives a challenge, plans a solution, builds a working web application, and presents the final result.
+                </p>
+                
+                <a href="#workflow" class="group bg-jam-purple text-white border-4 border-jam-text px-8 py-4 font-bold text-xl inline-flex items-center justify-center gap-4 w-fit shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all mt-4">
+                    SEE HOW IT WORKS
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            
+            <div class="w-full bg-[#111111] border-4 border-jam-text shadow-brutal-lg flex flex-col z-10 relative group">
+                
+                <div class="h-10 border-b-4 border-jam-text bg-white flex items-center px-4 gap-2">
+                    <div class="w-4 h-4 rounded-full bg-jam-orange border-2 border-jam-text"></div>
+                    <div class="w-4 h-4 rounded-full bg-[#FFD035] border-2 border-jam-text"></div>
+                    <div class="w-4 h-4 rounded-full bg-jam-teal border-2 border-jam-text"></div>
+                    <div class="ml-4 font-mono text-sm font-bold opacity-50">jam_env.exe</div>
+                </div>
+                
+                <div class="p-6 md:p-8 font-mono text-jam-teal flex flex-col gap-3 text-sm md:text-base leading-relaxed h-[400px]">
+                    <div class="flex">
+                        <span class="text-jam-purple mr-4">~</span>
+                        <span>$ source init_competition.sh</span>
+                    </div>
+                    <div class="text-white opacity-80 mt-2">Loading environment variables...</div>
+                    <div class="flex gap-4 mt-2">
+                        <span class="text-jam-orange">&gt;</span>
+                        <span>training_mode: <span class="text-jam-orange">disabled</span></span>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-jam-orange">&gt;</span>
+                        <span>team_mode: <span class="text-jam-teal">enabled</span></span>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-jam-orange">&gt;</span>
+                        <span>challenge: <span class="text-jam-purple animate-pulse">locked</span></span>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-jam-orange">&gt;</span>
+                        <span>status: awaiting competition</span>
+                    </div>
+                    <div class="mt-auto flex items-center">
+                        <span class="text-jam-purple mr-4">~</span>
+                        <span class="w-3 h-5 bg-jam-teal animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    
+    <div class="border-b-4 border-jam-text bg-jam-teal text-jam-text py-3 font-mono font-bold text-lg marquee-container">
+        <div class="marquee-content">
+            <span class="mx-8">RECEIVE → PLAN → BUILD → ADAPT → SUBMIT → PRESENT</span>
+            <span class="mx-8 text-jam-purple">///</span>
+            <span class="mx-8">RECEIVE → PLAN → BUILD → ADAPT → SUBMIT → PRESENT</span>
+            <span class="mx-8 text-jam-purple">///</span>
+            <span class="mx-8">RECEIVE → PLAN → BUILD → ADAPT → SUBMIT → PRESENT</span>
+            <span class="mx-8 text-jam-purple">///</span>
+            <span class="mx-8">RECEIVE → PLAN → BUILD → ADAPT → SUBMIT → PRESENT</span>
+            <span class="mx-8 text-jam-purple">///</span>
+        </div>
+    </div>
+
+    
+    <section id="workflow" class="py-24 px-6 lg:px-12 bg-white relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-black uppercase mb-16 inline-block bg-jam-text text-white px-6 py-2 shadow-brutal">
+                The Competition Loop
+            </h2>
+
+            
+            <div class="relative pl-8 md:pl-0">
+                
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-4 bg-jam-text -translate-x-1/2"></div>
+                
+                <div class="md:hidden absolute left-0 top-0 bottom-0 w-4 bg-jam-text"></div>
+
+                <div class="flex flex-col gap-12 md:gap-0">
+                    
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:text-right pr-0 md:pr-12 order-2 md:order-1 ml-6 md:ml-0">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-purple">01 / RECEIVE</h3>
+                            <p class="text-lg font-medium border-l-4 md:border-l-0 md:border-r-4 border-jam-text pl-4 md:pl-0 md:pr-4 py-2">
+                                Teams receive the official application challenge and requirements.
+                            </p>
+                        </div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-purple group-hover:text-white group-hover:scale-110 transition-all shadow-brutal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] order-1 md:order-2 md:h-48"></div>
+                    </div>
+
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:h-48 hidden md:block"></div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-teal group-hover:scale-110 transition-all shadow-brutal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] pl-0 md:pl-12 ml-6 md:ml-0">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-teal">02 / PLAN</h3>
+                            <p class="text-lg font-medium border-l-4 border-jam-text pl-4 py-2">
+                                Understand the requirements, divide responsibilities, design the solution, and decide how the application will work.
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:text-right pr-0 md:pr-12 order-2 md:order-1 ml-6 md:ml-0">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-purple">03 / BUILD</h3>
+                            <p class="text-lg font-medium border-l-4 md:border-l-0 md:border-r-4 border-jam-text pl-4 md:pl-0 md:pr-4 py-2">
+                                Turn the plan into a functional web application.
+                            </p>
+                        </div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-purple group-hover:text-white group-hover:scale-110 transition-all shadow-brutal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] order-1 md:order-2 md:h-48"></div>
+                    </div>
+
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:h-48 hidden md:block"></div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-orange group-hover:text-white group-hover:scale-110 transition-all shadow-brutal md:translate-x-[-45%]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] pl-0 md:pl-12 ml-6 md:ml-0 bg-jam-orange/10 p-6 border-4 border-jam-orange border-dashed">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-orange">04 / ADAPT</h3>
+                            <p class="text-lg font-medium py-2 text-jam-text">
+                                Respond to new information or requirements introduced during the competition.
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:text-right pr-0 md:pr-12 order-2 md:order-1 ml-6 md:ml-0">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-teal">05 / SUBMIT</h3>
+                            <p class="text-lg font-medium border-l-4 md:border-l-0 md:border-r-4 border-jam-text pl-4 md:pl-0 md:pr-4 py-2">
+                                Finalize the application and submit the required project materials before the deadline.
+                            </p>
+                        </div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-teal group-hover:scale-110 transition-all shadow-brutal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] order-1 md:order-2 md:h-48"></div>
+                    </div>
+
+                    
+                    <div class="relative md:flex md:justify-between items-center w-full group">
+                        <div class="md:w-[45%] md:h-48 hidden md:block"></div>
+                        <div class="absolute left-[-32px] md:left-1/2 top-0 md:top-1/2 w-16 h-16 bg-jam-text text-white border-4 border-jam-text rounded-full transform md:-translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center font-black text-xl z-10 group-hover:bg-jam-purple group-hover:scale-110 transition-all shadow-brutal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <div class="md:w-[45%] pl-0 md:pl-12 ml-6 md:ml-0">
+                            <h3 class="font-mono text-3xl font-bold mb-3 text-jam-purple">06 / PRESENT</h3>
+                            <p class="text-lg font-medium border-l-4 border-jam-text pl-4 py-2">
+                                Demonstrate the finished application and explain the team's engineering decisions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-jam-bg border-y-4 border-jam-text">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="flex flex-col gap-6">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.1]">
+                    The output is simple.<br>
+                    <span class="text-jam-teal bg-jam-text px-4 py-1 shadow-brutal inline-block mt-2">Build something that works.</span>
+                </h2>
+                
+                <div class="text-lg md:text-xl font-medium mt-4 space-y-6">
+                    <p>
+                        Teams will receive a web application challenge on competition day. You will be responsible for interpreting the requirements and deciding how to implement the solution.
+                    </p>
+                    <div class="bg-[#FFF9C4] border-4 border-jam-text p-6 shadow-brutal-sm font-mono text-sm relative">
+                        <div class="absolute -top-4 -left-4 w-8 h-8 bg-jam-orange border-4 border-jam-text rounded-full flex items-center justify-center font-black">!</div>
+                        <span class="font-bold">NOTE:</span> Exact challenge details remain locked until competition day.
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="bg-white border-4 border-jam-text shadow-brutal-lg flex flex-col">
+                <div class="h-12 border-b-4 border-jam-text bg-jam-bg flex items-center px-4 justify-between">
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-jam-orange border-2 border-jam-text"></div>
+                        <div class="w-4 h-4 rounded-full bg-jam-bg border-2 border-jam-text"></div>
+                        <div class="w-4 h-4 rounded-full bg-jam-teal border-2 border-jam-text"></div>
+                    </div>
+                    <div class="w-2/3 h-6 bg-white border-2 border-jam-text rounded-full mx-4 flex items-center px-3 font-mono text-xs opacity-50">
+                        localhost:3000/jam_process
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="p-8 bg-grid h-[500px] flex flex-col items-center justify-center overflow-hidden relative">
+                    
+                    <div class="flex flex-col items-center z-10 w-full max-w-sm">
+                        
+                        <div class="w-full bg-[#111111] text-white font-mono p-4 border-4 border-jam-text shadow-brutal text-center font-bold text-lg">
+                            challenge.md
+                        </div>
+                        <div class="h-8 w-1 bg-jam-text my-2"></div>
+                        
+                        
+                        <div class="w-full bg-white text-jam-text font-mono p-4 border-4 border-jam-text shadow-brutal text-center font-bold text-lg">
+                            requirements
+                        </div>
+                        <div class="h-8 w-1 bg-jam-text my-2"></div>
+                        
+                        
+                        <div class="w-full bg-jam-purple text-white font-mono p-4 border-4 border-jam-text shadow-brutal text-center font-bold text-lg">
+                            architecture
+                        </div>
+                        <div class="h-8 w-1 bg-jam-text my-2"></div>
+                        
+                        
+                        <div class="w-full bg-jam-teal text-jam-text font-mono p-4 border-4 border-jam-text shadow-brutal text-center font-bold text-lg">
+                            implementation
+                        </div>
+                        <div class="h-8 w-1 bg-jam-text my-2"></div>
+                        
+                        
+                        <div class="w-full bg-[#E5F9E0] text-jam-text font-mono p-6 border-4 border-jam-text shadow-brutal-lg text-center font-black text-xl border-dashed">
+                            working_web_app
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-[#111111] text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            
+            <div class="bg-jam-bg text-jam-text border-4 border-white flex flex-col shadow-[8px_8px_0px_0px_#6C4DFF] order-2 lg:order-1 h-[500px]">
+                <div class="h-10 border-b-4 border-jam-text flex items-center px-4 justify-between bg-white">
+                    <span class="font-mono font-bold text-sm">jam_editor</span>
+                    <span class="font-mono text-sm opacity-50">UTF-8</span>
+                </div>
+                <div class="flex flex-1 overflow-hidden">
+                    
+                    <div class="w-1/3 md:w-1/4 border-r-4 border-jam-text bg-white p-4 font-mono text-xs md:text-sm overflow-y-auto">
+                        <div class="font-bold mb-4">TEAM_WORKSPACE/</div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-jam-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg> planning/</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-jam-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg> frontend/</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-jam-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg> backend/</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-jam-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg> testing/</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-jam-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg> presentation/</li>
+                            <li class="pl-6 mt-4 opacity-50">package.json</li>
+                            <li class="pl-6 opacity-50">README.md</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex-1 bg-jam-bg p-6 font-mono text-sm relative">
+                        <div class="text-gray-400 mb-4">// System Architecture Configuration</div>
+                        
+                        <div class="pl-4 border-l-2 border-jam-teal">
+                            <span class="text-jam-purple">export const</span> <span class="text-jam-text">appConfig</span> = {<br>
+                            &nbsp;&nbsp;api_endpoint: <span class="text-green-700">"/api/v1"</span>,<br>
+                            &nbsp;&nbsp;features: [<span class="text-green-700">"auth"</span>, <span class="text-green-700">"dashboard"</span>],<br>
+                            };
+                        </div>
+                        
+                        
+                        <div class="absolute top-[30%] left-[20%] animate-bounce">
+                            <svg class="w-5 h-5 text-jam-purple drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 4.5z"></path></svg>
+                            <span class="bg-jam-purple text-white px-2 py-0.5 text-xs font-bold border border-jam-text shadow-sm ml-2">Frontend</span>
+                        </div>
+                        
+                        <div class="absolute top-[60%] left-[50%] animate-pulse">
+                            <svg class="w-5 h-5 text-jam-orange drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 4.5z"></path></svg>
+                            <span class="bg-jam-orange text-white px-2 py-0.5 text-xs font-bold border border-jam-text shadow-sm ml-2">Backend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-6 order-1 lg:order-2">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase">
+                    Build as a team
+                </h2>
+                
+                <div class="text-lg md:text-xl font-medium mt-4 space-y-6 text-gray-300">
+                    <p class="border-l-4 border-jam-purple pl-6 py-2">
+                        There is no required team structure. Teams decide how to divide the work based on their strengths and strategy.
+                    </p>
+                    <p>
+                        Whether you pair program on a single monitor, split strictly into frontend and backend, or have one person write tests while another builds UI—the process is entirely up to you.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-jam-orange border-y-4 border-jam-text relative overflow-hidden">
+        
+        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 20px, transparent 20px, transparent 40px);"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
+            <h2 class="text-5xl md:text-7xl font-black uppercase mb-8 bg-[#111111] text-jam-orange px-8 py-4 border-4 border-jam-text shadow-brutal transform -rotate-2">
+                EXPECT CHANGE.
+            </h2>
+            
+            <p class="text-xl md:text-2xl font-bold max-w-2xl bg-white border-4 border-jam-text p-6 shadow-brutal mb-12">
+                Real software projects rarely stay exactly as planned. During the Programming Jam, teams should be prepared to adapt.
+            </p>
+            
+            
+            <div class="w-full bg-[#111111] border-4 border-jam-text shadow-brutal-lg text-left text-sm md:text-base font-mono">
+                <div class="h-10 border-b-4 border-jam-text flex items-center px-4 bg-[#222222]">
+                    <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                    <div class="text-gray-400 text-xs">system_monitor.sh</div>
+                </div>
+                <div class="p-6 md:p-8 space-y-4 h-64 overflow-hidden">
+                    <div class="text-jam-teal">&gt; monitoring requirements...</div>
+                    <div class="text-jam-teal">&gt; executing core build... <span class="text-gray-400">[OK]</span></div>
+                    <div class="text-jam-teal">&gt; running tests... <span class="text-gray-400">[OK]</span></div>
+                    
+                    <div class="mt-6 border-2 border-jam-orange text-jam-orange p-4 bg-jam-orange/10 animate-pulse">
+                        <div class="font-black text-lg mb-2">WARNING</div>
+                        <div>event: requirements_changed</div>
+                        <div>source: client_feedback</div>
+                    </div>
+                    
+                    <div class="text-gray-400">&gt; recalculating architecture... <span class="inline-block w-2 h-4 bg-gray-400 animate-pulse ml-2"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-jam-bg border-b-4 border-jam-text">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col items-center text-center mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase mb-6">
+                    What are we looking for?
+                </h2>
+                <p class="text-xl font-medium max-w-2xl bg-[#E5E5E5] px-6 py-2 border-2 border-jam-text font-mono inline-block">
+                    Full judging criteria will be available before competition day.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Functionality</h3>
+                        <div class="bg-jam-text text-jam-teal font-mono px-2 py-1 text-xs">SYS_CHK</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Does the application actually work? Does it meet the core requirements of the challenge?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-jam-teal p-3 border-2 border-jam-text">
+                        <div>&gt; RUNNING DIAGNOSTIC...</div>
+                        <div class="mt-1">STATUS: <span class="text-white bg-jam-teal px-1">EVALUATING</span></div>
+                        <div class="mt-2 text-xs opacity-70">[================&gt;   ]</div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-teal transition-colors">Engineering</h3>
+                        <div class="bg-jam-text text-[#FFD035] font-mono px-2 py-1 text-xs">ARCH_CHK</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Is the solution thoughtfully structured and implemented? Is the code clean and maintainable?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-[#FFD035] p-3 border-2 border-jam-text">
+                        <div>&gt; ANALYZING STRUCTURE...</div>
+                        <div class="mt-1">STATUS: <span class="text-jam-text bg-[#FFD035] px-1">EVALUATING</span></div>
+                        <div class="mt-2 text-xs opacity-70">[========&gt;           ]</div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-[#FFD035] transition-colors">User Experience</h3>
+                        <div class="bg-jam-text text-[#FF75B5] font-mono px-2 py-1 text-xs">UI_CHK</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Is the application understandable and usable? Is the interface intuitive?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-[#FF75B5] p-3 border-2 border-jam-text">
+                        <div>&gt; TESTING INTERFACE...</div>
+                        <div class="mt-1">STATUS: <span class="text-white bg-[#FF75B5] px-1">EVALUATING</span></div>
+                        <div class="mt-2 text-xs opacity-70">[==================&gt; ]</div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group lg:col-span-1 md:col-span-2">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-orange transition-colors">Adaptability</h3>
+                        <div class="bg-jam-text text-jam-orange font-mono px-2 py-1 text-xs">AGILE_CHK</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">How effectively did the team respond to changes introduced during development?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-jam-orange p-3 border-2 border-jam-text">
+                        <div>&gt; MEASURING DELTA...</div>
+                        <div class="mt-1">STATUS: <span class="text-white bg-jam-orange px-1">EVALUATING</span></div>
+                        <div class="mt-2 text-xs opacity-70">[====&gt;               ]</div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white border-4 border-jam-text p-6 shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex flex-col h-full group lg:col-span-2 md:col-span-2">
+                    <div class="flex justify-between items-start mb-4 border-b-4 border-jam-text pb-4">
+                        <h3 class="font-black text-2xl uppercase group-hover:text-jam-purple transition-colors">Presentation</h3>
+                        <div class="bg-jam-text text-white font-mono px-2 py-1 text-xs">PITCH_CHK</div>
+                    </div>
+                    <p class="font-medium text-lg mb-6 flex-grow">Can the team clearly demonstrate and explain what they built and the decisions they made?</p>
+                    <div class="font-mono text-sm bg-[#111111] text-white p-3 border-2 border-jam-text">
+                        <div>&gt; AWAITING DEMO...</div>
+                        <div class="mt-1">STATUS: <span class="text-black bg-white px-1">PENDING</span></div>
+                        <div class="mt-2 text-xs opacity-70">[                    ]</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-[#111111] text-white border-b-4 border-jam-text overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-black uppercase text-jam-teal">
+                    The Day
+                </h2>
+                <a href="rules.html" class="bg-transparent border-4 border-jam-teal text-jam-teal px-6 py-3 font-bold hover:bg-jam-teal hover:text-jam-text transition-colors flex items-center gap-2">
+                    VIEW RULES
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            
+            <div class="bg-jam-bg p-8 border-4 border-jam-text shadow-[8px_8px_0px_0px_#00C2A8] overflow-x-auto">
+                <div class="flex min-w-[1000px] items-center justify-between font-mono relative py-8">
+                    
+                    
+                    <div class="absolute top-1/2 left-0 w-full h-1 bg-jam-text -translate-y-1/2 z-0 border-t-2 border-b-2 border-jam-text border-dashed bg-transparent"></div>
+
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-jam-teal transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">CHECK_IN</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-jam-teal transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">CHALLENGE_RELEASE</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-jam-teal transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">PLANNING</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-jam-purple transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">DEVELOPMENT</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-8 h-8 bg-jam-orange mb-4 group-hover:scale-125 transition-all border-4 border-jam-text flex items-center justify-center text-white font-black animate-pulse">!</div>
+                        <div class="bg-jam-orange text-[#111111] px-2 py-1 text-xs font-black border-2 border-jam-text mb-2 whitespace-nowrap shadow-sm">CHANGE_EVENT</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-jam-purple transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">FINAL_BUILD</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-[#FFD035] transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">SUBMISSION</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-6 h-6 bg-jam-text rounded-full mb-4 group-hover:scale-150 group-hover:bg-[#FFD035] transition-all border-2 border-white outline outline-4 outline-jam-text"></div>
+                        <div class="bg-[#111111] text-white px-2 py-1 text-xs font-bold border-2 border-jam-text mb-2 whitespace-nowrap">PRESENTATIONS</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col items-center z-10 w-32 group">
+                        <div class="w-8 h-8 bg-[#111111] rounded-none mb-4 group-hover:scale-125 transition-all border-4 border-jam-teal flex items-center justify-center">
+                            <div class="w-3 h-3 bg-jam-teal rounded-full"></div>
+                        </div>
+                        <div class="bg-jam-teal text-[#111111] px-2 py-1 text-xs font-black border-2 border-jam-text mb-2 whitespace-nowrap">RESULTS</div>
+                        <div class="text-jam-text font-bold text-xs bg-white px-2 border-2 border-jam-text">TBD</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-[#E5E5E5] border-b-4 border-jam-text bg-grid relative">
+        <div class="max-w-5xl mx-auto flex flex-col items-center text-center">
+            
+            <h2 class="text-4xl md:text-5xl font-black uppercase mb-12 bg-white inline-block px-8 py-3 border-4 border-jam-text shadow-brutal transform -rotate-1">
+                You already know the process.
+            </h2>
+            
+            <p class="text-xl max-w-2xl font-bold bg-jam-bg border-4 border-jam-text p-6 mb-16 shadow-brutal-sm">
+                The workshops give you the tools. Competition day tests what you can do with them.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 w-full">
+                
+                
+                <div class="bg-white border-4 border-jam-text p-8 w-full max-w-sm shadow-[8px_8px_0px_0px_#111111] flex flex-col relative group">
+                    <div class="absolute -top-4 -left-4 bg-jam-teal text-jam-text font-bold px-4 py-1 border-4 border-jam-text transform -rotate-6">LEARNING</div>
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-jam-text pb-4 uppercase">Workshops</h3>
+                    <ul class="font-mono text-lg space-y-4 font-bold text-left w-full">
+                        <li class="flex justify-between border-b-2 border-gray-200 pb-2"><span>PLAN</span> <span class="text-jam-teal">✓</span></li>
+                        <li class="flex justify-between border-b-2 border-gray-200 pb-2"><span>BUILD</span> <span class="text-jam-teal">✓</span></li>
+                        <li class="flex justify-between border-b-2 border-gray-200 pb-2"><span>DEBUG</span> <span class="text-jam-teal">✓</span></li>
+                        <li class="flex justify-between border-b-2 border-gray-200 pb-2"><span>SHIP</span> <span class="text-jam-teal">✓</span></li>
+                    </ul>
+                </div>
+
+                
+                <div class="hidden md:flex text-6xl font-black text-jam-purple animate-pulse">
+                    →
+                </div>
+                <div class="md:hidden text-6xl font-black text-jam-purple animate-pulse my-4 transform rotate-90">
+                    →
+                </div>
+
+                
+                <div class="bg-[#111111] text-white border-4 border-jam-text p-8 w-full max-w-sm shadow-[8px_8px_0px_0px_#6C4DFF] flex flex-col relative transform hover:scale-105 transition-transform cursor-crosshair">
+                    <div class="absolute -top-4 -right-4 bg-jam-purple text-white font-bold px-4 py-1 border-4 border-jam-text transform rotate-6">PROVING</div>
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-white pb-4 uppercase">Programming Jam</h3>
+                    <ul class="font-mono text-lg space-y-4 font-bold text-left w-full">
+                        <li class="flex justify-between border-b-2 border-gray-700 pb-2"><span>HELP</span> <span class="text-jam-orange">limited</span></li>
+                        <li class="flex justify-between border-b-2 border-gray-700 pb-2"><span>TUTORIAL</span> <span class="text-red-500">none</span></li>
+                        <li class="flex justify-between border-b-2 border-gray-700 pb-2"><span>SOLUTION</span> <span class="text-jam-teal">yours</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-24 px-6 lg:px-12 bg-jam-purple text-white relative">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="bg-[#111111] border-4 border-jam-text shadow-[16px_16px_0px_0px_#000000] flex flex-col">
+                
+                <div class="h-12 border-b-4 border-jam-text bg-white flex items-center px-4 gap-2">
+                    <div class="w-4 h-4 rounded-full bg-jam-orange border-2 border-jam-text"></div>
+                    <div class="w-4 h-4 rounded-full bg-[#FFD035] border-2 border-jam-text"></div>
+                    <div class="w-4 h-4 rounded-full bg-jam-teal border-2 border-jam-text"></div>
+                    <div class="ml-4 font-mono text-sm font-bold text-jam-text opacity-50">jam_deploy.sh</div>
+                </div>
+                
+                
+                <div class="p-8 md:p-12 lg:p-16 flex flex-col items-center text-center relative overflow-hidden">
+                    
+                    <div class="w-full text-left font-mono text-sm md:text-base text-gray-400 mb-12 max-w-3xl">
+                        <div><span class="text-jam-teal">$</span> jam --start</div>
+                        <div class="mt-2 text-jam-teal">&gt; checking team... <span class="text-white">[OK]</span></div>
+                        <div class="text-jam-teal">&gt; checking skills... <span class="text-white">[OK]</span></div>
+                        <div class="text-jam-teal">&gt; checking challenge...</div>
+                        <br>
+                        <div class="text-white">====================================</div>
+                        <div class="text-white">challenge: <span class="text-jam-orange font-bold bg-jam-orange/20 px-2 py-0.5 animate-pulse">LOCKED</span></div>
+                        <div class="text-white">event: JAM.26</div>
+                        <div class="text-white">status: READY</div>
+                        <div class="text-white">====================================</div>
+                        <br>
+                        <div class="text-jam-teal">&gt; await launch_sequence... <span class="inline-block w-3 h-5 bg-jam-teal animate-pulse ml-2 align-middle"></span></div>
+                    </div>
+
+                    <h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+                        Think.<br>Build.<br>Adapt.<br>
+                        <span class="text-jam-teal border-b-8 border-jam-teal">Ship.</span>
+                    </h2>
+                    
+                    <p class="text-xl md:text-2xl font-mono font-bold max-w-2xl mb-12 text-gray-300">
+                        "You will not know exactly what you are building until the challenge drops."
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center z-10">
+                        <button class="bg-jam-teal text-jam-text border-4 border-white px-8 py-4 font-black text-xl hover:translate-x-1 hover:translate-y-1 hover:bg-white transition-all shadow-[6px_6px_0px_0px_#FFFFFF] hover:shadow-none uppercase flex-1 whitespace-nowrap">
+                            View The Challenge →
+                        </button>
+                        <button class="bg-transparent text-white border-4 border-white px-8 py-4 font-black text-xl hover:bg-white hover:text-jam-text transition-all uppercase flex-1 whitespace-nowrap">
+                            Read The Rules
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <footer class="bg-jam-bg border-t-4 border-jam-text py-12 px-6 lg:px-12 text-center">
+        <div class="font-black text-4xl mb-4 tracking-tighter">JAM.26</div>
+        <div class="font-mono text-sm opacity-70 mb-8 max-w-md mx-auto">
+            ACM Programming Jam 2026. A web application building competition. No generic hackathons. Build something real.
+        </div>
+        <div class="flex justify-center gap-6 font-bold text-sm">
+            <a href="index.html" class="hover:text-jam-purple hover:underline">HOME</a>
+            <a href="workshops.html" class="hover:text-jam-purple hover:underline">WORKSHOPS</a>
+            <a href="rules.html" class="hover:text-jam-purple hover:underline">RULES</a>
+            <a href="faq.html" class="hover:text-jam-purple hover:underline">FAQ</a>
+        </div>
+    </footer>
+
+
+</body></html>

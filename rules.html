@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules | JAM.26</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#F7F7F2',
+                        ink: '#111111',
+                        jam: {
+                            purple: '#6C4DFF',
+                            teal: '#00C2A8',
+                            orange: '#FF5C35',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal': '6px 6px 0px 0px rgba(17,17,17,1)',
+                        'brutal-sm': '3px 3px 0px 0px rgba(17,17,17,1)',
+                        'brutal-lg': '12px 12px 0px 0px rgba(17,17,17,1)',
+                        'brutal-hover': '2px 2px 0px 0px rgba(17,17,17,1)',
+                    },
+                    borderWidth: {
+                        '3': '3px',
+                        '4': '4px',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': 'radial-gradient(#111111 1px, transparent 1px)',
+                    },
+                    backgroundSize: {
+                        'grid-sm': '20px 20px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        
+        .term-scroll::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .term-scroll::-webkit-scrollbar-track {
+            background: #111;
+            border-left: 1px solid #333;
+        }
+        .term-scroll::-webkit-scrollbar-thumb {
+            background: #444;
+        }
+        
+        
+        ::selection {
+            background-color: #00C2A8;
+            color: #111111;
+        }
+        
+        
+        .sidebar-link.active {
+            background-color: #111111;
+            color: #F7F7F2;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="bg-base text-ink font-sans antialiased overflow-x-hidden selection:bg-jam-teal selection:text-ink flex flex-col min-h-screen">
+
+    
+    <nav class="fixed top-0 w-full bg-base border-b-4 border-ink z-50 flex items-center justify-between px-6 py-4">
+        <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 bg-jam-purple border-3 border-ink group-hover:bg-jam-teal transition-colors"></div>
+            <span class="font-bold text-2xl tracking-tighter uppercase">JAM.26</span>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-8 font-medium">
+            <a href="index.html" class="hover:text-jam-purple hover:-translate-y-0.5 transition-transform">HOME</a>
+            <a href="workshops.html" class="hover:text-jam-purple hover:-translate-y-0.5 transition-transform">WORKSHOPS</a>
+            <a href="competition.html" class="hover:text-jam-purple hover:-translate-y-0.5 transition-transform">COMPETITION</a>
+            <a href="team.html" class="hover:text-jam-purple hover:-translate-y-0.5 transition-transform">TEAMS</a>
+            <a href="#" class="text-jam-purple font-bold border-b-2 border-jam-purple">RULES</a>
+        </div>
+
+        <a href="team-formation.html" class="bg-ink text-base px-6 py-2.5 font-bold border-3 border-ink hover:bg-jam-teal hover:text-ink shadow-brutal-sm hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all">
+            DASHBOARD
+        </a>
+    </nav>
+
+    
+    <main class="flex-grow pt-28 pb-32">
+        
+        
+        <section class="max-w-7xl mx-auto px-6 mb-24 lg:mb-32">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="font-mono text-sm font-bold bg-jam-teal inline-block px-3 py-1 border-2 border-ink uppercase">
+                        /RULES
+                    </div>
+                    <h1 class="text-6xl lg:text-8xl font-bold uppercase leading-[0.9] tracking-tight">
+                        Build<br>Freely.<br><span class="text-jam-purple">Compete<br>Fairly.</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl font-medium max-w-lg border-l-4 border-ink pl-6 py-2">
+                        The Programming Jam gives teams freedom to use AI and modern development tools. These rules exist to keep that freedom fair for everyone.
+                    </p>
+                    <div class="pt-4 flex gap-6 items-center">
+                        <a href="#rules-content" class="bg-jam-teal text-ink px-8 py-4 font-bold text-lg border-4 border-ink shadow-brutal hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all inline-flex items-center gap-2">
+                            READ THE RULES 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
+                        </a>
+                        <div class="font-mono text-sm border-4 border-ink p-3 shadow-brutal-sm">
+                            <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 bg-jam-teal rounded-full animate-pulse"></span> RULESET: ACTIVE</div>
+                            <div>VERSION: 1.0</div>
+                            <div>EVENT: JAM.26</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white border-4 border-ink shadow-brutal-lg flex flex-col h-full min-h-[400px]">
+                    <div class="border-b-4 border-ink bg-base flex items-center px-4 py-3 gap-2">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 border-2 border-ink rounded-full bg-jam-orange"></div>
+                            <div class="w-3 h-3 border-2 border-ink rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 border-2 border-ink rounded-full bg-jam-teal"></div>
+                        </div>
+                        <div class="mx-auto font-mono text-sm font-bold">jam.config</div>
+                        <div class="w-10"></div> 
+                    </div>
+                    <div class="p-6 font-mono text-sm lg:text-base leading-loose bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgxNywgMTcsIDE3LCAwLjEpIj48L2NpcmNsZT4KPC9zdmc+')] flex-grow flex flex-col justify-center">
+                        <div class="flex justify-between hover:bg-black/5 px-2 py-1 transition-colors">
+                            <span class="text-gray-500">AI_USAGE</span>
+                            <span class="text-jam-teal font-bold border-b-2 border-jam-teal">ENABLED</span>
+                        </div>
+                        <div class="flex justify-between hover:bg-black/5 px-2 py-1 transition-colors">
+                            <span class="text-gray-500">AI_CODE_GEN</span>
+                            <span class="text-jam-teal font-bold border-b-2 border-jam-teal">ENABLED</span>
+                        </div>
+                        <div class="flex justify-between hover:bg-black/5 px-2 py-1 transition-colors">
+                            <span class="text-gray-500">CREATIVITY</span>
+                            <span class="text-jam-teal font-bold border-b-2 border-jam-teal">ENABLED</span>
+                        </div>
+                        <div class="flex justify-between hover:bg-black/5 px-2 py-1 transition-colors mt-4">
+                            <span class="text-gray-500">FAIR_PLAY</span>
+                            <span class="text-jam-purple font-bold border-b-2 border-jam-purple">REQUIRED</span>
+                        </div>
+                        <div class="mt-8 text-gray-400 italic">
+                            // Rules enforce fair play boundaries<br>
+                            // while maintaining creative freedom.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="bg-jam-purple text-white border-4 border-ink shadow-brutal-lg p-8 lg:p-12 relative overflow-hidden">
+                
+                <div class="absolute top-0 right-0 p-4 opacity-20 font-mono text-8xl pointer-events-none">AI</div>
+                <div class="absolute -bottom-10 -right-10 opacity-10">
+                    <svg width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+
+                <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-bold uppercase mb-6 drop-shadow-[3px_3px_0px_rgba(17,17,17,1)]">
+                            AI Use Is<br>Encouraged.
+                        </h2>
+                        <p class="text-xl font-medium mb-6 leading-relaxed">
+                            This is an AI Programming Jam. AI may be used to generate part or all of your application. There is no requirement to manually write a specific amount of code.
+                        </p>
+                        <p class="text-lg opacity-90 border-l-4 border-white pl-4 italic">
+                            "The restrictions below exist to maintain fairness, not to limit AI-assisted development."
+                        </p>
+                    </div>
+                    <div class="bg-ink p-6 border-4 border-white font-mono text-sm shadow-brutal-sm text-base">
+                        <div class="flex justify-between items-center py-3 border-b border-white/20">
+                            <span class="text-gray-400">AI_GENERATED_CODE</span>
+                            <span class="text-jam-teal bg-jam-teal/10 px-2 py-1 rounded">ALLOWED</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-white/20">
+                            <span class="text-gray-400">FULL_AI_BUILD</span>
+                            <span class="text-jam-teal bg-jam-teal/10 px-2 py-1 rounded">ALLOWED</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-400">MANUAL_CODE_REQUIREMENT</span>
+                            <span class="text-white border border-white/40 px-2 py-1">NONE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl lg:text-5xl font-bold uppercase mb-6">
+                    If it isn't prohibited,<br>it's generally permitted.
+                </h2>
+                <p class="text-xl">
+                    If you are uncertain whether something is permitted, ask an organizer before proceeding.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-ink text-jam-teal font-mono border-4 border-ink shadow-brutal p-6 rounded-sm">
+                <div class="flex items-center gap-2 mb-4 text-gray-500 border-b border-gray-700 pb-2 text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                    JAM_POLICY_ENGINE v1.0
+                </div>
+                <div class="space-y-2">
+                    <p><span class="text-jam-purple">~ %</span> &gt; checking action...</p>
+                    <p class="pl-4 opacity-50">evaluating against 11 strict rules...</p>
+                    <p class="pl-4 opacity-50">no match found in prohibited list.</p>
+                    <p class="text-white mt-4 bg-white/10 inline-block px-2 py-1">STATUS: NOT_PROHIBITED</p>
+                    <p class="mt-4"><span class="text-jam-purple">~ %</span> &gt; proceed<span class="animate-pulse">_</span></p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="rules-content" class="max-w-7xl mx-auto px-6 mb-24">
+            
+            <div class="mb-12 border-b-4 border-ink pb-6 flex items-end justify-between flex-wrap gap-4">
+                <div>
+                    <div class="font-mono text-sm font-bold text-jam-orange mb-2">/PROHIBITED</div>
+                    <h2 class="text-5xl font-bold uppercase">11 Things You Cannot Do.</h2>
+                </div>
+                <div class="font-mono bg-ink text-base px-3 py-1">TOTAL_RULES: 11</div>
+            </div>
+
+            <div class="grid lg:grid-cols-[280px_1fr] gap-12 items-start relative">
+                
+                
+                <aside class="hidden lg:block sticky top-28 h-auto border-r-4 border-ink pr-6">
+                    <div class="font-mono font-bold mb-6 text-gray-500">INDEX //</div>
+                    <ul class="space-y-2 font-mono text-sm" id="rule-sidebar">
+                        <li><a href="#rule-01" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">01 AI TIER</a></li>
+                        <li><a href="#rule-02" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">02 OUTSIDE HELP</a></li>
+                        <li><a href="#rule-03" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">03 CROSS-TEAM</a></li>
+                        <li><a href="#rule-04" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">04 PRE-BUILD</a></li>
+                        <li><a href="#rule-05" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">05 COPIED WORK</a></li>
+                        <li><a href="#rule-06" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">06 CHANGE</a></li>
+                        <li><a href="#rule-07" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">07 INTERFERENCE</a></li>
+                        <li><a href="#rule-08" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">08 CREDENTIALS</a></li>
+                        <li><a href="#rule-09" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">09 REPRESENTATION</a></li>
+                        <li><a href="#rule-10" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">10 DEADLINE</a></li>
+                        <li><a href="#rule-11" class="sidebar-link block py-2 px-3 border-2 border-transparent hover:border-ink transition-all">11 RULE EVASION</a></li>
+                    </ul>
+                </aside>
+
+                
+                <div class="space-y-24 w-full">
+                    
+                    
+                    <div id="rule-01" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_01</div>
+                        
+                        <div class="grid md:grid-cols-[1fr_250px] gap-8">
+                            <div>
+                                <h3 class="text-3xl font-bold uppercase mb-4">AI Tier Limit</h3>
+                                <p class="text-lg mb-4">
+                                    Do not use the highest-tier AI plans, models, or features prohibited by the organizers.
+                                </p>
+                                <p class="text-lg mb-6">
+                                    Standard paid consumer plans are allowed. For example: ChatGPT Plus is allowed, but ChatGPT Pro is not allowed. The same principle applies to other AI providers. Standard consumer paid tiers may be used, while the highest-tier or advanced premium access may not be used.
+                                </p>
+                                <div class="bg-white border-2 border-ink p-4 font-mono text-sm inline-block shadow-brutal-hover">
+                                    <span class="text-gray-500">// Note:</span> Organizers may publish an approved AI access list before the competition.
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="bg-base border-4 border-ink p-4 font-mono h-fit">
+                                <div class="text-xs text-gray-500 mb-2 border-b-2 border-ink pb-2">METADATA</div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>CATEGORY:</span>
+                                    <span class="bg-jam-purple text-white px-2 py-0.5 text-xs">FAIRNESS</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>STATUS:</span>
+                                    <span class="bg-black text-white px-2 py-0.5 text-xs">ENFORCED</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-02" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_02</div>
+                        
+                        <div class="grid md:grid-cols-[1fr_300px] gap-8">
+                            <div>
+                                <h3 class="text-3xl font-bold uppercase mb-4">Outside Human Assistance</h3>
+                                <p class="text-lg mb-4">
+                                    Do not receive coding, debugging, design, architecture, implementation, or problem-solving assistance from anyone outside your registered team during the competition.
+                                </p>
+                                <p class="text-lg font-bold bg-jam-teal/20 inline-block px-2 py-1">
+                                    AI assistance is allowed.
+                                </p>
+                            </div>
+
+                            
+                            <div class="border-4 border-ink bg-white font-mono text-sm flex flex-col h-fit shadow-brutal">
+                                <div class="flex items-center gap-3 p-3 border-b-2 border-ink">
+                                    <div class="w-4 h-4 bg-jam-teal border-2 border-ink flex items-center justify-center">
+                                        <svg class="w-3 h-3 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <div class="flex-grow">AI_ASSISTANCE</div>
+                                    <div class="font-bold">ALLOWED</div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 border-b-2 border-ink">
+                                    <div class="w-4 h-4 bg-jam-teal border-2 border-ink flex items-center justify-center">
+                                        <svg class="w-3 h-3 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <div class="flex-grow">TEAM_ASSISTANCE</div>
+                                    <div class="font-bold">ALLOWED</div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-red-50">
+                                    <div class="w-4 h-4 bg-jam-orange border-2 border-ink flex items-center justify-center">
+                                        <svg class="w-3 h-3 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    </div>
+                                    <div class="flex-grow text-jam-orange font-bold">OUTSIDE_HUMAN</div>
+                                    <div class="font-bold text-jam-orange">PROHIBITED</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-03" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_03</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">Cross-Team Collaboration</h3>
+                        <p class="text-lg mb-4">
+                            Do not share code, prompts, solutions, implementation details, debugging solutions, or challenge-specific strategies with another competing team.
+                        </p>
+                        <div class="border-l-4 border-jam-purple pl-4 italic text-lg text-gray-700">
+                            Your registered team may collaborate freely internally.
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-04" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_04</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">Building Before the Competition</h3>
+                        <p class="text-lg mb-4">
+                            Do not begin building a solution specifically for the competition challenge before the challenge is officially released.
+                        </p>
+                        <p class="text-lg font-mono bg-ink text-base inline-block px-3 py-1">
+                            The competition begins when the official challenge is released.
+                        </p>
+                    </div>
+
+                    
+                    <div id="rule-05" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_05</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">Pre-Built or Copied Solutions</h3>
+                        <p class="text-lg mb-4">
+                            Do not submit an existing application, another team's work, or a project substantially created before the competition as your competition solution.
+                        </p>
+                        <div class="bg-gray-100 border-2 border-dashed border-gray-400 p-4 font-mono text-sm">
+                            <span class="text-jam-teal font-bold mr-2">✓ PERMITTED:</span> Public libraries, frameworks, packages, documentation, and normal development resources are not considered pre-built solutions and may be used.
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-06" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_06</div>
+                        
+                        <div class="grid md:grid-cols-[1fr_250px] gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold uppercase mb-4">Ignoring the Change Requirement</h3>
+                                <p class="text-lg mb-4">
+                                    Do not ignore the additional requirement introduced during the competition. Teams must adapt their existing application to satisfy the updated requirements.
+                                </p>
+                            </div>
+                            
+                            
+                            <div class="flex flex-col items-center justify-center font-mono text-sm space-y-2 p-6 border-4 border-ink bg-white shadow-brutal">
+                                <div class="bg-gray-100 border-2 border-ink px-4 py-2 w-full text-center">requirements_v1</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-ink"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                <div class="bg-ink text-jam-orange font-bold border-2 border-ink px-4 py-2 w-full text-center animate-pulse shadow-[0_0_15px_rgba(255,92,53,0.5)]">
+                                    CHANGE_DETECTED
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-ink"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                <div class="bg-gray-100 border-2 border-ink border-dashed px-4 py-2 w-full text-center text-gray-500">requirements_v2</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-07" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_07</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">Interfering with Other Teams</h3>
+                        <p class="text-lg mb-6">
+                            Do not access, modify, sabotage, disrupt, or intentionally interfere with another team's:
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 font-mono text-sm text-center">
+                            <div class="border-2 border-ink p-3 bg-white hover:-translate-y-1 transition-transform">- application</div>
+                            <div class="border-2 border-ink p-3 bg-white hover:-translate-y-1 transition-transform">- repository</div>
+                            <div class="border-2 border-ink p-3 bg-white hover:-translate-y-1 transition-transform">- accounts</div>
+                            <div class="border-2 border-ink p-3 bg-white hover:-translate-y-1 transition-transform">- files</div>
+                            <div class="border-2 border-ink p-3 bg-white hover:-translate-y-1 transition-transform md:col-span-1 col-span-2">- dev env</div>
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-08" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_08</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">Unauthorized Credentials or Secrets</h3>
+                        <p class="text-lg mb-4">
+                            Do not use another team's credentials, API keys, tokens, accounts, or private resources.
+                        </p>
+                        <p class="text-lg">
+                            Do not intentionally obtain or misuse private credentials belonging to another participant or team.
+                        </p>
+                    </div>
+
+                    
+                    <div id="rule-09" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_09</div>
+                        
+                        <h3 class="text-3xl font-bold uppercase mb-4">False Representation</h3>
+                        <p class="text-lg mb-4">
+                            Do not intentionally misrepresent what your team built, who contributed, when work was completed, or whether functionality actually works.
+                        </p>
+                        <p class="text-lg font-bold uppercase border-b-4 border-jam-purple inline-block">
+                            Teams should present their project accurately.
+                        </p>
+                    </div>
+
+                    
+                    <div id="rule-10" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_10</div>
+                        
+                        <div class="grid md:grid-cols-[1fr_300px] gap-8">
+                            <div>
+                                <h3 class="text-3xl font-bold uppercase mb-4">Working After the Deadline</h3>
+                                <p class="text-lg mb-4">
+                                    Do not modify the judged submission after the official submission deadline unless organizers explicitly authorize it.
+                                </p>
+                                <p class="text-lg font-medium">
+                                    The submitted version at the deadline is the version that will be evaluated.
+                                </p>
+                            </div>
+
+                            
+                            <div class="bg-[#1e1e1e] border-4 border-ink text-gray-300 font-mono text-sm shadow-brutal h-fit overflow-hidden">
+                                <div class="bg-[#333] px-3 py-2 flex items-center gap-2 border-b-2 border-ink">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    <span class="ml-2 text-xs text-gray-400">bash</span>
+                                </div>
+                                <div class="p-4 space-y-2">
+                                    <div class="text-yellow-400">SUBMISSION_STATUS: LOCKED</div>
+                                    <div><span class="text-green-400">jam26@team</span><span class="text-blue-400">~/proj</span>$ git push</div>
+                                    <div class="text-red-500 font-bold mt-2">ERROR:</div>
+                                    <div class="text-red-400">submission window closed</div>
+                                    <div class="text-red-400">push rejected by jam_server</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div id="rule-11" class="rule-section scroll-mt-32 border-t-8 border-ink pt-8 relative">
+                        <div class="absolute -top-[20px] left-0 bg-ink text-base font-mono font-bold px-4 py-1 border-2 border-ink text-lg">RULE_11</div>
+                        
+                        <div class="grid md:grid-cols-[1fr_250px] gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold uppercase mb-4">Rule Evasion</h3>
+                                <p class="text-lg mb-4">
+                                    Do not intentionally exploit ambiguities, loopholes, or technicalities in the rules to gain an unfair advantage.
+                                </p>
+                                <p class="text-lg">
+                                    If you are unsure whether something is permitted, ask an organizer before doing it.
+                                </p>
+                            </div>
+
+                            
+                            <div class="bg-jam-orange text-ink border-4 border-ink p-6 text-center shadow-[6px_6px_0px_0px_rgba(255,255,255,1),10px_10px_0px_0px_rgba(17,17,17,1)] rotate-2 hover:rotate-0 transition-transform cursor-default">
+                                <div class="font-mono text-sm mb-2 font-bold uppercase border-b-2 border-ink pb-1">Primary Directive</div>
+                                <div class="text-2xl font-bold uppercase leading-tight mt-3">
+                                    When in<br>doubt:<br>ASK.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="bg-white border-4 border-ink shadow-brutal-lg p-8 lg:p-12">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl lg:text-5xl font-bold uppercase mb-4">AI is part of the jam.<br>Pay-to-win isn't.</h2>
+                    <p class="text-lg font-mono text-gray-600">RULE_01 VISUALIZATION</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    
+                    <div class="border-4 border-ink p-6 relative bg-base">
+                        <div class="text-xl font-bold mb-4 border-b-2 border-ink pb-2">FREE</div>
+                        <div class="flex items-center gap-3 text-jam-teal font-bold text-lg font-mono bg-jam-teal/10 p-2 border-2 border-jam-teal">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="square" stroke-linejoin="miter" d="M5 13l4 4L19 7"></path></svg>
+                            ALLOWED
+                        </div>
+                        <div class="mt-6 text-sm text-gray-600 font-mono">
+                            Example:<br>
+                            <span class="text-ink font-bold">ChatGPT Free ✓</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="border-4 border-ink p-6 relative bg-base shadow-[4px_4px_0px_0px_rgba(0,194,168,1)]">
+                        <div class="text-xl font-bold mb-4 border-b-2 border-ink pb-2">STANDARD PAID</div>
+                        <div class="flex items-center gap-3 text-jam-teal font-bold text-lg font-mono bg-jam-teal/10 p-2 border-2 border-jam-teal">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="square" stroke-linejoin="miter" d="M5 13l4 4L19 7"></path></svg>
+                            ALLOWED
+                        </div>
+                        <div class="mt-6 text-sm text-gray-600 font-mono">
+                            Example:<br>
+                            <span class="text-ink font-bold">ChatGPT Plus ✓</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="border-4 border-ink p-6 relative bg-ink text-base">
+                        <div class="text-xl font-bold mb-4 border-b-2 border-gray-600 pb-2">HIGHEST / ADVANCED</div>
+                        <div class="flex items-center gap-3 text-jam-orange font-bold text-lg font-mono bg-jam-orange/20 p-2 border-2 border-jam-orange">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="square" stroke-linejoin="miter" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            NOT ALLOWED
+                        </div>
+                        <div class="mt-6 text-sm text-gray-400 font-mono">
+                            Example:<br>
+                            <span class="text-white font-bold">ChatGPT Pro ✕</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center italic font-medium text-gray-600">
+                    "The same principle applies to equivalent plans from other AI providers."
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-4xl mx-auto px-6 mb-24">
+            <h2 class="text-3xl font-bold uppercase mb-6 flex items-center gap-3">
+                <div class="w-6 h-6 bg-ink"></div> NOT SURE?
+            </h2>
+            
+            <div class="bg-ink border-4 border-ink p-6 lg:p-8 font-mono text-sm lg:text-base shadow-brutal-lg">
+                <div class="space-y-4">
+                    
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can AI write my entire website?"</span>
+                        <span class="text-jam-teal font-bold ml-4">YES.</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can I use ChatGPT Plus?"</span>
+                        <span class="text-jam-teal font-bold ml-4">YES.</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can I use ChatGPT Pro?"</span>
+                        <span class="text-jam-orange font-bold ml-4">NO.</span>
+                    </div>
+
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can my teammate help me debug?"</span>
+                        <span class="text-jam-teal font-bold ml-4">YES.</span>
+                    </div>
+
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can my friend who isn't on my team help me debug?"</span>
+                        <span class="text-jam-orange font-bold ml-4 text-right">NO.</span>
+                    </div>
+
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can I use public libraries and frameworks?"</span>
+                        <span class="text-jam-teal font-bold ml-4">YES.</span>
+                    </div>
+
+                    <div class="flex justify-between items-end border-b border-gray-800 pb-2 hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can another team send me their solution?"</span>
+                        <span class="text-jam-orange font-bold ml-4">NO.</span>
+                    </div>
+
+                    <div class="flex justify-between items-end hover:bg-white/5 p-2 transition-colors">
+                        <span class="text-gray-300">"Can I ignore the surprise requirement?"</span>
+                        <span class="text-jam-orange font-bold ml-4">NO.</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-4xl mx-auto px-6 mb-32">
+            <div class="border-4 border-ink border-dashed p-8 bg-white text-center">
+                <h2 class="text-2xl font-bold uppercase mb-3">When in doubt, ask.</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    If a situation is unclear, ask an organizer before proceeding. Organizers may clarify the rules when necessary to maintain a fair competition.
+                </p>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 text-center border-t-8 border-ink pt-20">
+            
+            <div class="inline-block text-left bg-black text-green-400 font-mono text-sm p-4 border-4 border-ink shadow-brutal mb-10 w-full max-w-md mx-auto">
+                <div>&gt; loading JAM.26 rules...</div>
+                <div class="mt-2">[<span class="text-jam-teal">✓</span>] AI policy</div>
+                <div>[<span class="text-jam-teal">✓</span>] team policy</div>
+                <div>[<span class="text-jam-teal">✓</span>] submission policy</div>
+                <div>[<span class="text-jam-teal">✓</span>] fair play</div>
+                <div class="mt-4 text-white font-bold bg-white/20 inline-block px-2">11 / 11 RULES LOADED</div>
+                <div class="mt-2 text-jam-teal font-bold">STATUS: READY<span class="animate-pulse">_</span></div>
+            </div>
+
+            <div class="font-mono text-sm font-bold bg-jam-purple text-white inline-block px-3 py-1 border-2 border-ink uppercase mb-6">
+                RULES LOADED
+            </div>
+            
+            <h2 class="text-5xl lg:text-7xl font-bold uppercase mb-10 leading-none">
+                Know the boundaries.<br>Then go build.
+            </h2>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="competition.html" class="bg-jam-purple text-white px-8 py-4 font-bold text-lg lg:text-xl border-4 border-ink shadow-brutal hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all flex items-center gap-2 w-full sm:w-auto justify-center uppercase">
+                    VIEW COMPETITION 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="faq.html" class="bg-white text-ink px-8 py-4 font-bold text-lg lg:text-xl border-4 border-ink shadow-brutal hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all flex items-center gap-2 w-full sm:w-auto justify-center uppercase">
+                    FAQ
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer class="border-t-8 border-ink bg-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-sm font-bold uppercase">
+            <div>JAM.26 © 2026</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-jam-purple hover:underline">TWITTER</a>
+                <a href="#" class="hover:text-jam-purple hover:underline">DISCORD</a>
+                <a href="#" class="hover:text-jam-purple hover:underline">GITHUB</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.rule-section');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            
+            
+            const offset = 150; 
+
+            const onScroll = () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    
+                    if (window.scrollY >= sectionTop - offset) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', onScroll);
+            
+            onScroll();
+        });
+    </script>
+
+</body></html>
