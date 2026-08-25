@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 02 | Workshops | JAM.26</title>
+    <meta name="description" content="Turning the plan into a working application, and diagnosing problems when things break.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <style>
+        body { background-color: #F7F7F2; color: #111111; font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        ::selection { background-color: #00C2A8; color: #111111; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <span class="w-8 h-8 bg-[#6C4DFF] border-[3px] border-[#111111] flex items-center justify-center font-mono font-bold text-white text-[10px] group-hover:bg-[#00C2A8] transition-colors">J26</span>
+                <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
+                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">HOME</a>
+                <a href="workshops.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">WORKSHOPS</a>
+                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">RULES</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">TEAM</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="team-formation.html" class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
+                <button type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('jam-nav-mobile');var o=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!o));" class="lg:hidden border-[3px] border-[#111111] bg-white p-2 text-[#111111]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
+            <a href="index.html" class="block hover:text-[#6C4DFF] transition-colors">HOME</a>
+            <a href="workshops.html" aria-current="page" class="block text-[#6C4DFF]">WORKSHOPS</a>
+            <a href="competition.html" class="block hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+            <a href="rules.html" class="block hover:text-[#6C4DFF] transition-colors">RULES</a>
+            <a href="faq.html" class="block hover:text-[#6C4DFF] transition-colors">FAQ</a>
+            <a href="team.html" class="block hover:text-[#6C4DFF] transition-colors">TEAM</a>
+            <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+
+        <header class="border-b-4 border-[#111111] bg-[#F7F7F2]">
+            <div class="max-w-5xl mx-auto px-6 pt-16 pb-14">
+                <a href="workshops.html" class="font-mono text-sm font-bold hover:text-[#6C4DFF] transition-colors">&larr; ALL WORKSHOPS</a>
+                <div class="mt-6 inline-block bg-[#00C2A8] text-[#111111] border-[3px] border-[#111111] px-4 py-1 font-mono font-bold shadow-[4px_4px_0px_0px_#111111]">DAY_02</div>
+                <h1 class="text-4xl md:text-6xl font-bold uppercase leading-[0.95] tracking-tight mt-6 mb-6">Full-Stack Development &amp; Debugging</h1>
+                <p class="text-xl md:text-2xl font-medium max-w-3xl border-l-4 border-[#00C2A8] pl-6">Turning the plan into a working application, and diagnosing problems when things break.</p>
+                <p class="text-lg font-medium max-w-3xl mt-6">Day 02 moves from plan to product. You work in a real codebase, use AI assistants as engineering tools, connect authentication and persistent data, and learn to investigate failures instead of regenerating code until something works.</p>
+            </div>
+        </header>
+
+        <section class="max-w-5xl mx-auto px-6 py-16">
+            <h2 class="text-3xl font-bold uppercase mb-8 pb-4 border-b-4 border-[#111111]">What you will learn</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                <li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Work with a real codebase in Visual Studio Code</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Use AI coding assistants effectively</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Connect frontend and backend logic</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Implement and consume APIs</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Implement user authentication and persistent data</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Debug errors and evaluate AI-generated solutions</li>
+<li class="flex items-start gap-3 font-medium">
+                    <span class="mt-1 w-4 h-4 shrink-0 bg-[#00C2A8] border-2 border-[#111111]"></span>Use Git and GitHub throughout development</li>
+            </ul>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 pb-20 space-y-10">
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div class="border-b-[4px] border-[#111111] bg-[#00C2A8] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 04</div>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Build in Visual Studio Code</h3>
+                <p class="text-lg font-medium mb-6 max-w-3xl">Visual Studio Code is the primary development environment. You work directly with your application code.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6"><div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Project files and folders</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Source code</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Dependencies</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">The terminal</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Running the application locally</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Testing changes</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Reading errors</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Troubleshooting problems</div></div>
+                            </div>
+        </div>
+
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div class="border-b-[4px] border-[#111111] bg-[#00C2A8] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 05</div>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Develop with Codex and Claude Code</h3>
+                <p class="text-lg font-medium mb-6 max-w-3xl">AI assistants act as engineering partners — for generating code, implementing features, explaining code, debugging, refactoring, reviewing implementations, and investigating technical problems.</p>
+                <div class="bg-[#111111] text-[#00C2A8] font-mono text-sm md:text-base p-5 border-[3px] border-[#111111] mb-6 overflow-x-auto"><span class="text-white opacity-50 mr-2">&gt;</span>Describe the task → Generate or modify code → Review → Run → Test → Debug → Verify</div>
+                <div class="border-[3px] border-dashed border-[#00C2A8] bg-[#00C2A8]/10 p-6 mb-6">
+                    <div class="font-mono text-xs font-bold uppercase mb-2 text-[#111111] opacity-60">Optional advanced activity</div>
+                    <h4 class="text-xl font-bold uppercase mb-3">AI Workflow Automation with Hooks</h4>
+                    <p class="font-medium mb-4">An optional advanced activity. Rather than implementing hooks immediately, ask your AI assistant to analyse how you have been working and suggest useful automation — then evaluate the recommendations and implement selectively.</p>
+                    <div class="font-mono text-sm bg-white border-[3px] border-[#111111] p-4 overflow-x-auto">Use AI → Identify repetitive work → Automate useful tasks → Improve the workflow</div>
+                </div>
+                <div class="border-l-[6px] border-[#00C2A8] pl-5 py-2 text-lg font-bold">AI-generated code should never be assumed to be correct without testing.</div>
+                            </div>
+        </div>
+
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div class="border-b-[4px] border-[#111111] bg-[#00C2A8] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 06</div>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Authentication and Data with Firebase</h3>
+                <p class="text-lg font-medium mb-6 max-w-3xl">Firebase introduces two core application concepts: who the user is, and what the application remembers.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"><div class="border-[3px] border-[#111111] p-5"><div class="font-bold uppercase mb-3 border-b-[3px] border-[#111111] pb-2">Authentication</div><ul><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Sign up</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Sign in</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Sign out</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">User-specific access</li></ul></div><div class="border-[3px] border-[#111111] p-5"><div class="font-bold uppercase mb-3 border-b-[3px] border-[#111111] pb-2">Persistent Data</div><ul><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Store information</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Retrieve information</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Update information</li><li class="font-mono text-sm border-b-2 border-gray-100 py-2">Associate information with a specific user</li></ul></div></div>
+                <div class="bg-[#111111] text-[#00C2A8] font-mono text-sm md:text-base p-5 border-[3px] border-[#111111] mb-6 overflow-x-auto"><span class="text-white opacity-50 mr-2">&gt;</span>Frontend ↔ Application Logic ↔ Authentication ↔ Database</div>
+                            </div>
+        </div>
+
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div class="border-b-[4px] border-[#111111] bg-[#00C2A8] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 07</div>
+            <div class="p-6 md:p-8">
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Version Control with GitHub</h3>
+                <p class="text-lg font-medium mb-6 max-w-3xl">Use GitHub throughout development rather than uploading your code only at the end. Your repository should show the progression of the project.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6"><div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Repositories</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Commits</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Push and pull</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Version history</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Collaboration</div>
+<div class="border-[3px] border-[#111111] bg-white px-4 py-3 font-mono text-sm font-bold">Basic project documentation</div></div>
+                            </div>
+        </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 pb-20">
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] p-6 md:p-8">
+                <div class="font-mono text-sm font-bold text-[#00C2A8] mb-2">/DEBUGGING</div>
+                <h2 class="text-3xl font-bold uppercase mb-4">When something fails, ask:</h2>
+                <ul class="mb-2"><li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">01</span><span class="font-medium">What exactly is failing?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">02</span><span class="font-medium">Can the problem be reproduced?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">03</span><span class="font-medium">What does the error message say?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">04</span><span class="font-medium">Where is the likely source?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">05</span><span class="font-medium">What changed before the error appeared?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">06</span><span class="font-medium">What solution should be tested?</span></li>
+<li class="flex gap-4 border-b-2 border-gray-200 py-3"><span class="font-mono font-bold text-[#00C2A8] shrink-0">07</span><span class="font-medium">Did the solution actually fix the issue?</span></li></ul>
+            </div>
+        </section>
+        <section class="max-w-5xl mx-auto px-6 pb-20">
+            <h2 class="text-2xl font-bold uppercase mb-6">Tools used on this day</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Visual Studio Code</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Codex</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Claude Code</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Node.js &amp; npm</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Browser DevTools</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Firebase</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Git</span>
+<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">GitHub</span>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 pb-20">
+            <div class="bg-[#111111] text-white border-[4px] border-[#111111] p-8 md:p-12 shadow-[10px_10px_0px_0px_#00C2A8]">
+                <div class="font-mono text-sm font-bold text-[#00C2A8] mb-4">// KEY PRINCIPLE</div>
+                <p class="text-2xl md:text-4xl font-bold uppercase leading-tight">Investigate problems systematically instead of regenerating code until something works.</p>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 pb-24">
+            <div class="flex flex-col sm:flex-row justify-between gap-4 border-t-4 border-[#111111] pt-8">
+                <a href="workshop-day-01.html" class="border-[3px] border-[#111111] bg-white px-6 py-4 font-mono font-bold shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">&larr; DAY_01</a>
+                <a href="workshop-day-03.html" class="border-[3px] border-[#111111] bg-[#00C2A8] px-6 py-4 font-mono font-bold shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">DAY_03 &rarr;</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t-4 border-[#111111] bg-white py-10 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-sm font-bold">
+            <a href="index.html" class="hover:text-[#6C4DFF]">JAM.26</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="workshops.html" class="hover:text-[#6C4DFF]">WORKSHOPS</a>
+                <a href="competition.html" class="hover:text-[#6C4DFF]">COMPETITION</a>
+                <a href="rules.html" class="hover:text-[#6C4DFF]">RULES</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF]">FAQ</a>
+            </div>
+            <div class="text-gray-500">ORGANIZED BY ACM CLUB</div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -183,32 +183,43 @@
     </div>
 
     
-    <nav class="fixed top-0 w-full bg-bgLight/90 backdrop-blur-md border-b-4 border-textDark z-50 transition-transform duration-300" id="navbar">
+    <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="font-bold text-2xl tracking-tighter flex items-center gap-2">
-                <span class="w-6 h-6 bg-brandPurple border-2 border-textDark inline-block"></span>
-                JAM.26
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <span class="w-8 h-8 bg-[#6C4DFF] border-[3px] border-[#111111] flex items-center justify-center font-mono font-bold text-white text-[10px] group-hover:bg-[#00C2A8] transition-colors">J26</span>
+                <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
-            <div class="hidden md:flex items-center gap-8 font-mono text-sm font-bold">
-                <a href="#about" class="hover:text-brandPurple transition-colors">/ABOUT</a>
-                <a href="#journey" class="hover:text-brandTeal transition-colors">/JOURNEY</a>
-                <a href="workshops.html" class="hover:text-brandOrange transition-colors">/WORKSHOPS</a>
-                <a href="competition.html" class="hover:text-brandPurple transition-colors">/COMPETITION</a>
-                <a href="rules.html" class="hover:text-brandTeal transition-colors">/RULES</a>
-                <a href="faq.html" class="hover:text-brandOrange transition-colors">/FAQ</a>
-                <a href="team.html" class="hover:text-brandPurple transition-colors">/TEAM</a>
-                <a href="team-formation.html" class="bg-brandOrange text-bgLight px-6 py-2 border-2 border-textDark shadow-brutal-dark hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#111111] transition-all">
-                    INITIATE
-                </a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
+                <a href="index.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">HOME</a>
+                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">RULES</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">TEAM</a>
             </div>
-            <button class="md:hidden text-2xl">
-                <i class="ph ph-list"></i>
-            </button>
+
+            <div class="flex items-center gap-3">
+                <a href="team-formation.html" class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
+                <button type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('jam-nav-mobile');var o=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!o));" class="lg:hidden border-[3px] border-[#111111] bg-white p-2 text-[#111111]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
+            <a href="index.html" aria-current="page" class="block text-[#6C4DFF]">HOME</a>
+            <a href="workshops.html" class="block hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+            <a href="competition.html" class="block hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+            <a href="rules.html" class="block hover:text-[#6C4DFF] transition-colors">RULES</a>
+            <a href="faq.html" class="block hover:text-[#6C4DFF] transition-colors">FAQ</a>
+            <a href="team.html" class="block hover:text-[#6C4DFF] transition-colors">TEAM</a>
+            <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
         </div>
     </nav>
 
     
-    <section class="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center relative z-10">
+    <section class="min-h-screen pt-24 pb-20 px-6 flex items-center justify-center relative z-10">
         <div class="w-full max-w-5xl mx-auto relative parallax" data-speed="0.05">
             
             
@@ -285,11 +296,11 @@
                                 </span>
                             </h1>
                             
-                            <button class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-textDark border-2 border-textDark overflow-hidden transition-all hover:bg-brandOrange">
+                            <a href="team-formation.html" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-textDark border-2 border-textDark overflow-hidden transition-all hover:bg-brandOrange">
                                 <span class="relative z-10 flex items-center gap-2 font-mono text-lg">
                                     JOIN THE JAM <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                                 </span>
-                            </button>
+                            </a>
                         </div>
 
                         

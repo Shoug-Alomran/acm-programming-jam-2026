@@ -91,30 +91,38 @@
 <body class="font-sans antialiased min-h-screen flex flex-col w-full">
 
     
-    <nav class="sticky top-0 z-50 bg-bg border-b-4 border-base w-full">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10 bg-bg">
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-purple brutal-border flex items-center justify-center font-mono font-bold text-white text-xs">J26</div>
-                <span class="font-bold text-xl tracking-tight">JAM.26</span>
+    <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <span class="w-8 h-8 bg-[#6C4DFF] border-[3px] border-[#111111] flex items-center justify-center font-mono font-bold text-white text-[10px] group-hover:bg-[#00C2A8] transition-colors">J26</span>
+                <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
-            
-            <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold">
-                <a href="index.html" class="hover:text-purple transition-colors">HOME</a>
-                <a href="workshops.html" class="hover:text-purple transition-colors">WORKSHOPS</a>
-                <a href="competition.html" class="hover:text-purple transition-colors">COMPETITION</a>
-                <a href="rules.html" class="hover:text-purple transition-colors">RULES</a>
-                <a href="faq.html" class="hover:text-purple transition-colors">FAQ</a>
-                <a href="#" class="text-purple border-b-2 border-purple">TEAM</a>
+
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
+                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">HOME</a>
+                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">RULES</a>
+                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">TEAM</a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="team-formation.html" class="hidden md:inline-block bg-teal text-base font-mono font-bold px-6 py-2 brutal-border shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all">
-                    REGISTER_
-                </a>
-                <button class="lg:hidden brutal-border p-2 bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <div class="flex items-center gap-3">
+                <a href="team-formation.html" class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
+                <button type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('jam-nav-mobile');var o=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!o));" class="lg:hidden border-[3px] border-[#111111] bg-white p-2 text-[#111111]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
             </div>
+        </div>
+
+        <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
+            <a href="index.html" class="block hover:text-[#6C4DFF] transition-colors">HOME</a>
+            <a href="workshops.html" class="block hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+            <a href="competition.html" class="block hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+            <a href="rules.html" class="block hover:text-[#6C4DFF] transition-colors">RULES</a>
+            <a href="faq.html" class="block hover:text-[#6C4DFF] transition-colors">FAQ</a>
+            <a href="team.html" aria-current="page" class="block text-[#6C4DFF]">TEAM</a>
+            <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
         </div>
     </nav>
 
@@ -421,7 +429,7 @@
                                 <div class="font-bold text-2xl">[TBD]</div>
                             </div>
                         </div>
-                        <a href="workshops.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
+                        <a href="workshop-day-01.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
                             VIEW WORKSHOP →
                         </a>
                     </div>
@@ -443,7 +451,7 @@
                                 <div class="font-bold text-2xl">[TBD]</div>
                             </div>
                         </div>
-                        <a href="workshops.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
+                        <a href="workshop-day-02.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
                             VIEW WORKSHOP →
                         </a>
                     </div>
@@ -465,7 +473,7 @@
                                 <div class="font-bold text-2xl">[TBD]</div>
                             </div>
                         </div>
-                        <a href="workshops.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
+                        <a href="workshop-day-03.html" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap">
                             VIEW WORKSHOP →
                         </a>
                     </div>
