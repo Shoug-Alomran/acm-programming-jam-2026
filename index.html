@@ -215,11 +215,11 @@
 
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
                 <a href="index.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">HOME</a>
-                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">RULES</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
-                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">TEAM</a>
+                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">RULES</a>
+                <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">TEAM</a>
             </div>
 
             <div class="flex items-center gap-3">
@@ -231,12 +231,12 @@
         </div>
 
         <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
-            <a href="index.html" aria-current="page" class="block text-[#6C4DFF]">HOME</a>
-            <a href="workshops.html" class="block hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
-            <a href="competition.html" class="block hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
-            <a href="rules.html" class="block hover:text-[#6C4DFF] transition-colors">RULES</a>
-            <a href="faq.html" class="block hover:text-[#6C4DFF] transition-colors">FAQ</a>
-            <a href="team.html" class="block hover:text-[#6C4DFF] transition-colors">TEAM</a>
+            <a href="index.html" aria-current="page" class="block py-1 text-[#6C4DFF]">HOME</a>
+            <a href="workshops.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+            <a href="competition.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+            <a href="rules.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">RULES</a>
+            <a href="faq.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+            <a href="team.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">TEAM</a>
             <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
         </div>
     </nav>
@@ -261,7 +261,7 @@
                 </div>
 
                 
-                <div class="flex flex-col md:flex-row h-[500px]">
+                <div class="flex flex-col md:flex-row h-auto md:h-[500px]">
                     
                     <div class="w-full md:w-5/12 border-b-4 md:border-b-0 md:border-r-4 border-textDark bg-textDark p-6 font-mono text-sm overflow-hidden relative flex flex-col justify-end">
                         <div class="absolute top-4 right-4 text-gray-600"><i class="ph ph-terminal-window text-2xl"></i></div>
@@ -291,20 +291,20 @@
                     <div class="w-full md:w-7/12 p-10 bg-bgLight relative overflow-hidden flex flex-col justify-center bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
                         
                         
-                        <div class="absolute top-8 right-8 bg-white border-2 border-textDark p-3 shadow-brutal-orange rotate-3">
+                        <div class="hidden md:block absolute top-8 right-8 bg-white border-2 border-textDark p-3 shadow-brutal-orange rotate-3">
                             <div class="font-mono text-xs font-bold flex items-center gap-2">
                                 <span class="w-2 h-2 bg-brandTeal rounded-full animate-ping"></span> Live Sync
                             </div>
                         </div>
 
-                        <div class="absolute bottom-8 left-8 bg-brandPurple text-white border-2 border-textDark p-4 shadow-brutal-dark -rotate-2">
+                        <div class="hidden md:block absolute bottom-8 left-8 bg-brandPurple text-white border-2 border-textDark p-4 shadow-brutal-dark -rotate-2">
                             <i class="ph-fill ph-chalkboard-teacher text-2xl mb-2"></i>
                             <div class="font-bold text-xl">03</div>
                             <div class="font-mono text-xs">Workshop Days</div>
                         </div>
 
                         
-                        <div class="relative z-10 max-w-md mx-auto text-center md:text-left pt-12 md:pt-0">
+                        <div class="relative z-10 max-w-md mx-auto text-center md:text-left">
                             <div class="inline-block px-3 py-1 bg-brandTeal/20 border-2 border-brandTeal text-brandTeal font-mono text-xs font-bold mb-4 rounded-full">
                                 SEASON 2026
                             </div>
@@ -327,7 +327,7 @@
                         </div>
 
                         
-                        <div class="absolute w-8 h-8 z-50 pointer-events-none animate-cursor-move" style="filter: drop-shadow(3px 3px 0px rgba(17,17,17,1));">
+                        <div class="hidden md:block absolute w-8 h-8 z-50 pointer-events-none animate-cursor-move" style="filter: drop-shadow(3px 3px 0px rgba(17,17,17,1));">
                             <svg viewBox="0 0 24 24" fill="white" stroke="#111111" stroke-width="2" class="w-full h-full">
                                 <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.8c.45 0 .67-.54.35-.85L5.5 3.21z" stroke-linejoin="round"></path>
                             </svg>
@@ -338,7 +338,7 @@
             </div>
             
             
-            <div class="absolute -bottom-6 -right-6 md:-right-12 w-32 h-32 bg-brandOrange rounded-full border-4 border-textDark flex items-center justify-center text-center font-bold text-white shadow-brutal-dark rotate-12 parallax" data-speed="0.1">
+            <div class="absolute -bottom-6 right-0 sm:-right-6 md:-right-12 w-24 h-24 sm:w-32 sm:h-32 bg-brandOrange rounded-full border-4 border-textDark hidden sm:flex items-center justify-center text-center font-bold text-white shadow-brutal-dark rotate-12 parallax" data-speed="0.1">
                 <span class="transform -rotate-12 leading-tight">PLAN<br>BUILD<br>SHIP</span>
             </div>
         </div>
@@ -719,13 +719,13 @@
                 <span class="text-lg tracking-tight">JAM.26</span>
             </div>
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
-                <span class="text-[#6C4DFF]">Home</span>
-                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">Workshops</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">Competition</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">Rules</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
-                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">Team</a>
-                <a href="team-formation.html" class="hover:text-[#6C4DFF] transition-colors">Register</a>
+                <span class="inline-block py-1.5 text-[#6C4DFF]">Home</span>
+                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Competition</a>
+                <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Rules</a>
+                <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Team</a>
+                <a href="team-formation.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Register</a>
             </nav>
             <div class="flex flex-col items-center md:items-end gap-1">
                 <div class="text-gray-500">© 2026 ACM Programming Jam</div>

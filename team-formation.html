@@ -85,6 +85,7 @@
     <!-- EN/AR language support -->
     <script>try{if(localStorage.getItem("jam-lang")==="ar"){document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","ar");}}catch(e){}</script>
     <script defer src="i18n.js"></script>
+    <script src="config.js"></script>
 </head>
 <body class="font-sans antialiased">
 
@@ -131,7 +132,7 @@
 
                     <div class="space-y-2">
                         <label for="fullName" class="block font-mono text-xs font-bold uppercase text-gray-500">01 // Full Name</label>
-                        <input id="fullName" name="fullName" type="text" required placeholder="e.g. Shoug Alomran"  class="w-full border-4 border-textDark p-4 font-mono focus:outline-none focus:bg-brandPurple/5 focus:border-brandPurple transition-colors">
+                        <input id="fullName" name="fullName" type="text" required placeholder="e.g. Jane Doe"  class="w-full border-4 border-textDark p-4 font-mono focus:outline-none focus:bg-brandPurple/5 focus:border-brandPurple transition-colors">
                     </div>
 
                     <div class="space-y-2">
@@ -221,13 +222,13 @@
                 <span class="text-lg tracking-tight">JAM.26</span>
             </div>
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
-                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">Home</a>
-                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">Workshops</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">Competition</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">Rules</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
-                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">Team</a>
-                <span class="text-[#6C4DFF]">Register</span>
+                <a href="index.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Home</a>
+                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Competition</a>
+                <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Rules</a>
+                <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Team</a>
+                <span class="inline-block py-1.5 text-[#6C4DFF]">Register</span>
             </nav>
             <div class="flex flex-col items-center md:items-end gap-1">
                 <div class="text-gray-500">© 2026 ACM Programming Jam</div>
@@ -243,8 +244,8 @@
        Fill these three values in and registrations land in your Sheet.
        See the notes I gave you for how to read the entry IDs.
     ------------------------------------------------------------------ */
-    // Paste the Apps Script Web App URL here (ends in /exec).
-    const ENDPOINT = "";
+    // Set once in config.js
+    const ENDPOINT = window.JAM_ENDPOINT || "";
     /* ---------------------------------------------------------------- */
 
     (function () {
@@ -348,4 +349,5 @@
     })();
     </script>
 
-</body></html>
+</body>
+</html>

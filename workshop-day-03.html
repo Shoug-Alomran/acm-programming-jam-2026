@@ -46,12 +46,12 @@
                 <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
-                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">HOME</a>
+                <a href="index.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">HOME</a>
                 <a href="workshops.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">WORKSHOPS</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">RULES</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
-                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">TEAM</a>
+                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">RULES</a>
+                <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">TEAM</a>
             </div>
             <div class="flex items-center gap-3">
                 <a href="team-formation.html" class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
@@ -61,12 +61,12 @@
             </div>
         </div>
         <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
-            <a href="index.html" class="block hover:text-[#6C4DFF] transition-colors">HOME</a>
-            <a href="workshops.html" aria-current="page" class="block text-[#6C4DFF]">WORKSHOPS</a>
-            <a href="competition.html" class="block hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
-            <a href="rules.html" class="block hover:text-[#6C4DFF] transition-colors">RULES</a>
-            <a href="faq.html" class="block hover:text-[#6C4DFF] transition-colors">FAQ</a>
-            <a href="team.html" class="block hover:text-[#6C4DFF] transition-colors">TEAM</a>
+            <a href="index.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">HOME</a>
+            <a href="workshops.html" aria-current="page" class="block py-1 text-[#6C4DFF]">WORKSHOPS</a>
+            <a href="competition.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+            <a href="rules.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">RULES</a>
+            <a href="faq.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+            <a href="team.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">TEAM</a>
             <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
         </div>
     </nav>
@@ -83,7 +83,22 @@
             </div>
         </header>
 
-        <section class="max-w-5xl mx-auto px-6 py-16">
+        <nav aria-label="On this page" class="max-w-5xl mx-auto px-6 pt-12">
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] p-6">
+                <h2 class="font-mono text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">On this page</h2>
+                <ol class="font-mono text-sm md:text-base font-bold space-y-1">
+                    <li><a href="#learn" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">What you will learn</a></li>
+                    <li><a href="#stage-1" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">STAGE 08 — Deploy with Vercel</a></li>
+                    <li><a href="#stage-2" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">STAGE 09 — Configure the Domain with Cloudflare</a></li>
+                    <li><a href="#stage-3" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">DISCOVERY — Google and Bing Indexing</a></li>
+                    <li><a href="#stage-4" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">MEASURE — Google PageSpeed Insights</a></li>
+                    <li><a href="#handouts" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">Handouts</a></li>
+                    <li><a href="#tools" class="block border-l-4 border-transparent hover:border-[#FF5C35] hover:bg-[#FF5C35]/10 pl-4 py-2 transition-all">Tools used on this day</a></li>
+                </ol>
+            </div>
+        </nav>
+
+        <section id="learn" class="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
             <h2 class="text-3xl font-bold uppercase mb-8 pb-4 border-b-4 border-[#111111]">What you will learn</h2>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
                 <li class="flex items-start gap-3 font-medium">
@@ -100,7 +115,7 @@
         </section>
 
         <section class="max-w-5xl mx-auto px-6 pb-20 space-y-10">
-            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div id="stage-1" class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] scroll-mt-24">
             <div class="border-b-[4px] border-[#111111] bg-[#FF5C35] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 08</div>
             <div class="p-6 md:p-8">
                 <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Deploy with Vercel</h3>
@@ -109,7 +124,7 @@
                             </div>
         </div>
 
-            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div id="stage-2" class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] scroll-mt-24">
             <div class="border-b-[4px] border-[#111111] bg-[#FF5C35] px-6 py-3 font-mono text-sm font-bold text-[#111111]">STAGE 09</div>
             <div class="p-6 md:p-8">
                 <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Configure the Domain with Cloudflare</h3>
@@ -122,7 +137,7 @@
                             </div>
         </div>
 
-            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div id="stage-3" class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] scroll-mt-24">
             <div class="border-b-[4px] border-[#111111] bg-[#FF5C35] px-6 py-3 font-mono text-sm font-bold text-[#111111]">DISCOVERY</div>
             <div class="p-6 md:p-8">
                 <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Google and Bing Indexing</h3>
@@ -138,7 +153,7 @@
                             </div>
         </div>
 
-            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111]">
+            <div id="stage-4" class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] scroll-mt-24">
             <div class="border-b-[4px] border-[#111111] bg-[#FF5C35] px-6 py-3 font-mono text-sm font-bold text-[#111111]">MEASURE</div>
             <div class="p-6 md:p-8">
                 <h3 class="text-2xl md:text-3xl font-bold uppercase mb-4">Google PageSpeed Insights</h3>
@@ -155,14 +170,32 @@
         </div>
         </section>
 
-        <section class="max-w-5xl mx-auto px-6 pb-20">
+        <section id="handouts" class="max-w-5xl mx-auto px-6 pb-20 scroll-mt-24">
+            <h2 class="text-2xl font-bold uppercase mb-6">Handouts</h2>
+            <div class="border-[4px] border-[#111111] bg-white shadow-[8px_8px_0px_0px_#111111] p-6 md:p-8">
+                <p class="font-medium mb-6">The full written material for this workshop, to read along or take away.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a data-handout href="handouts/day-03.html"
+                       class="border-[3px] border-[#111111] bg-[#FF5C35] px-6 py-4 font-mono font-bold shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-flex items-center gap-3">
+                        READ HANDOUT (HTML)
+                    </a>
+                    <a data-handout href="handouts/day-03.pdf" download
+                       class="border-[3px] border-[#111111] bg-white px-6 py-4 font-mono font-bold shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-flex items-center gap-3">
+                        DOWNLOAD PDF
+                    </a>
+                </div>
+                <p id="handoutPending" class="hidden font-mono text-sm text-gray-500 mt-4">Handouts for this day are not published yet.</p>
+            </div>
+        </section>
+
+        <section id="tools" class="max-w-5xl mx-auto px-6 pb-20 scroll-mt-24">
             <h2 class="text-2xl font-bold uppercase mb-6">Tools used on this day</h2>
             <div class="flex flex-wrap gap-3">
-                <span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Vercel</span>
-<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Cloudflare</span>
-<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Google Search Console</span>
-<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">Bing Webmaster Tools</span>
-<span class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold">PageSpeed Insights</span>
+                <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold hover:bg-[#FF5C35] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_#111111] transition-all inline-flex items-center gap-2">Vercel<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+<a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold hover:bg-[#FF5C35] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_#111111] transition-all inline-flex items-center gap-2">Cloudflare<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+<a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer" class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold hover:bg-[#FF5C35] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_#111111] transition-all inline-flex items-center gap-2">Google Search Console<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+<a href="https://www.bing.com/webmasters" target="_blank" rel="noopener noreferrer" class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold hover:bg-[#FF5C35] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_#111111] transition-all inline-flex items-center gap-2">Bing Webmaster Tools<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+<a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="border-[3px] border-[#111111] bg-white px-4 py-2 font-mono text-sm font-bold hover:bg-[#FF5C35] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_#111111] transition-all inline-flex items-center gap-2">PageSpeed Insights<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
             </div>
         </section>
 
@@ -189,13 +222,13 @@
                 <span class="text-lg tracking-tight">JAM.26</span>
             </div>
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
-                <a href="index.html" class="hover:text-[#6C4DFF] transition-colors">Home</a>
-                <a href="workshops.html" class="hover:text-[#6C4DFF] transition-colors">Workshops</a>
-                <a href="competition.html" class="hover:text-[#6C4DFF] transition-colors">Competition</a>
-                <a href="rules.html" class="hover:text-[#6C4DFF] transition-colors">Rules</a>
-                <a href="faq.html" class="hover:text-[#6C4DFF] transition-colors">FAQ</a>
-                <a href="team.html" class="hover:text-[#6C4DFF] transition-colors">Team</a>
-                <a href="team-formation.html" class="hover:text-[#6C4DFF] transition-colors">Register</a>
+                <a href="index.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Home</a>
+                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Competition</a>
+                <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Rules</a>
+                <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
+                <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Team</a>
+                <a href="team-formation.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Register</a>
             </nav>
             <div class="flex flex-col items-center md:items-end gap-1">
                 <div class="text-gray-500">© 2026 ACM Programming Jam</div>
@@ -203,5 +236,25 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    // Handouts may not exist yet; only show links that actually resolve.
+    (function () {
+        var links = document.querySelectorAll('[data-handout]');
+        var pending = document.getElementById('handoutPending');
+        var alive = 0, checked = 0;
+        links.forEach(function (a) {
+            fetch(a.getAttribute('href'), { method: 'HEAD' })
+                .then(function (r) { if (r.ok) { alive++; } else { a.remove(); } })
+                .catch(function () { a.remove(); })
+                .finally(function () {
+                    if (++checked === links.length && alive === 0 && pending) {
+                        pending.classList.remove('hidden');
+                    }
+                });
+        });
+    })();
+    </script>
+
 </body>
 </html>

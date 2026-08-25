@@ -131,9 +131,6 @@
 "requirements": "المتطلبات",
 "architecture": "البنية",
 "implementation": "التنفيذ",
-"testing/": "الاختبار/",
-"planning/": "التخطيط/",
-"presentation/": "العرض/",
 "// System Architecture Configuration": "// إعدادات بنية النظام",
 "Frontend": "الواجهة الأمامية",
 "Backend": "الواجهة الخلفية",
@@ -476,26 +473,16 @@
 "Assemble Your": "جهّز",
 "Squad": "فريقك",
 "> Initializing collaborative workspace... Awaiting metadata.": "> تجهيز مساحة العمل المشتركة... بانتظار البيانات.",
-"01 // Full Name": "01 // الاسم الكامل",
-"02 // University ID": "02 // الرقم الجامعي",
-"03 // University Email": "03 // الإيميل الجامعي",
-"04 // Phone Number": "04 // رقم الجوال",
-"05 // Team Name": "05 // اسم الفريق",
-"06 // Team Members (Emails)": "06 // أعضاء الفريق (الإيميلات)",
-"Press Enter or comma after each address. Leave empty if you are registering alone.": "اضغط Enter أو فاصلة بعد كل عنوان. اتركه فارغًا إذا كنت تسجّل بمفردك.",
-"Team Registered": "تم تسجيل الفريق",
-"> Your registration has been recorded. Check your email for confirmation from the organizers.": "> تم تسجيل طلبك. تابع إيميلك للتأكيد من المنظمين.",
-"BACK TO JAM.26": "الرجوع إلى JAM.26",
+"01 // Squad Name": "01 // اسم الفريق",
+"02 // Recruit Members (Emails)": "02 // ضم الأعضاء (الإيميلات)",
+"03 // Primary Battleground (Stack)": "03 // ساحة المعركة الأساسية (التقنيات)",
 "INITIATE FORMATION": "أنشئ الفريق",
 "CANCEL": "إلغاء",
 "System Online": "النظام يشتغل",
 "Ready for Deployment": "جاهز للنشر",
 "Form Teams Wisely": "كوّن فريقك بحكمة",
 "e.g. NULL_POINTERS": "مثال: NULL_POINTERS",
-"Type email and press enter...": "اكتب الإيميل واضغط Enter...",
-"e.g. Shoug Alomran": "مثال: شوق العمران",
-"e.g. 202012345": "مثال: 202012345",
-"e.g. 05XXXXXXXX": "مثال: 05XXXXXXXX",
+"Type email and enter...": "اكتب الإيميل واضغط Enter...",
 
 /* ---- team.html ---- */
 "/TEAM": "/الفريق",
@@ -506,10 +493,6 @@
 "ORGANIZATION:": "الجهة:",
 "ACTIVE": "نشط",
 "DIRECTORY_STRUCTURE": "هيكل_المجلدات",
-"organizers/": "المنظمون/",
-"core_team": "الفريق_الأساسي",
-"design": "التصميم",
-"instructors/": "المدربون/",
 "01 / ACM": "01 / ACM",
 "PART OF A GLOBAL COMPUTING COMMUNITY": "جزء من مجتمع حوسبة عالمي",
 "LEARN ABOUT ACM": "تعرّف على ACM",
@@ -832,6 +815,50 @@
 "> Your registration has been recorded. Check your email for confirmation from the organizers.": "> تم تسجيلك. راجع بريدك الإلكتروني لرسالة التأكيد من المنظمين.",
 "BACK TO JAM.26": "الرجوع إلى JAM.26",
 "++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB": "++ نبني سوا ++ JAM.26 ++ نادي ACM ++ نبني سوا ++ JAM.26 ++ نادي ACM ++ نبني سوا ++ JAM.26 ++ نادي ACM ++ نبني سوا ++ JAM.26 ++ نادي ACM",
+/* ---- registration form (team-formation.html) ---- */
+"01 // Full Name": "01 // الاسم الكامل",
+"e.g. Jane Doe": "مثال: محمد العتيبي",
+"02 // University ID": "02 // الرقم الجامعي",
+"e.g. 202012345": "مثال: 202012345",
+"03 // University Email": "03 // الإيميل الجامعي",
+"04 // Phone Number": "04 // رقم الجوال",
+"e.g. 05XXXXXXXX": "مثال: 0512345678",
+"05 // Team Name": "05 // اسم الفريق",
+"06 // Team Members (Emails)": "06 // أعضاء الفريق (الإيميلات)",
+"Press Enter or comma after each address. Leave empty if you are registering alone.": "اضغط Enter أو فاصلة بعد كل عنوان. اتركه فاضي إذا كنت مسجّل لحالك.",
+
+/* ---- ask-an-organizer form (faq.html) ---- */
+"Your Name": "اسمك",
+"Full name": "الاسم الكامل",
+"Your Email": "إيميلك",
+"Your Question": "سؤالك",
+"Ask the organizers anything about JAM.26...": "اسأل المنظمين عن أي شي يخص JAM.26...",
+"Send To Organizers": "أرسل للمنظمين",
+"MESSAGE_SENT": "تم_الإرسال",
+"The organizers have your question and your email. You will get a reply at the address you provided.": "وصل سؤالك وإيميلك للمنظمين، وراح يردّون عليك على العنوان اللي كتبته.",
+
+/* ---- workshop day pages: table of contents & handouts ---- */
+"On this page": "محتويات الصفحة",
+"STAGE 01 — Understand the Requirements": "المرحلة 01 — افهم المتطلبات",
+"STAGE 02 — Plan with Excalidraw": "المرحلة 02 — خطّط باستخدام Excalidraw",
+"STAGE 03 — Design with Variant": "المرحلة 03 — صمّم باستخدام Variant",
+"STAGE 04 — Build in Visual Studio Code": "المرحلة 04 — ابنِ في Visual Studio Code",
+"STAGE 05 — Develop with Codex and Claude Code": "المرحلة 05 — طوّر مع Codex و Claude Code",
+"STAGE 06 — Authentication and Data with Firebase": "المرحلة 06 — تسجيل الدخول والبيانات مع Firebase",
+"STAGE 07 — Version Control with GitHub": "المرحلة 07 — إدارة الإصدارات عبر GitHub",
+"STAGE 08 — Deploy with Vercel": "المرحلة 08 — انشر عبر Vercel",
+"STAGE 09 — Configure the Domain with Cloudflare": "المرحلة 09 — اضبط النطاق عبر Cloudflare",
+"DISCOVERY — Google and Bing Indexing": "الاكتشاف — الفهرسة في Google و Bing",
+"MEASURE — Google PageSpeed Insights": "القياس — Google PageSpeed Insights",
+"Debugging checklist": "قائمة فحص تصحيح الأخطاء",
+"Handouts": "المرفقات",
+"The full written material for this workshop, to read along or take away.": "المادة المكتوبة الكاملة لهذه الورشة، تقرأها معنا أو تاخذها معك.",
+"READ HANDOUT (HTML)": "اقرأ المرفق (HTML)",
+"DOWNLOAD PDF": "حمّل PDF",
+"Handouts for this day are not published yet.": "مرفقات هذا اليوم ما نُشرت بعد.",
+
+/* ---- team.html: named roles ---- */
+"Vice President": "نائب الرئيس",
     };
 
     var STORAGE_KEY = "jam-lang";
@@ -950,11 +977,15 @@
 
         var style = document.createElement("style");
         style.textContent = [
-            'html[dir="rtl"] body{font-family:"IBM Plex Sans Arabic","Noto Kufi Arabic",system-ui,sans-serif;}',
-            'html[dir="rtl"] body *{letter-spacing:normal !important;}',
-            'html[dir="rtl"] .font-mono{font-family:"IBM Plex Sans Arabic",ui-monospace,monospace;}',
+            /* Arabic-capable stack first: a Latin monospace fallback would break the script. */
+            'html[dir="rtl"] body,html[dir="rtl"] .font-mono{font-family:"IBM Plex Sans Arabic","Noto Kufi Arabic","Geeza Pro","Segoe UI",Tahoma,system-ui,sans-serif;}',
+            'html[dir="rtl"] body *{letter-spacing:normal !important;word-spacing:normal !important;}',
             'html[dir="rtl"] .text-left{text-align:right;}',
-            'html[dir="rtl"] .text-right{text-align:left;}'
+            'html[dir="rtl"] .text-right{text-align:left;}',
+            /* Arabic glyphs need more leading than the Latin display type does. */
+            'html[dir="rtl"] .leading-none{line-height:1.25;}',
+            'html[dir="rtl"] .leading-tight{line-height:1.4;}',
+            'html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{line-height:1.25;}'
         ].join("\n");
         document.head.appendChild(style);
     }
@@ -992,7 +1023,7 @@
             b.type = "button";
             b.textContent = lang === "en" ? "EN" : "ع";
             b.setAttribute("data-jam-lang", lang);
-            b.style.cssText = "padding:8px 10px;border:0;cursor:pointer;background:transparent;color:#111111;" +
+            b.style.cssText = "min-width:34px;min-height:34px;padding:8px 10px;border:0;cursor:pointer;background:transparent;color:#111111;" +
                 (index ? "border-right:3px solid #111111;" : "");
             b.addEventListener("click", function () { setLang(lang, true); });
             wrap.appendChild(b);
