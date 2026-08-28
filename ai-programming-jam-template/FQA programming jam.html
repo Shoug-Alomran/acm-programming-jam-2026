@@ -1,0 +1,817 @@
+<html lang="en" class="scroll-smooth" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">FAQ | JAM.26</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="5"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="6">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="7">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet" vid="8">
+    
+    <script vid="9">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jam: {
+                            bg: '#F7F7F2',
+                            text: '#111111',
+                            purple: '#6C4DFF',
+                            teal: '#00C2A8',
+                            orange: '#FF5C35',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neo': '4px 4px 0px 0px #111111',
+                        'neo-lg': '8px 8px 0px 0px #111111',
+                        'neo-active': '0px 0px 0px 0px #111111',
+                        'neo-purple': '4px 4px 0px 0px #6C4DFF',
+                    },
+                    borderWidth: {
+                        '3': '3px',
+                        '4': '4px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style vid="10">
+        body {
+            background-color: #F7F7F2;
+            color: #111111;
+        }
+        
+        .neo-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #111111;
+        }
+        
+        .neo-active:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #111111;
+        }
+        
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        ::selection {
+            background-color: #00C2A8;
+            color: #111111;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-jam-teal selection:text-jam-text min-h-screen flex flex-col" vid="11">
+
+    
+    <nav class="sticky top-0 z-50 border-b-4 border-jam-text bg-jam-bg px-6 py-4 flex justify-between items-center w-full" vid="12">
+        <a href="#" class="font-black text-2xl tracking-tighter hover:text-jam-purple transition-colors" vid="13">JAM.26</a>
+        
+        <div class="hidden lg:flex gap-8 font-mono text-sm font-bold uppercase" vid="14">
+            <a href="#" class="hover:text-jam-purple transition-colors relative group" vid="15">Home<span class="absolute -bottom-1 left-0 w-0 h-1 bg-jam-purple transition-all group-hover:w-full" vid="16"></span></a>
+            <a href="#" class="hover:text-jam-purple transition-colors relative group" vid="17">Workshops<span class="absolute -bottom-1 left-0 w-0 h-1 bg-jam-purple transition-all group-hover:w-full" vid="18"></span></a>
+            <a href="#" class="hover:text-jam-purple transition-colors relative group" vid="19">Competition<span class="absolute -bottom-1 left-0 w-0 h-1 bg-jam-purple transition-all group-hover:w-full" vid="20"></span></a>
+            <a href="#" class="hover:text-jam-purple transition-colors relative group" vid="21">Rules<span class="absolute -bottom-1 left-0 w-0 h-1 bg-jam-purple transition-all group-hover:w-full" vid="22"></span></a>
+            <a href="#" class="text-jam-purple relative" vid="23">FAQ<span class="absolute -bottom-1 left-0 w-full h-1 bg-jam-purple" vid="24"></span></a>
+        </div>
+        
+        <button class="border-3 border-jam-text bg-jam-purple text-white px-5 py-2 font-mono font-bold text-sm shadow-neo neo-hover neo-active transition-all uppercase" vid="25">
+            Sign In →
+        </button>
+    </nav>
+
+    
+    <header class="w-full max-w-7xl mx-auto px-6 pt-24 pb-16 relative" vid="26">
+        
+        <div class="font-mono font-bold text-jam-purple mb-4 tracking-widest uppercase" vid="27">/FAQ</div>
+        <h1 class="text-6xl md:text-8xl lg:text-[100px] font-black uppercase tracking-tighter leading-[0.9] mb-6 drop-shadow-[4px_4px_0px_rgba(17,17,17,0.1)]" vid="28">
+            Questions?<br vid="29">
+            Let's debug them.
+        </h1>
+        <p class="text-xl md:text-2xl font-bold mb-12 max-w-2xl border-l-4 border-jam-teal pl-4" vid="30">
+            "Everything you need to know before joining JAM.26."
+        </p>
+
+        
+        <div class="border-4 border-jam-text bg-white p-2 flex items-center shadow-neo-lg mb-8 relative focus-within:-translate-y-1 focus-within:shadow-[6px_6px_0px_0px_#111111] transition-all group z-10" vid="31">
+            <span class="font-mono text-3xl font-bold px-4 text-jam-purple select-none" vid="32">&gt;</span>
+            <input type="text" id="faqSearch" placeholder="Ask about teams, AI, workshops, competition..." class="w-full font-mono text-lg outline-none bg-transparent py-4 placeholder-gray-400 font-bold" autocomplete="off" vid="33">
+            <div class="absolute right-4 font-mono text-xs text-gray-400 hidden md:block" vid="34">cmd+k to search</div>
+        </div>
+
+        
+        <div class="flex flex-wrap gap-4 font-mono text-xs font-bold uppercase" vid="35">
+            <div class="border-2 border-jam-text px-3 py-1.5 bg-white shadow-[2px_2px_0px_0px_#111111]" vid="36">DOCS: JAM.26</div>
+            <div class="border-2 border-jam-text px-3 py-1.5 bg-white shadow-[2px_2px_0px_0px_#111111]" vid="37">SECTION: FAQ</div>
+            <div class="border-2 border-jam-text px-3 py-1.5 bg-jam-teal text-jam-text shadow-[2px_2px_0px_0px_#111111] flex items-center gap-2" vid="38">
+                <div class="w-2.5 h-2.5 bg-white rounded-full animate-pulse border border-jam-text" vid="39"></div>
+                STATUS: ONLINE
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="w-full border-y-4 border-jam-text bg-white overflow-hidden" vid="40">
+        <div class="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar" vid="41">
+            <div class="flex gap-4 items-center whitespace-nowrap min-w-max" vid="42">
+                <span class="font-mono font-bold text-sm text-gray-500 uppercase" vid="43">Quick Actions:</span>
+                
+                <button data-target="q-exp" class="js-quick-question border-2 border-jam-text bg-jam-bg px-4 py-2 font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#111111] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#111111] hover:bg-jam-purple hover:text-white transition-all" vid="44">
+                    &gt; Do I need experience?
+                </button>
+                
+                <button data-target="q-ai-whole" class="js-quick-question border-2 border-jam-text bg-jam-bg px-4 py-2 font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#111111] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#111111] hover:bg-jam-purple hover:text-white transition-all" vid="45">
+                    &gt; Can AI build the whole website?
+                </button>
+                
+                <button data-target="q-gpt-plus" class="js-quick-question border-2 border-jam-text bg-jam-bg px-4 py-2 font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#111111] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#111111] hover:bg-jam-purple hover:text-white transition-all" vid="46">
+                    &gt; Can I use ChatGPT Plus?
+                </button>
+                
+                <button data-target="q-team-req" class="js-quick-question border-2 border-jam-text bg-jam-bg px-4 py-2 font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#111111] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#111111] hover:bg-jam-purple hover:text-white transition-all" vid="47">
+                    &gt; Do I need a team?
+                </button>
+                
+                <button data-target="q-bring" class="js-quick-question border-2 border-jam-text bg-jam-bg px-4 py-2 font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#111111] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#111111] hover:bg-jam-purple hover:text-white transition-all" vid="48">
+                    &gt; What should I bring?
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+    <main class="w-full max-w-7xl mx-auto px-6 py-20 flex-grow" vid="49">
+        
+        
+        <div id="searchEmptyState" class="hidden text-center py-20 font-mono" vid="50">
+            <div class="text-4xl mb-4" vid="51">¯\_(ツ)_/¯</div>
+            <p class="font-bold text-xl" vid="52">404: Query not found.</p>
+            <p class="text-gray-500 mt-2" vid="53">Try adjusting your search terms or ask an organizer.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start relative" id="faqContainer" vid="54">
+            
+            
+            <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24" vid="55">
+                <nav class="flex flex-col gap-3 font-mono font-bold text-sm tracking-wide" vid="56">
+                    <a href="#cat-01" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="57">01 / GETTING STARTED</a>
+                    <a href="#cat-02" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="58">02 / TEAMS</a>
+                    <a href="#cat-03" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="59">03 / AI &amp; TOOLS</a>
+                    <a href="#cat-04" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="60">04 / WORKSHOPS</a>
+                    <a href="#cat-05" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="61">05 / COMPETITION</a>
+                    <a href="#cat-06" class="sidebar-link block border-3 border-transparent px-4 py-3 transition-all" vid="62">06 / SUBMISSION</a>
+                </nav>
+            </aside>
+
+            
+            <div class="lg:col-span-8 xl:col-span-9 space-y-24 w-full" vid="63">
+                
+                
+                <div id="cat-01" class="faq-category scroll-mt-32" vid="64">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="65">
+                        <span class="font-mono text-xl text-jam-purple" vid="66">01</span>
+                        Getting Started
+                    </h2>
+                    <div class="space-y-4" vid="67">
+                        
+                        <div id="q-exp" class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="68">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="69">
+                                <span class="flex-1 text-lg leading-tight" vid="70">&gt; Do I need web development experience?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="71">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="72">
+                                <p vid="73"><span class="text-jam-teal font-black uppercase" vid="74">No.</span> The Programming Jam is designed to be approachable for participants who are still learning. Preparation workshops will introduce the development workflow and tools used throughout the event.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="75">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="76">
+                                <span class="flex-1 text-lg leading-tight" vid="77">&gt; Do I need to be an experienced programmer?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="78">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="79">
+                                <p vid="80"><span class="text-jam-teal font-black uppercase" vid="81">No.</span> You should be willing to learn, experiment, solve problems, and work with your team. AI is intentionally part of the development process.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="82">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="83">
+                                <span class="flex-1 text-lg leading-tight" vid="84">&gt; Who can participate?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="85">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="86">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold" vid="87">TBD</p>
+                            </div>
+                        </div>
+
+                        <div id="q-bring" class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="88">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="89">
+                                <span class="flex-1 text-lg leading-tight" vid="90">&gt; What should I bring?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="91">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="92">
+                                <p vid="93">Participants should bring their laptop and charger. <span class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold text-sm" vid="94">TBD</span> for any additional event-specific requirements that have not yet been finalized.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div id="cat-02" class="faq-category scroll-mt-32" vid="95">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="96">
+                        <span class="font-mono text-xl text-jam-purple" vid="97">02</span>
+                        Teams
+                    </h2>
+                    <div class="space-y-4" vid="98">
+                        
+                        <div id="q-team-req" class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="99">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="100">
+                                <span class="flex-1 text-lg leading-tight" vid="101">&gt; Do I need a team before registering?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="102">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="103">
+                                <p vid="104"><span class="text-jam-teal font-black uppercase" vid="105">No.</span> Participants who do not already have a team can use the Programming Jam team formation process to create or join one.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="106">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="107">
+                                <span class="flex-1 text-lg leading-tight" vid="108">&gt; Can I participate alone?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="109">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="110">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold" vid="111">TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="112">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="113">
+                                <span class="flex-1 text-lg leading-tight" vid="114">&gt; How many people can be on a team?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="115">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="116">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold" vid="117">TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="118">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="119">
+                                <span class="flex-1 text-lg leading-tight" vid="120">&gt; Can I change teams?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="121">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="122">
+                                <p vid="123"><span class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold text-sm" vid="124">TBD</span> Team changes are subject to organizer rules.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div id="cat-03" class="faq-category scroll-mt-32" vid="125">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="126">
+                        <span class="font-mono text-xl text-jam-purple" vid="127">03</span>
+                        AI &amp; Tools
+                    </h2>
+                    <div class="space-y-4" vid="128">
+                        
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="129">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="130">
+                                <span class="flex-1 text-lg leading-tight" vid="131">&gt; Can I use AI?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="132">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="133">
+                                <p vid="134"><span class="text-jam-teal font-black uppercase" vid="135">Yes.</span> This is an AI Programming Jam. AI use is encouraged throughout the development process.</p>
+                            </div>
+                        </div>
+
+                        <div id="q-ai-whole" class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="136">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="137">
+                                <span class="flex-1 text-lg leading-tight" vid="138">&gt; Can AI generate my entire website?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="139">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="140">
+                                <p vid="141"><span class="text-jam-teal font-black uppercase" vid="142">Yes.</span> AI may generate part or all of your application. There is no requirement to manually write a specific percentage of the code.</p>
+                            </div>
+                        </div>
+
+                        <div id="q-gpt-plus" class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="143">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="144">
+                                <span class="flex-1 text-lg leading-tight" vid="145">&gt; Can I use ChatGPT Plus?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="146">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="147">
+                                <p vid="148"><span class="text-jam-teal font-black uppercase" vid="149">Yes.</span> Standard paid consumer AI plans such as ChatGPT Plus are allowed.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="150">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="151">
+                                <span class="flex-1 text-lg leading-tight" vid="152">&gt; Can I use ChatGPT Pro?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="153">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="154">
+                                <p vid="155"><span class="text-jam-orange font-black uppercase" vid="156">No.</span> The highest-tier or advanced premium AI plans are restricted to maintain fairness between participants.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="157">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="158">
+                                <span class="flex-1 text-lg leading-tight" vid="159">&gt; What about Claude, Gemini, or other AI tools?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="160">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="161">
+                                <p class="mb-4" vid="162">Participants are not restricted to one AI provider. The same AI access principle applies: free and standard consumer paid tiers are permitted, while the highest-tier or advanced premium access is not.</p>
+                                <p vid="163">If participants are unsure whether a specific plan is permitted, they should ask an organizer.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="164">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="165">
+                                <span class="flex-1 text-lg leading-tight" vid="166">&gt; Can I use AI coding assistants?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="167">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="168">
+                                <p vid="169"><span class="text-jam-teal font-black uppercase" vid="170">Yes</span>, provided they comply with the competition's AI access policy.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="171">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="172">
+                                <span class="flex-1 text-lg leading-tight" vid="173">&gt; Does my team have to understand AI-generated code?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="174">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="175">
+                                <p vid="176">Your team is responsible for the final application. If something breaks, you must be able to investigate the problem, direct your tools toward a solution, test the result, and verify that the application works.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div id="cat-04" class="faq-category scroll-mt-32" vid="177">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="178">
+                        <span class="font-mono text-xl text-jam-purple" vid="179">04</span>
+                        Workshops
+                    </h2>
+                    <div class="space-y-4" vid="180">
+                        
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="181">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="182">
+                                <span class="flex-1 text-lg leading-tight" vid="183">&gt; Are there preparation workshops?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="184">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="185">
+                                <p vid="186"><span class="text-jam-teal font-black uppercase" vid="187">Yes.</span> JAM.26 includes three workshop days designed to prepare participants for the development workflow they will use during the competition.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="188">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="189">
+                                <span class="flex-1 text-lg leading-tight" vid="190">&gt; What will the workshops teach?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="191">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="192">
+                                <p vid="193">The workshops cover the process of planning, building, debugging, refining, and preparing a web application for production using AI-assisted development workflows.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="194">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="195">
+                                <span class="flex-1 text-lg leading-tight" vid="196">&gt; Do I have to attend the workshops to compete?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="197">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="198">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold" vid="199">TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="200">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="201">
+                                <span class="flex-1 text-lg leading-tight" vid="202">&gt; Where can I find the workshop content?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="203">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="204">
+                                <p class="mb-6" vid="205">Direct participants to the Workshops page.</p>
+                                <a href="#" class="inline-block border-3 border-jam-text bg-jam-bg px-6 py-3 font-mono text-sm font-bold shadow-neo neo-hover transition-all hover:bg-jam-purple hover:text-white" vid="206">
+                                    VIEW WORKSHOPS →
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div id="cat-05" class="faq-category scroll-mt-32" vid="207">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="208">
+                        <span class="font-mono text-xl text-jam-purple" vid="209">05</span>
+                        Competition
+                    </h2>
+                    <div class="space-y-4" vid="210">
+                        
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="211">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="212">
+                                <span class="flex-1 text-lg leading-tight" vid="213">&gt; What are we building?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="214">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="215">
+                                <p vid="216">That is part of the challenge.</p>
+                                <p class="mt-4" vid="217">Teams will receive the official application brief when the challenge is released. The exact application should remain secret beforehand.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="218">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="219">
+                                <span class="flex-1 text-lg leading-tight" vid="220">&gt; When will the challenge be revealed?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="221">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="222">
+                                <p vid="223">The challenge will be released on competition day.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="224">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="225">
+                                <span class="flex-1 text-lg leading-tight" vid="226">&gt; Can we start building before the competition?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="227">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="228">
+                                <p vid="229"><span class="text-jam-orange font-black uppercase" vid="230">No.</span> Teams may prepare and practice beforehand, but they may not begin building a solution specifically for the competition challenge before it is officially released.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="231">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="232">
+                                <span class="flex-1 text-lg leading-tight" vid="233">&gt; Will the requirements change?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="234">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="235">
+                                <p vid="236">Teams should be prepared to adapt during the competition.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="237">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="238">
+                                <span class="flex-1 text-lg leading-tight" vid="239">&gt; Can another person help us during the competition?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="240">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="241">
+                                <p vid="242">Only members of your registered team may provide human assistance with the competition project. AI assistance is allowed.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="243">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="244">
+                                <span class="flex-1 text-lg leading-tight" vid="245">&gt; Can teams help each other?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="246">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="247">
+                                <p class="mb-6" vid="248"><span class="text-jam-orange font-black uppercase" vid="249">No.</span> Competing teams may not share challenge-specific code, prompts, solutions, debugging solutions, implementation details, or strategies during the competition.</p>
+                                <a href="#" class="inline-block border-3 border-jam-text bg-jam-bg px-6 py-3 font-mono text-sm font-bold shadow-neo neo-hover transition-all hover:bg-jam-purple hover:text-white" vid="250">
+                                    VIEW COMPETITION →
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div id="cat-06" class="faq-category scroll-mt-32" vid="251">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-8 pb-4 border-b-4 border-jam-text flex items-center gap-4" vid="252">
+                        <span class="font-mono text-xl text-jam-purple" vid="253">06</span>
+                        Submission
+                    </h2>
+                    <div class="space-y-4" vid="254">
+                        
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="255">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="256">
+                                <span class="flex-1 text-lg leading-tight" vid="257">&gt; What do we need to submit?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="258">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="259">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold text-sm mb-2" vid="260">TBD</p>
+                                <p vid="261">Final submission requirements will be announced by the organizers.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="262">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="263">
+                                <span class="flex-1 text-lg leading-tight" vid="264">&gt; Does the website need to be deployed?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="265">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="266">
+                                <p class="font-mono bg-gray-100 inline-block px-2 py-1 border border-jam-text font-bold" vid="267">TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="268">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="269">
+                                <span class="flex-1 text-lg leading-tight" vid="270">&gt; Can we keep working after the deadline?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="271">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="272">
+                                <p vid="273"><span class="text-jam-orange font-black uppercase" vid="274">No.</span> The judged submission may not be modified after the official deadline unless organizers explicitly authorize it.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-3 border-jam-text bg-white shadow-neo transition-all duration-200" vid="275">
+                            <button class="faq-trigger w-full text-left px-6 py-5 flex justify-between items-start md:items-center gap-4 font-mono font-bold group hover:bg-gray-50 transition-colors" vid="276">
+                                <span class="flex-1 text-lg leading-tight" vid="277">&gt; How will projects be judged?</span>
+                                <span class="faq-icon text-xl text-jam-text group-hover:text-jam-purple shrink-0 transition-transform" vid="278">[+]</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-6 pt-2 font-sans text-lg border-t-3 border-transparent leading-relaxed text-gray-800" vid="279">
+                                <p class="mb-6" vid="280">Direct participants to the Competition page for the current judging overview.</p>
+                                <a href="#" class="inline-block border-3 border-jam-text bg-jam-bg px-6 py-3 font-mono text-sm font-bold shadow-neo neo-hover transition-all hover:bg-jam-purple hover:text-white" vid="281">
+                                    VIEW COMPETITION →
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    
+    <section class="w-full border-t-4 border-jam-text bg-white" vid="282">
+        <div class="max-w-7xl mx-auto px-6 py-24" vid="283">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center" vid="284">
+                
+                
+                <div vid="285">
+                    <h2 class="text-5xl md:text-7xl font-black uppercase mb-6 tracking-tighter" vid="286">Still Stuck?</h2>
+                    <p class="text-xl font-bold mb-8 border-l-4 border-jam-purple pl-4" vid="287">
+                        "If your question isn't answered here, ask an organizer before making assumptions about the competition."
+                    </p>
+                </div>
+                
+                
+                <div class="border-4 border-jam-text bg-jam-text text-jam-teal font-mono shadow-neo-lg rounded-sm overflow-hidden flex flex-col" vid="288">
+                    
+                    <div class="bg-jam-bg border-b-4 border-jam-text px-4 py-3 flex gap-2 items-center" vid="289">
+                        <div class="w-3.5 h-3.5 rounded-full border-2 border-jam-text bg-jam-orange" vid="290"></div>
+                        <div class="w-3.5 h-3.5 rounded-full border-2 border-jam-text bg-white" vid="291"></div>
+                        <div class="w-3.5 h-3.5 rounded-full border-2 border-jam-text bg-jam-teal" vid="292"></div>
+                        <div class="ml-4 text-xs font-bold text-jam-text uppercase opacity-50" vid="293">Support.exe</div>
+                    </div>
+                    
+                    <div class="p-6 md:p-8 text-sm md:text-base space-y-4" vid="294">
+                        <div vid="295"><span class="text-white mr-2" vid="296">&gt;</span>searching FAQ...</div>
+                        <div class="text-jam-orange animate-pulse" vid="297">NO_MATCH_FOUND</div>
+                        <div class="pt-2" vid="298"><span class="text-white mr-2" vid="299">&gt;</span>next_action?</div>
+                        <div class="text-white font-bold" vid="300">ASK_AN_ORGANIZER</div>
+                        <div class="pt-6 mt-6 border-t-2 border-gray-800" vid="301">
+                            CONTACT: <span class="text-jam-text bg-jam-teal px-2 py-0.5 ml-2 font-bold inline-block border border-transparent" vid="302">TBD</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="w-full border-t-4 border-jam-text bg-jam-purple text-white relative overflow-hidden" vid="303">
+        
+        <div class="max-w-4xl mx-auto px-6 py-32 text-center relative z-10" vid="304">
+            
+            
+            <div class="inline-block border-4 border-jam-text bg-white p-5 md:p-6 mb-16 text-left shadow-neo font-mono text-sm font-bold text-jam-text transform -rotate-1 hover:rotate-0 transition-transform" vid="305">
+                <div class="mb-4 text-jam-purple text-base" vid="306">&gt; faq --status</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3" vid="307">
+                    <div class="flex justify-between gap-4" vid="308"><span vid="309">questions_answered:</span> <span class="text-jam-teal text-lg" vid="310">✓</span></div>
+                    <div class="flex justify-between gap-4" vid="311"><span vid="312">rules_loaded:</span> <span class="text-jam-teal text-lg" vid="313">✓</span></div>
+                    <div class="flex justify-between gap-4" vid="314"><span vid="315">team_ready:</span> <span class="text-jam-orange text-lg" vid="316">?</span></div>
+                    <div class="flex justify-between gap-4" vid="317"><span vid="318">registration:</span> <span class="animate-pulse bg-gray-200 px-1 border border-jam-text text-xs flex items-center" vid="319">pending</span></div>
+                </div>
+            </div>
+
+            <h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-12 drop-shadow-[4px_4px_0_rgba(17,17,17,1)] text-white" vid="320">
+                Ready to Join?
+            </h2>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6" vid="321">
+                <button class="border-4 border-jam-text bg-jam-teal px-8 py-5 font-mono font-bold text-xl md:text-2xl shadow-neo-lg neo-hover neo-active transition-all text-jam-text hover:bg-white w-full sm:w-auto uppercase tracking-wide" vid="322">
+                    Register →
+                </button>
+                <button class="border-4 border-jam-text bg-white px-8 py-5 font-mono font-bold text-xl md:text-2xl shadow-neo-lg neo-hover neo-active transition-all text-jam-text hover:bg-jam-orange hover:text-jam-text w-full sm:w-auto uppercase tracking-wide" vid="323">
+                    View Rules →
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    
+    <footer class="w-full border-t-4 border-jam-text bg-jam-text text-white py-12 px-6 font-mono text-sm text-center" vid="324">
+        <p class="font-bold opacity-50" vid="325">© 2026 ACM Programming Jam. All systems operational.</p>
+    </footer>
+
+    
+    <script vid="326">
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.faq-trigger');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                
+                trigger.addEventListener('click', () => {
+                    const isExpanded = !answer.classList.contains('hidden');
+                    
+                    
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            const otherTrigger = otherItem.querySelector('.faq-trigger');
+                            
+                            otherAnswer.classList.add('hidden');
+                            otherIcon.textContent = '[+]';
+                            otherItem.classList.remove('border-jam-purple', 'shadow-neo-purple', 'bg-purple-50/30');
+                            otherTrigger.classList.remove('text-jam-purple');
+                        }
+                    });
+
+                    
+                    if (isExpanded) {
+                        answer.classList.add('hidden');
+                        icon.textContent = '[+]';
+                        item.classList.remove('border-jam-purple', 'shadow-neo-purple', 'bg-purple-50/30');
+                        trigger.classList.remove('text-jam-purple');
+                    } else {
+                        answer.classList.remove('hidden');
+                        icon.textContent = '[−]';
+                        
+                        
+                        item.classList.add('border-jam-purple', 'shadow-neo-purple', 'bg-purple-50/30');
+                        trigger.classList.add('text-jam-purple');
+                        
+                        
+                        answer.animate([
+                            { opacity: 0, transform: 'translateY(-5px)' },
+                            { opacity: 1, transform: 'translateY(0)' }
+                        ], { 
+                            duration: 200, 
+                            easing: 'ease-out' 
+                        });
+                    }
+                });
+            });
+
+            
+            const searchInput = document.getElementById('faqSearch');
+            const categories = document.querySelectorAll('.faq-category');
+            const emptyState = document.getElementById('searchEmptyState');
+            
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let hasVisibleItems = false;
+
+                categories.forEach(cat => {
+                    let catHasVisible = false;
+                    const items = cat.querySelectorAll('.faq-item');
+                    
+                    items.forEach(item => {
+                        const qText = item.querySelector('.faq-trigger').textContent.toLowerCase();
+                        const aText = item.querySelector('.faq-answer').textContent.toLowerCase();
+                        
+                        if (qText.includes(query) || aText.includes(query)) {
+                            item.style.display = 'block';
+                            catHasVisible = true;
+                            hasVisibleItems = true;
+                            
+                            
+                            
+                            
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    if (catHasVisible) {
+                        cat.style.display = 'block';
+                    } else {
+                        cat.style.display = 'none';
+                    }
+                });
+
+                if (!hasVisibleItems && query !== '') {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+            });
+
+            
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input'));
+                    searchInput.blur();
+                }
+            });
+
+            
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+
+            
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const offset = 150; 
+
+            const highlightNavigation = () => {
+                let currentScroll = window.scrollY;
+                let currentSectionId = '';
+
+                categories.forEach(cat => {
+                    const catTop = cat.offsetTop;
+                    
+                    if (currentScroll >= catTop - offset) {
+                        currentSectionId = cat.getAttribute('id');
+                    }
+                });
+
+                
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                     currentSectionId = categories[categories.length - 1].getAttribute('id');
+                }
+
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('border-jam-text', 'bg-jam-purple', 'text-white', 'shadow-neo', 'translate-x-2');
+                    link.classList.add('border-transparent', 'hover:border-jam-text');
+                    
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.remove('border-transparent', 'hover:border-jam-text');
+                        link.classList.add('border-jam-text', 'bg-jam-purple', 'text-white', 'shadow-neo', 'translate-x-2');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightNavigation);
+            
+            highlightNavigation();
+
+            
+            const quickBtns = document.querySelectorAll('.js-quick-question');
+            
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = btn.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    
+                    if (targetEl) {
+                        
+                        if (searchInput.value !== '') {
+                            searchInput.value = '';
+                            searchInput.dispatchEvent(new Event('input'));
+                        }
+
+                        
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        
+                        setTimeout(() => {
+                            const answer = targetEl.querySelector('.faq-answer');
+                            if (answer.classList.contains('hidden')) {
+                                targetEl.querySelector('.faq-trigger').click();
+                            }
+                            
+                            
+                            const origClass = targetEl.className;
+                            targetEl.classList.add('bg-jam-teal/20');
+                            setTimeout(() => {
+                                targetEl.classList.remove('bg-jam-teal/20');
+                            }, 1000);
+
+                        }, 500);
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body></html>

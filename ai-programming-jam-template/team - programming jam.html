@@ -1,0 +1,643 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">TEAM | JAM.26</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="5"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="6">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="7">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet" vid="8">
+    <script vid="9">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#F7F7F2',
+                        base: '#111111',
+                        purple: '#6C4DFF',
+                        teal: '#00C2A8',
+                        orange: '#FF5C35',
+                    },
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal': '6px 6px 0px 0px #111111',
+                        'brutal-lg': '10px 10px 0px 0px #111111',
+                        'brutal-hover': '2px 2px 0px 0px #111111',
+                    }
+                }
+            }
+        }
+    </script>
+    <style vid="10">
+        body {
+            background-color: #F7F7F2;
+            color: #111111;
+            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        ::selection {
+            background-color: #00C2A8;
+            color: #111111;
+        }
+        .brutal-border {
+            border: 4px solid #111111;
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        .node-connector {
+            position: relative;
+        }
+        .node-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -24px;
+            width: 24px;
+            height: 4px;
+            background-color: #111111;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .node-connector::after {
+                top: auto;
+                bottom: -24px;
+                right: 50%;
+                width: 4px;
+                height: 24px;
+                transform: translateX(50%);
+            }
+        }
+        .node-connector:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col w-full" vid="11">
+
+    
+    <nav class="sticky top-0 z-50 bg-bg border-b-4 border-base w-full" vid="12">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10 bg-bg" vid="13">
+            <a href="#" class="flex items-center gap-2" vid="14">
+                <div class="w-8 h-8 bg-purple brutal-border flex items-center justify-center font-mono font-bold text-white text-xs" vid="15">J26</div>
+                <span class="font-bold text-xl tracking-tight" vid="16">JAM.26</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold" vid="17">
+                <a href="#" class="hover:text-purple transition-colors" vid="18">HOME</a>
+                <a href="#" class="hover:text-purple transition-colors" vid="19">WORKSHOPS</a>
+                <a href="#" class="hover:text-purple transition-colors" vid="20">COMPETITION</a>
+                <a href="#" class="hover:text-purple transition-colors" vid="21">RULES</a>
+                <a href="#" class="hover:text-purple transition-colors" vid="22">FAQ</a>
+                <a href="#" class="text-purple border-b-2 border-purple" vid="23">TEAM</a>
+            </div>
+
+            <div class="flex items-center gap-4" vid="24">
+                <a href="#" class="hidden md:inline-block bg-teal text-base font-mono font-bold px-6 py-2 brutal-border shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all" vid="25">
+                    REGISTER_
+                </a>
+                <button class="lg:hidden brutal-border p-2 bg-white" vid="26">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" vid="27"><line x1="3" y1="12" x2="21" y2="12" vid="28"></line><line x1="3" y1="6" x2="21" y2="6" vid="29"></line><line x1="3" y1="18" x2="21" y2="18" vid="30"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-full" vid="31">
+        
+        
+        <section class="max-w-7xl mx-auto px-6 pt-24 pb-16" vid="32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" vid="33">
+                <div class="lg:col-span-7 space-y-6" vid="34">
+                    <div class="inline-block bg-base text-white font-mono text-sm px-3 py-1 font-bold" vid="35">/TEAM</div>
+                    <h1 class="text-5xl md:text-7xl font-bold uppercase leading-[0.9] tracking-tighter" vid="36">
+                        MEET THE<br vid="37">PEOPLE BEHIND<br vid="38"><span class="text-purple inline-block border-b-8 border-purple pb-1" vid="39">JAM.26</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl font-medium max-w-2xl border-l-4 border-teal pl-6" vid="40">
+                        JAM.26 is organized by students who want to create opportunities to learn, build, experiment, and solve problems together.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-5 relative" vid="41">
+                    
+                    <div class="absolute top-4 left-4 w-full h-full bg-orange brutal-border" vid="42"></div>
+                    
+                    <div class="relative bg-base text-white brutal-border p-6 shadow-brutal-lg font-mono" vid="43">
+                        <div class="flex gap-2 border-b-2 border-gray-700 pb-4 mb-4" vid="44">
+                            <div class="w-3 h-3 rounded-full bg-gray-500" vid="45"></div>
+                            <div class="w-3 h-3 rounded-full bg-gray-500" vid="46"></div>
+                            <div class="w-3 h-3 rounded-full bg-gray-500" vid="47"></div>
+                        </div>
+                        <div class="text-teal text-xs font-bold mb-4" vid="48">METADATA</div>
+                        <div class="grid grid-cols-2 gap-4 text-sm mb-6 border-b-2 border-gray-700 pb-4" vid="49">
+                            <div vid="50"><span class="text-gray-500 block" vid="51">PROJECT:</span> JAM.26</div>
+                            <div vid="52"><span class="text-gray-500 block" vid="53">ORGANIZATION:</span> ACM CLUB</div>
+                            <div vid="54"><span class="text-gray-500 block" vid="55">STATUS:</span> ACTIVE</div>
+                        </div>
+                        <div class="text-purple text-xs font-bold mb-2" vid="56">DIRECTORY_STRUCTURE</div>
+                        <div class="text-sm leading-relaxed text-gray-300" vid="57">
+                            TEAM/<br vid="58">
+                            ├── <span class="text-white font-bold" vid="59">organizers/</span><br vid="60">
+                            │&nbsp;&nbsp; ├── <span class="text-gray-500" vid="61">core_team</span><br vid="62">
+                            │&nbsp;&nbsp; └── <span class="text-gray-500" vid="63">design</span><br vid="64">
+                            └── <span class="text-white font-bold" vid="65">instructors/</span><br vid="66">
+                            &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-gray-500" vid="67">day_01</span><br vid="68">
+                            &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-gray-500" vid="69">day_02</span><br vid="70">
+                            &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="text-gray-500" vid="71">day_03</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="w-full bg-base text-white font-mono font-bold text-sm py-3 border-y-4 border-base overflow-hidden flex whitespace-nowrap" vid="72">
+            <div class="animate-[marquee_20s_linear_infinite] flex gap-8" vid="73">
+                <span vid="74">++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB</span>
+            </div>
+            <div class="animate-[marquee_20s_linear_infinite] flex gap-8 absolute top-0" vid="75">
+                <span vid="76">++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB ++ BUILD TOGETHER ++ JAM.26 ++ ACM CLUB</span>
+            </div>
+        </div>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base" vid="77">
+            <div class="flex flex-col md:flex-row gap-12 md:gap-24" vid="78">
+                <div class="md:w-1/3" vid="79">
+                    <div class="font-mono font-bold text-orange text-lg mb-4" vid="80">01 / ACM</div>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none mb-6" vid="81">PART OF A GLOBAL COMPUTING COMMUNITY</h2>
+                    <a href="https://www.acm.org/" target="_blank" class="inline-flex items-center gap-2 bg-white brutal-border px-4 py-2 font-mono font-bold text-sm shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all mt-4 group" vid="82">
+                        LEARN ABOUT ACM
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" class="group-hover:translate-x-1 transition-transform" vid="83"><line x1="5" y1="12" x2="19" y2="12" vid="84"></line><polyline points="12 5 19 12 12 19" vid="85"></polyline></svg>
+                    </a>
+                </div>
+                <div class="md:w-2/3 flex flex-col justify-center space-y-12" vid="86">
+                    <div class="prose prose-lg max-w-none font-medium" vid="87">
+                        <p class="mb-6" vid="88">The Association for Computing Machinery (ACM) is a global computing organization that brings together students, educators, researchers, and professionals across computing.</p>
+                        <p vid="89">Our ACM Club brings that spirit into our university community through technical workshops, competitions, collaborative projects, and peer learning.</p>
+                    </div>
+                    
+                    
+                    <div class="flex flex-col md:flex-row items-stretch md:items-center gap-y-10 md:gap-y-0 w-full justify-between mt-8 relative z-10" vid="90">
+                        <div class="node-connector bg-white brutal-border p-4 shadow-brutal text-center flex-1 z-10" vid="91">
+                            <span class="font-mono font-bold block text-sm" vid="92">GLOBAL</span>
+                            <span class="font-bold text-lg" vid="93">ACM</span>
+                        </div>
+                        <div class="node-connector bg-white brutal-border p-4 shadow-brutal text-center flex-1 z-10 md:ml-8" vid="94">
+                            <span class="font-mono font-bold block text-sm" vid="95">LOCAL</span>
+                            <span class="font-bold text-lg" vid="96">UNIVERSITY<br vid="97">COMMUNITY</span>
+                        </div>
+                        <div class="node-connector bg-teal brutal-border p-4 shadow-brutal text-center flex-1 z-10 md:ml-8" vid="98">
+                            <span class="font-mono font-bold block text-sm" vid="99">STUDENT</span>
+                            <span class="font-bold text-lg" vid="100">ACM CLUB</span>
+                        </div>
+                        <div class="bg-purple text-white brutal-border p-4 shadow-brutal text-center flex-1 z-10 md:ml-8" vid="101">
+                            <span class="font-mono font-bold block text-sm text-teal" vid="102">PROJECT</span>
+                            <span class="font-bold text-lg" vid="103">JAM.26</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base bg-white" vid="104">
+            <div class="font-mono font-bold text-purple text-lg mb-4" vid="105">02 / WHY</div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16" vid="106">
+                <div vid="107">
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none mb-8" vid="108">WHY PROGRAMMING JAM?</h2>
+                    <p class="text-xl font-medium leading-relaxed mb-8" vid="109">
+                        Modern development is changing. AI can help developers plan, generate code, investigate bugs, and solve problems. JAM.26 gives students a place to learn how to work with these tools while developing the skills that matter: understanding problems, making decisions, debugging, adapting, and shipping something that works.
+                    </p>
+                    <div class="bg-base text-white p-6 brutal-border shadow-brutal-lg" vid="110">
+                        <h3 class="text-2xl md:text-3xl font-bold uppercase text-teal" vid="111">AI CAN WRITE THE CODE.</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold uppercase mt-2" vid="112">YOU STILL HAVE TO BUILD THE SOLUTION.</h3>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col justify-center" vid="113">
+                    
+                    <div class="relative pl-8 border-l-4 border-base space-y-8 py-4" vid="114">
+                        
+                        <div class="relative" vid="115">
+                            <div class="absolute -left-[44px] top-2 w-6 h-6 bg-orange brutal-border rounded-full z-10" vid="116"></div>
+                            <h4 class="font-mono font-bold text-xl uppercase mb-1" vid="117">LEARN</h4>
+                            <p class="text-gray-600 font-medium" vid="118">Practical AI-assisted workflows and methodologies.</p>
+                        </div>
+                        
+                        <div class="relative" vid="119">
+                            <div class="absolute -left-[44px] top-2 w-6 h-6 bg-teal brutal-border rounded-full z-10" vid="120"></div>
+                            <h4 class="font-mono font-bold text-xl uppercase mb-1" vid="121">BUILD</h4>
+                            <p class="text-gray-600 font-medium" vid="122">Turn raw ideas into functioning applications.</p>
+                        </div>
+
+                        <div class="relative" vid="123">
+                            <div class="absolute -left-[44px] top-2 w-6 h-6 bg-purple brutal-border rounded-full z-10" vid="124"></div>
+                            <h4 class="font-mono font-bold text-xl uppercase mb-1" vid="125">SOLVE</h4>
+                            <p class="text-gray-600 font-medium" vid="126">Work through real architectural and logical problems.</p>
+                        </div>
+
+                        <div class="relative" vid="127">
+                            <div class="absolute -left-[44px] top-2 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="128"></div>
+                            <h4 class="font-mono font-bold text-xl uppercase mb-1" vid="129">ADAPT</h4>
+                            <p class="text-gray-600 font-medium" vid="130">Respond to changing requirements and unexpected bugs.</p>
+                        </div>
+
+                        <div class="relative" vid="131">
+                            <div class="absolute -left-[44px] top-2 w-6 h-6 bg-base brutal-border rounded-full z-10" vid="132"></div>
+                            <h4 class="font-mono font-bold text-xl uppercase mb-1" vid="133">SHIP</h4>
+                            <p class="text-gray-600 font-medium" vid="134">Take something from abstract concept to production reality.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base" vid="135">
+            <div class="flex justify-between items-end mb-12" vid="136">
+                <div vid="137">
+                    <div class="font-mono font-bold text-teal text-lg mb-2" vid="138">03 / ORGANIZERS</div>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none" vid="139">THE TEAM BEHIND THE JAM</h2>
+                </div>
+                <div class="hidden md:block font-mono text-sm text-gray-500 font-bold" vid="140">
+                    [ TOTAL_COUNT: 06 ]
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" vid="141">
+                
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="142">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="143">
+                        <span vid="144">ID: ORG_01</span>
+                        <span class="flex items-center gap-2" vid="145"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="146"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="147">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="148">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="149"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="150"></path><circle cx="12" cy="7" r="4" vid="151"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="152">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="153"><span class="w-16 text-gray-500" vid="154">NAME:</span> <span class="font-bold" vid="155">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="156"><span class="w-16 text-gray-500" vid="157">ROLE:</span> <span class="font-bold text-purple" vid="158">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="159"><span class="w-16 text-gray-500" vid="160">TEAM:</span> <span class="font-bold" vid="161">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="162">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="163">
+                        <span vid="164">ID: ORG_02</span>
+                        <span class="flex items-center gap-2" vid="165"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="166"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="167">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="168">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="169"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="170"></path><circle cx="12" cy="7" r="4" vid="171"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="172">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="173"><span class="w-16 text-gray-500" vid="174">NAME:</span> <span class="font-bold" vid="175">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="176"><span class="w-16 text-gray-500" vid="177">ROLE:</span> <span class="font-bold text-purple" vid="178">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="179"><span class="w-16 text-gray-500" vid="180">TEAM:</span> <span class="font-bold" vid="181">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="182">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="183">
+                        <span vid="184">ID: ORG_03</span>
+                        <span class="flex items-center gap-2" vid="185"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="186"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="187">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="188">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="189"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="190"></path><circle cx="12" cy="7" r="4" vid="191"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="192">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="193"><span class="w-16 text-gray-500" vid="194">NAME:</span> <span class="font-bold" vid="195">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="196"><span class="w-16 text-gray-500" vid="197">ROLE:</span> <span class="font-bold text-purple" vid="198">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="199"><span class="w-16 text-gray-500" vid="200">TEAM:</span> <span class="font-bold" vid="201">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="202">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="203">
+                        <span vid="204">ID: ORG_04</span>
+                        <span class="flex items-center gap-2" vid="205"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="206"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="207">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="208">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="209"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="210"></path><circle cx="12" cy="7" r="4" vid="211"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="212">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="213"><span class="w-16 text-gray-500" vid="214">NAME:</span> <span class="font-bold" vid="215">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="216"><span class="w-16 text-gray-500" vid="217">ROLE:</span> <span class="font-bold text-purple" vid="218">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="219"><span class="w-16 text-gray-500" vid="220">TEAM:</span> <span class="font-bold" vid="221">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="222">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="223">
+                        <span vid="224">ID: ORG_05</span>
+                        <span class="flex items-center gap-2" vid="225"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="226"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="227">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="228">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="229"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="230"></path><circle cx="12" cy="7" r="4" vid="231"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="232">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="233"><span class="w-16 text-gray-500" vid="234">NAME:</span> <span class="font-bold" vid="235">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="236"><span class="w-16 text-gray-500" vid="237">ROLE:</span> <span class="font-bold text-purple" vid="238">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="239"><span class="w-16 text-gray-500" vid="240">TEAM:</span> <span class="font-bold" vid="241">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full" vid="242">
+                    <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold" vid="243">
+                        <span vid="244">ID: ORG_06</span>
+                        <span class="flex items-center gap-2" vid="245"><span class="w-2 h-2 bg-teal rounded-full animate-pulse" vid="246"></span>ACTIVE</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col" vid="247">
+                        <div class="aspect-square w-full bg-gray-200 brutal-border mb-5 flex items-center justify-center overflow-hidden relative group-hover:bg-purple/10 transition-colors" vid="248">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="text-gray-400" vid="249"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="250"></path><circle cx="12" cy="7" r="4" vid="251"></circle></svg>
+                        </div>
+                        <div class="font-mono text-sm space-y-3 mt-auto" vid="252">
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="253"><span class="w-16 text-gray-500" vid="254">NAME:</span> <span class="font-bold" vid="255">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="256"><span class="w-16 text-gray-500" vid="257">ROLE:</span> <span class="font-bold text-purple" vid="258">[TBD]</span></div>
+                            <div class="flex border-b-2 border-gray-100 pb-2" vid="259"><span class="w-16 text-gray-500" vid="260">TEAM:</span> <span class="font-bold" vid="261">ACM CLUB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base" vid="262">
+            <div class="max-w-3xl mb-12" vid="263">
+                <div class="font-mono font-bold text-orange text-lg mb-2" vid="264">04 / INSTRUCTORS</div>
+                <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none mb-6" vid="265">THE PEOPLE HELPING YOU PREPARE</h2>
+                <p class="text-xl font-medium" vid="266">The preparation workshops are led by members helping participants understand the workflow before competition day.</p>
+            </div>
+
+            <div class="space-y-6" vid="267">
+                
+                
+                <div class="flex flex-col lg:flex-row bg-white brutal-border shadow-brutal transition-transform hover:-translate-x-1 hover:-translate-y-1" vid="268">
+                    <div class="lg:w-1/3 p-6 border-b-4 lg:border-b-0 lg:border-r-4 border-base bg-[#F0F0F0] flex flex-col justify-center" vid="269">
+                        <div class="font-mono text-2xl font-bold text-teal mb-2" vid="270">DAY_01</div>
+                        <h3 class="font-bold text-xl leading-tight" vid="271">Planning &amp; Development Workflow</h3>
+                    </div>
+                    <div class="lg:w-2/3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" vid="272">
+                        <div class="flex items-center gap-4" vid="273">
+                            <div class="w-16 h-16 bg-orange brutal-border rounded-full flex items-center justify-center overflow-hidden flex-shrink-0" vid="274">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" vid="275"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="276"></path><circle cx="12" cy="7" r="4" vid="277"></circle></svg>
+                            </div>
+                            <div vid="278">
+                                <div class="font-mono text-sm font-bold text-gray-500 mb-1" vid="279">INSTRUCTOR</div>
+                                <div class="font-bold text-2xl" vid="280">[TBD]</div>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap" vid="281">
+                            VIEW WORKSHOP →
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="flex flex-col lg:flex-row bg-white brutal-border shadow-brutal transition-transform hover:-translate-x-1 hover:-translate-y-1" vid="282">
+                    <div class="lg:w-1/3 p-6 border-b-4 lg:border-b-0 lg:border-r-4 border-base bg-[#F0F0F0] flex flex-col justify-center" vid="283">
+                        <div class="font-mono text-2xl font-bold text-teal mb-2" vid="284">DAY_02</div>
+                        <h3 class="font-bold text-xl leading-tight" vid="285">Full-Stack Development &amp; Debugging</h3>
+                    </div>
+                    <div class="lg:w-2/3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" vid="286">
+                        <div class="flex items-center gap-4" vid="287">
+                            <div class="w-16 h-16 bg-purple brutal-border rounded-full flex items-center justify-center overflow-hidden flex-shrink-0" vid="288">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" vid="289"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="290"></path><circle cx="12" cy="7" r="4" vid="291"></circle></svg>
+                            </div>
+                            <div vid="292">
+                                <div class="font-mono text-sm font-bold text-gray-500 mb-1" vid="293">INSTRUCTOR</div>
+                                <div class="font-bold text-2xl" vid="294">[TBD]</div>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap" vid="295">
+                            VIEW WORKSHOP →
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="flex flex-col lg:flex-row bg-white brutal-border shadow-brutal transition-transform hover:-translate-x-1 hover:-translate-y-1" vid="296">
+                    <div class="lg:w-1/3 p-6 border-b-4 lg:border-b-0 lg:border-r-4 border-base bg-[#F0F0F0] flex flex-col justify-center" vid="297">
+                        <div class="font-mono text-2xl font-bold text-teal mb-2" vid="298">DAY_03</div>
+                        <h3 class="font-bold text-xl leading-tight text-gray-500" vid="299">[TBD]</h3>
+                    </div>
+                    <div class="lg:w-2/3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" vid="300">
+                        <div class="flex items-center gap-4" vid="301">
+                            <div class="w-16 h-16 bg-teal brutal-border rounded-full flex items-center justify-center overflow-hidden flex-shrink-0" vid="302">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" vid="303"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" vid="304"></path><circle cx="12" cy="7" r="4" vid="305"></circle></svg>
+                            </div>
+                            <div vid="306">
+                                <div class="font-mono text-sm font-bold text-gray-500 mb-1" vid="307">INSTRUCTOR</div>
+                                <div class="font-bold text-2xl" vid="308">[TBD]</div>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block brutal-border bg-base text-white px-4 py-2 font-mono text-sm font-bold hover:bg-teal hover:text-base transition-colors whitespace-nowrap" vid="309">
+                            VIEW WORKSHOP →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base" vid="310">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" vid="311">
+                <div vid="312">
+                    <div class="font-mono font-bold text-teal text-lg mb-2" vid="313">05 / BUILT</div>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none mb-6" vid="314">BUILT TOGETHER</h2>
+                    <p class="text-xl font-medium leading-relaxed" vid="315">
+                        Every workshop, challenge, design decision, and event detail is the result of students contributing their time and skills. JAM.26 is an open-source mindset applied to an event.
+                    </p>
+                </div>
+                
+                
+                <div class="bg-white brutal-border p-6 shadow-brutal font-mono text-sm relative" vid="316">
+                    <div class="absolute top-0 right-0 bg-base text-white px-3 py-1 font-bold" vid="317">jam26.git</div>
+                    <div class="border-l-4 border-base ml-4 mt-6 space-y-6 relative py-2" vid="318">
+                        
+                        <div class="relative pl-8" vid="319">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="320"></div>
+                            <div class="text-purple font-bold" vid="321">commit 001</div>
+                            <div class="font-bold text-lg mt-1" vid="322">Planning</div>
+                        </div>
+                        
+                        <div class="relative pl-8" vid="323">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="324"></div>
+                            <div class="text-purple font-bold" vid="325">commit 002</div>
+                            <div class="font-bold text-lg mt-1" vid="326">Workshop Development</div>
+                        </div>
+
+                        <div class="relative pl-8" vid="327">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="328"></div>
+                            <div class="text-purple font-bold" vid="329">commit 003</div>
+                            <div class="font-bold text-lg mt-1" vid="330">Website Design</div>
+                        </div>
+
+                        <div class="relative pl-8" vid="331">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="332"></div>
+                            <div class="text-purple font-bold" vid="333">commit 004</div>
+                            <div class="font-bold text-lg mt-1" vid="334">Competition Design</div>
+                        </div>
+
+                        <div class="relative pl-8" vid="335">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white brutal-border rounded-full z-10" vid="336"></div>
+                            <div class="text-purple font-bold" vid="337">commit 005</div>
+                            <div class="font-bold text-lg mt-1" vid="338">Event Preparation</div>
+                        </div>
+
+                        <div class="relative pl-8" vid="339">
+                            <div class="absolute -left-[14px] top-1 w-6 h-6 bg-teal brutal-border rounded-full z-10 animate-pulse" vid="340"></div>
+                            <div class="text-teal font-bold" vid="341">commit ...</div>
+                            <div class="font-bold text-lg mt-1 italic" vid="342">Still Building</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 border-b-4 border-base bg-white" vid="343">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16" vid="344">
+                
+                <div class="lg:col-span-7" vid="345">
+                    <div class="font-mono font-bold text-purple text-lg mb-2" vid="346">06 / ACM_CLUB</div>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase leading-none mb-6" vid="347">JAM.26 IS ONE PROJECT.<br vid="348">THERE'S MORE TO BUILD.</h2>
+                    <p class="text-xl font-medium leading-relaxed mb-6" vid="349">
+                        The ACM Club works on technical activities beyond the Programming Jam. We organize programming events, CTFs, hackathons, technical workshops, collaborative projects, talks, and community gatherings throughout the year.
+                    </p>
+                    <p class="text-xl font-medium leading-relaxed mb-8" vid="350">
+                        Whether you want to build, compete, organize, teach, or learn, there are different ways to contribute.
+                    </p>
+                    
+                    <div class="bg-base text-white brutal-border p-6 font-mono text-sm md:text-base shadow-brutal mb-8" vid="351">
+                        <div class="flex items-center gap-2 mb-4 text-gray-500" vid="352">
+                            <span vid="353">$</span> <span class="text-white" vid="354">whoami</span>
+                        </div>
+                        <div class="text-teal font-bold mb-6" vid="355">STUDENT</div>
+                        
+                        <div class="flex items-center gap-2 mb-4 text-gray-500" vid="356">
+                            <span vid="357">$</span> <span class="text-white" vid="358">interests</span>
+                        </div>
+                        <div class="text-orange font-bold mb-6 flex flex-wrap gap-x-4 gap-y-2" vid="359">
+                            <span vid="360">BUILD</span>
+                            <span vid="361">LEARN</span>
+                            <span vid="362">COMPETE</span>
+                            <span vid="363">TEACH</span>
+                            <span vid="364">ORGANIZE</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-4 text-gray-500" vid="365">
+                            <span vid="366">$</span> <span class="text-white" vid="367">join_acm</span>
+                        </div>
+                        <div class="text-white font-bold flex items-center gap-2" vid="368">
+                            READY<span class="w-3 h-5 bg-teal inline-block animate-pulse" vid="369"></span>
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-block bg-teal brutal-border px-8 py-4 font-mono font-bold text-lg shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all text-center" vid="370">
+                        JOIN ACM CLUB <span class="text-sm ml-2 bg-white px-2 py-1 border-2 border-base" vid="371">[LINK TBD]</span>
+                    </a>
+                </div>
+
+                
+                <div class="lg:col-span-5 flex flex-col justify-end" vid="372">
+                    <div class="bg-bg brutal-border p-8 shadow-brutal relative" vid="373">
+                        
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-gray-300 opacity-80 rotate-2" vid="374"></div>
+                        
+                        <h3 class="font-bold text-2xl uppercase mb-4" vid="375">NEED TO REACH THE TEAM?</h3>
+                        <p class="font-medium mb-6" vid="376">For questions about JAM.26, registration, workshops, or the competition, contact the organizing team.</p>
+                        
+                        <div class="space-y-4 font-mono border-t-4 border-base pt-6" vid="377">
+                            <div class="flex items-start flex-col sm:flex-row sm:items-center gap-2 sm:gap-4" vid="378">
+                                <span class="bg-base text-white px-2 py-1 font-bold text-xs" vid="379">EMAIL</span>
+                                <a href="#" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4" vid="380">[TBD]</a>
+                            </div>
+                            <div class="flex items-start flex-col sm:flex-row sm:items-center gap-2 sm:gap-4" vid="381">
+                                <span class="bg-base text-white px-2 py-1 font-bold text-xs" vid="382">SOCIAL</span>
+                                <a href="#" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4" vid="383">[TBD]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="max-w-7xl mx-auto px-6 py-24 text-center" vid="384">
+            <div class="bg-base text-white brutal-border p-8 md:p-16 shadow-brutal-lg max-w-4xl mx-auto" vid="385">
+                <div class="font-mono text-sm md:text-base text-left mb-8 flex flex-col gap-2" vid="386">
+                    <div class="text-gray-400" vid="387">&gt; jam26 --contributors</div>
+                    <div class="text-teal" vid="388">organizers ✓</div>
+                    <div class="text-teal" vid="389">instructors ✓</div>
+                    <div class="flex items-center gap-2" vid="390">
+                        <span class="text-orange" vid="391">participants ...</span>
+                        <span class="font-bold" vid="392">WAITING FOR YOU<span class="w-3 h-5 bg-white inline-block align-middle ml-1 animate-pulse" vid="393"></span></span>
+                    </div>
+                </div>
+                
+                <h2 class="text-4xl md:text-6xl font-bold uppercase leading-none mb-12" vid="394">WE BUILT THE JAM.<br vid="395">NOW COME BUILD WITH US.</h2>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6" vid="396">
+                    <a href="#" class="w-full sm:w-auto bg-teal text-base brutal-border px-8 py-4 font-mono font-bold text-xl shadow-[6px_6px_0px_#ffffff] hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_#ffffff] transition-all" vid="397">
+                        REGISTER →
+                    </a>
+                    <a href="#" class="w-full sm:w-auto bg-white text-base brutal-border px-8 py-4 font-mono font-bold text-xl shadow-[6px_6px_0px_#6C4DFF] hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_#6C4DFF] transition-all" vid="398">
+                        EXPLORE WORKSHOPS →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer class="w-full border-t-4 border-base bg-white py-8" vid="399">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4" vid="400">
+            <div class="flex items-center gap-2" vid="401">
+                <div class="w-6 h-6 bg-base brutal-border flex items-center justify-center font-mono font-bold text-white text-[10px]" vid="402">J26</div>
+                <span class="font-bold text-lg tracking-tight" vid="403">JAM.26</span>
+            </div>
+            <div class="font-mono text-sm font-bold text-gray-500 uppercase" vid="404">
+                ORGANIZED BY ACM CLUB
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

@@ -1,0 +1,673 @@
+<html lang="en" class="scroll-smooth" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">Workshops | JAM.26</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" vid="7">
+    
+    
+    <script src="https://unpkg.com/lucide@latest" vid="8"></script>
+
+    
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="9"></script>
+    <script vid="10">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#F7F7F2',
+                        text: '#111111',
+                        purple: { DEFAULT: '#6C4DFF', light: '#8B73FF' },
+                        teal: { DEFAULT: '#00C2A8', light: '#33CEB9' },
+                        orange: { DEFAULT: '#FF5C35', light: '#FF7D5C' },
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal-sm': '4px 4px 0px 0px rgba(17,17,17,1)',
+                        'brutal': '8px 8px 0px 0px rgba(17,17,17,1)',
+                        'brutal-lg': '12px 12px 0px 0px rgba(17,17,17,1)',
+                        'brutal-hover': '12px 12px 0px 0px rgba(17,17,17,1)',
+                        'brutal-active': '2px 2px 0px 0px rgba(17,17,17,1)',
+                        'brutal-purple': '8px 8px 0px 0px rgba(108,77,255,1)',
+                        'brutal-teal': '8px 8px 0px 0px rgba(0,194,168,1)',
+                        'brutal-orange': '8px 8px 0px 0px rgba(255,92,53,1)',
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style vid="11">
+        body {
+            background-color: #F7F7F2;
+            color: #111111;
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(to right, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .bg-grid-dark {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        
+        .ide-scroll::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .ide-scroll::-webkit-scrollbar-track {
+            background: #F7F7F2; 
+            border-left: 2px solid #111111;
+        }
+        .ide-scroll::-webkit-scrollbar-thumb {
+            background: #111111; 
+        }
+
+        .brutal-border {
+            border: 3px solid #111111;
+        }
+        
+        .brutal-border-light {
+            border: 2px solid #111111;
+        }
+
+        .brutal-transition {
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hover-lift:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px 0px rgba(17,17,17,1);
+        }
+        
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px rgba(17,17,17,1);
+        }
+
+        .terminal-text {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+        }
+
+        .flow-line-vertical {
+            width: 4px;
+            background-image: linear-gradient(to bottom, #111 50%, transparent 50%);
+            background-size: 100% 20px;
+        }
+
+        .flow-line-horizontal {
+            height: 4px;
+            background-image: linear-gradient(to right, #111 50%, transparent 50%);
+            background-size: 20px 100%;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col relative selection:bg-purple selection:text-white" vid="12">
+
+    
+    <div class="fixed inset-0 pointer-events-none z-[-1] bg-grid" vid="13"></div>
+
+    
+    <nav class="sticky top-0 z-50 bg-bg brutal-border-b border-b-4 border-text flex justify-between items-center px-6 py-4 shadow-sm backdrop-blur-md bg-opacity-95" vid="14">
+        <div class="flex items-center gap-2" vid="15">
+            <div class="w-8 h-8 bg-purple brutal-border flex items-center justify-center font-mono font-bold text-white shadow-brutal-sm" vid="16">J</div>
+            <span class="font-bold text-2xl tracking-tight" vid="17">JAM<span class="text-purple" vid="18">.26</span></span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8 font-mono text-sm font-semibold" vid="19">
+            <a href="#" class="hover:text-purple brutal-transition hover:-translate-y-1 inline-block" vid="20">HOME</a>
+            <a href="#" class="text-purple underline decoration-2 underline-offset-4 inline-block" vid="21">/WORKSHOPS</a>
+            <a href="#" class="hover:text-teal brutal-transition hover:-translate-y-1 inline-block" vid="22">SCHEDULE</a>
+            <a href="#" class="hover:text-orange brutal-transition hover:-translate-y-1 inline-block" vid="23">FAQ</a>
+        </div>
+
+        <button class="bg-teal text-text font-bold font-mono px-6 py-2 brutal-border shadow-brutal-sm brutal-transition hover-lift active-press" vid="24">
+            REGISTER_NOW
+        </button>
+    </nav>
+
+    
+    <main class="flex-grow" vid="25">
+        
+        
+        <section class="relative pt-24 pb-32 px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center text-center" vid="26">
+            
+            <div class="inline-flex items-center gap-2 bg-purple text-white font-mono text-sm px-4 py-1 brutal-border shadow-brutal-sm mb-8 rotate-[-2deg]" vid="27">
+                <i data-lucide="terminal" class="w-4 h-4" vid="28"></i>
+                <span vid="29">/WORKSHOPS</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter mb-6" vid="30">
+                Learn the workflow.<br vid="31">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple via-teal to-orange brutal-text-shadow" style="text-shadow: 4px 4px 0px #111;" vid="32">Then build for real.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl font-medium max-w-2xl mb-16 border-l-4 border-purple pl-6 text-left" vid="33">
+                Three workshop days designed to take you from an idea to a working web application — with AI as part of your engineering workflow.
+            </p>
+
+            
+            <div class="w-full max-w-4xl bg-white brutal-border p-4 shadow-brutal mb-12 relative overflow-hidden" vid="34">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple via-teal to-orange" vid="35"></div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-2" vid="36">
+                    
+                    <div class="flex-1 w-full flex items-center gap-3 bg-bg brutal-border p-3 font-mono text-sm font-bold text-purple relative group cursor-pointer hover:bg-purple hover:text-white transition-colors" vid="37">
+                        <div class="w-2 h-2 bg-purple rounded-full group-hover:bg-white animate-pulse" vid="38"></div>
+                        DAY_01
+                    </div>
+                    
+                    <i data-lucide="arrow-right" class="hidden md:block w-6 h-6 text-text" vid="39"></i>
+                    <i data-lucide="arrow-down" class="md:hidden w-6 h-6 text-text" vid="40"></i>
+                    
+                    <div class="flex-1 w-full flex items-center gap-3 bg-bg brutal-border p-3 font-mono text-sm font-bold text-teal relative group cursor-pointer hover:bg-teal hover:text-white transition-colors" vid="41">
+                        <div class="w-2 h-2 bg-teal rounded-full group-hover:bg-white" vid="42"></div>
+                        DAY_02
+                    </div>
+
+                    <i data-lucide="arrow-right" class="hidden md:block w-6 h-6 text-text" vid="43"></i>
+                    <i data-lucide="arrow-down" class="md:hidden w-6 h-6 text-text" vid="44"></i>
+                    
+                    <div class="flex-1 w-full flex items-center gap-3 bg-bg brutal-border p-3 font-mono text-sm font-bold text-orange relative group cursor-pointer hover:bg-orange hover:text-white transition-colors" vid="45">
+                        <div class="w-2 h-2 bg-orange rounded-full group-hover:bg-white" vid="46"></div>
+                        DAY_03
+                    </div>
+
+                    <i data-lucide="arrow-right" class="hidden md:block w-6 h-6 text-text" vid="47"></i>
+                    <i data-lucide="arrow-down" class="md:hidden w-6 h-6 text-text" vid="48"></i>
+                    
+                    <div class="flex-1 w-full flex items-center gap-3 bg-text text-white brutal-border p-3 font-mono text-sm font-bold shadow-[4px_4px_0px_0px_#6C4DFF]" vid="49">
+                        <i data-lucide="flag" class="w-4 h-4" vid="50"></i>
+                        COMPETITION
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="w-full max-w-xl bg-text text-green-400 font-mono text-xs text-left p-4 shadow-brutal brutal-border rounded-none relative" vid="51">
+                <div class="flex gap-2 absolute top-2 left-2" vid="52">
+                    <div class="w-2 h-2 rounded-full bg-red-500" vid="53"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-500" vid="54"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-500" vid="55"></div>
+                </div>
+                <div class="mt-4 flex flex-col gap-1" vid="56">
+                    <div class="flex" vid="57"><span class="text-purple-400 mr-2" vid="58">jam26@sys:~$</span> <span vid="59">initializing training sequence...</span></div>
+                    <div class="flex" vid="60"><span class="text-purple-400 mr-2" vid="61">jam26@sys:~$</span> <span vid="62">3 modules detected</span></div>
+                    <div class="flex" vid="63"><span class="text-purple-400 mr-2" vid="64">jam26@sys:~$</span> <span vid="65">final destination: programming_jam<span class="animate-blink inline-block w-2 h-3 bg-green-400 ml-1 translate-y-[2px]" vid="66"></span></span></div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="relative py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden" vid="67">
+            
+            
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-text opacity-20 -translate-x-1/2 hidden md:block" vid="68"></div>
+
+            <div class="flex flex-col gap-32" vid="69">
+                
+                
+                <div class="relative w-full flex flex-col md:flex-row items-center gap-8 md:gap-16 z-10 group" vid="70">
+                    
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-purple brutal-border shadow-brutal rounded-none items-center justify-center font-mono font-bold text-white text-xl z-20 brutal-transition group-hover:scale-110" vid="71">
+                        01
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 md:pr-12 text-left" vid="72">
+                        <div class="inline-block bg-white brutal-border px-3 py-1 font-mono text-sm font-bold text-purple mb-4 shadow-brutal-sm" vid="73">DAY_01</div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight" vid="74">Planning &amp;<br vid="75">Development Workflow</h2>
+                        <p class="text-lg mb-6 text-gray-700 font-medium" vid="76">Turning a problem into a structured development plan before writing code.</p>
+                        
+                        <ul class="space-y-3 font-mono text-sm mb-8" vid="77">
+                            <li class="flex items-start gap-2" vid="78"><i data-lucide="check-square" class="w-5 h-5 text-purple shrink-0" vid="79"></i> Understand requirements &amp; constraints</li>
+                            <li class="flex items-start gap-2" vid="80"><i data-lucide="check-square" class="w-5 h-5 text-purple shrink-0" vid="81"></i> Break a project into features</li>
+                            <li class="flex items-start gap-2" vid="82"><i data-lucide="check-square" class="w-5 h-5 text-purple shrink-0" vid="83"></i> Plan application structure</li>
+                            <li class="flex items-start gap-2" vid="84"><i data-lucide="check-square" class="w-5 h-5 text-purple shrink-0" vid="85"></i> Think about frontend/backend responsibilities</li>
+                            <li class="flex items-start gap-2" vid="86"><i data-lucide="check-square" class="w-5 h-5 text-purple shrink-0" vid="87"></i> Use AI strategically in planning</li>
+                        </ul>
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 bg-white brutal-border shadow-brutal flex flex-col h-96 group-hover:shadow-[12px_12px_0px_0px_#6C4DFF] transition-shadow duration-300" vid="88">
+                        <div class="bg-bg brutal-border-b p-2 flex items-center justify-between font-mono text-xs text-gray-600" vid="89">
+                            <div class="flex gap-2" vid="90">
+                                <div class="w-3 h-3 rounded-full border border-text bg-white" vid="91"></div>
+                                <div class="w-3 h-3 rounded-full border border-text bg-white" vid="92"></div>
+                                <div class="w-3 h-3 rounded-full border border-text bg-white" vid="93"></div>
+                            </div>
+                            <span class="font-bold" vid="94">JAM_PROJECT - Editor</span>
+                            <div vid="95"></div>
+                        </div>
+                        <div class="flex flex-1 overflow-hidden" vid="96">
+                            
+                            <div class="w-1/3 bg-[#f0f0eb] brutal-border-r p-4 font-mono text-xs ide-scroll overflow-y-auto" vid="97">
+                                <div class="font-bold mb-2 flex items-center gap-1" vid="98"><i data-lucide="folder-open" class="w-3 h-3" vid="99"></i> JAM_PROJECT</div>
+                                <div class="pl-2 space-y-2 text-gray-700" vid="100">
+                                    <div class="flex items-center gap-1 font-bold text-purple" vid="101"><i data-lucide="file-text" class="w-3 h-3" vid="102"></i> requirements.md</div>
+                                    <div class="flex items-center gap-1" vid="103"><i data-lucide="folder" class="w-3 h-3" vid="104"></i> architecture/</div>
+                                    <div class="flex items-center gap-1" vid="105"><i data-lucide="folder" class="w-3 h-3" vid="106"></i> frontend/</div>
+                                    <div class="flex items-center gap-1" vid="107"><i data-lucide="folder" class="w-3 h-3" vid="108"></i> backend/</div>
+                                    <div class="flex items-center gap-1" vid="109"><i data-lucide="file-check" class="w-3 h-3" vid="110"></i> tasks.md</div>
+                                </div>
+                            </div>
+                            
+                            <div class="w-2/3 bg-white p-4 font-mono text-xs text-gray-800 ide-scroll overflow-y-auto relative" vid="111">
+                                <div class="text-gray-400 mb-2" vid="112"># requirements.md</div>
+                                <div vid="113"><span class="text-purple font-bold" vid="114">## Core Objective</span></div>
+                                <div class="mb-4" vid="115">Build a scalable web application that allows users to...</div>
+                                
+                                <div vid="116"><span class="text-purple font-bold" vid="117">## Features</span></div>
+                                <div vid="118">- [x] User Authentication</div>
+                                <div vid="119">- [ ] Real-time Dashboard</div>
+                                <div vid="120">- [ ] Data Visualization Widget</div>
+                                
+                                <div class="absolute bottom-4 right-4 text-gray-300 opacity-50 select-none" vid="121">
+                                    <i data-lucide="bot" class="w-16 h-16" vid="122"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-purple text-white p-3 font-mono text-sm flex justify-between items-center border-t-3 border-text" vid="123">
+                            <div class="flex items-center gap-2" vid="124">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse" vid="125"></div>
+                                STATUS: FOUNDATION_READY
+                            </div>
+                            <button class="bg-white text-text px-3 py-1 brutal-border shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] hover:bg-gray-100 active:translate-y-[2px] active:translate-x-[2px] active:shadow-none transition-all flex items-center gap-1" vid="126">
+                                EXPLORE DAY_01 <i data-lucide="arrow-right" class="w-4 h-4" vid="127"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="relative w-full flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16 z-10 group" vid="128">
+                    
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-teal brutal-border shadow-brutal rounded-none items-center justify-center font-mono font-bold text-text text-xl z-20 brutal-transition group-hover:scale-110" vid="129">
+                        02
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 bg-white brutal-border shadow-brutal flex flex-col h-[28rem] group-hover:shadow-[12px_12px_0px_0px_#00C2A8] transition-shadow duration-300" vid="130">
+                        <div class="bg-bg brutal-border-b p-2 flex items-center justify-between font-mono text-xs text-gray-600" vid="131">
+                            <span class="font-bold ml-2" vid="132">System Architecture &amp; Server</span>
+                        </div>
+                        
+                        
+                        <div class="flex-1 bg-grid p-4 flex flex-col items-center justify-center relative border-b-3 border-text" vid="133">
+                            <div class="flex items-center justify-center gap-4 w-full" vid="134">
+                                <div class="bg-white brutal-border p-2 font-mono text-xs text-center w-24 shadow-brutal-sm" vid="135">
+                                    <i data-lucide="layout-template" class="w-6 h-6 mx-auto mb-1 text-teal" vid="136"></i>
+                                    frontend
+                                </div>
+                                <div class="flex-1 flow-line-horizontal h-1" vid="137"></div>
+                                <div class="bg-white brutal-border p-2 font-mono text-xs text-center w-24 shadow-brutal-sm" vid="138">
+                                    <i data-lucide="server" class="w-6 h-6 mx-auto mb-1 text-teal" vid="139"></i>
+                                    API
+                                </div>
+                                <div class="flex-1 flow-line-horizontal h-1" vid="140"></div>
+                                <div class="bg-white brutal-border p-2 font-mono text-xs text-center w-24 shadow-brutal-sm" vid="141">
+                                    <i data-lucide="database" class="w-6 h-6 mx-auto mb-1 text-teal" vid="142"></i>
+                                    backend
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="h-40 bg-text text-green-400 font-mono text-xs p-4 overflow-hidden relative" vid="143">
+                            <div class="text-white opacity-50 mb-2" vid="144">~ jam_project/server</div>
+                            <div class="text-yellow-400" vid="145">$ npm run dev</div>
+                            <div vid="146">&gt; starting development server...</div>
+                            <div class="text-white" vid="147">✓ frontend ready on port 3000</div>
+                            <div class="text-white" vid="148">✓ API connected</div>
+                            <div class="text-red-400" vid="149">✕ error detected: connection refused (db:5432)</div>
+                            <div class="text-teal" vid="150">&gt; debugging initialized via AI assistant...</div>
+                            <div class="text-white" vid="151">✓ resolved: database credentials updated</div>
+                            <div vid="152"><span class="animate-blink inline-block w-2 h-3 bg-green-400 translate-y-[2px]" vid="153"></span></div>
+                        </div>
+
+                        
+                        <div class="bg-teal text-text p-3 font-mono text-sm flex justify-between items-center border-t-3 border-text font-bold" vid="154">
+                            <div class="flex items-center gap-2" vid="155">
+                                <div class="w-2 h-2 bg-text rounded-full animate-pulse" vid="156"></div>
+                                STATUS: SYSTEM_RUNNING
+                            </div>
+                            <button class="bg-white text-text px-3 py-1 brutal-border shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] hover:bg-gray-100 active:translate-y-[2px] active:translate-x-[2px] active:shadow-none transition-all flex items-center gap-1 font-normal" vid="157">
+                                EXPLORE DAY_02 <i data-lucide="arrow-right" class="w-4 h-4" vid="158"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 md:pl-12 text-left" vid="159">
+                        <div class="inline-block bg-white brutal-border px-3 py-1 font-mono text-sm font-bold text-teal mb-4 shadow-brutal-sm" vid="160">DAY_02</div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight" vid="161">Full-Stack Development &amp; Debugging</h2>
+                        <p class="text-lg mb-6 text-gray-700 font-medium" vid="162">Turning the plan into a working application and learning how to diagnose problems when things break.</p>
+                        
+                        <ul class="space-y-3 font-mono text-sm mb-8" vid="163">
+                            <li class="flex items-start gap-2" vid="164"><i data-lucide="check-square" class="w-5 h-5 text-teal shrink-0" vid="165"></i> Connect frontend and backend logic</li>
+                            <li class="flex items-start gap-2" vid="166"><i data-lucide="check-square" class="w-5 h-5 text-teal shrink-0" vid="167"></i> Work with application state and data</li>
+                            <li class="flex items-start gap-2" vid="168"><i data-lucide="check-square" class="w-5 h-5 text-teal shrink-0" vid="169"></i> Implement and consume APIs</li>
+                            <li class="flex items-start gap-2" vid="170"><i data-lucide="check-square" class="w-5 h-5 text-teal shrink-0" vid="171"></i> Understand errors and debug systematically</li>
+                            <li class="flex items-start gap-2" vid="172"><i data-lucide="check-square" class="w-5 h-5 text-teal shrink-0" vid="173"></i> Use AI to investigate, not just rewrite</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <div class="relative w-full flex flex-col md:flex-row items-center gap-8 md:gap-16 z-10 group" vid="174">
+                    
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-orange brutal-border shadow-brutal rounded-none items-center justify-center font-mono font-bold text-text text-xl z-20 brutal-transition group-hover:scale-110" vid="175">
+                        03
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 md:pr-12 text-left" vid="176">
+                        <div class="inline-block bg-white brutal-border px-3 py-1 font-mono text-sm font-bold text-orange mb-4 shadow-brutal-sm" vid="177">DAY_03</div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight" vid="178">TBD: Refinement &amp; Integration</h2>
+                        <p class="text-lg mb-6 text-gray-700 font-medium" vid="179">The final preparation stage. Polish, integrate, and ensure your system is completely ready for the competition environment.</p>
+                        
+                        <div class="bg-orange/10 border-l-4 border-orange p-4 font-mono text-sm mb-8" vid="180">
+                            <p class="font-bold mb-1" vid="181">MODULE_FOCUS:</p>
+                            <p vid="182">Integration → Refinement → Readiness.</p>
+                            <p class="mt-2 text-gray-600 italic" vid="183">// Specific technical curriculum to be announced.</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="w-full md:w-1/2 bg-white brutal-border shadow-brutal flex flex-col h-96 group-hover:shadow-[12px_12px_0px_0px_#FF5C35] transition-shadow duration-300 relative overflow-hidden" vid="184">
+                        
+                        
+                        <div class="absolute inset-0 bg-grid opacity-30 z-0" vid="185"></div>
+
+                        <div class="z-10 bg-bg/90 backdrop-blur brutal-border-b p-2 flex items-center justify-between font-mono text-xs text-gray-600" vid="186">
+                            <span class="font-bold ml-2" vid="187">Deployment Readiness Tracker</span>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col items-center justify-center p-8 z-10" vid="188">
+                            
+                            
+                            <div class="relative w-32 h-32 mb-6" vid="189">
+                                <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100" vid="190">
+                                    <circle class="text-gray-200 stroke-current" stroke-width="8" cx="50" cy="50" r="40" fill="transparent" vid="191"></circle>
+                                    <circle class="text-orange stroke-current" stroke-width="8" stroke-linecap="square" cx="50" cy="50" r="40" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="20" vid="192"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center flex-col font-mono" vid="193">
+                                    <span class="text-3xl font-black text-text" vid="194">98<span class="text-lg" vid="195">%</span></span>
+                                </div>
+                            </div>
+
+                            <div class="w-full space-y-3 font-mono text-xs" vid="196">
+                                <div class="flex justify-between items-center border-b-2 border-dotted border-gray-300 pb-1" vid="197">
+                                    <span vid="198">Core Features</span> <span class="bg-green-100 text-green-800 px-1 border border-green-800" vid="199">PASS</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b-2 border-dotted border-gray-300 pb-1" vid="200">
+                                    <span vid="201">Error Handling</span> <span class="bg-green-100 text-green-800 px-1 border border-green-800" vid="202">PASS</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b-2 border-dotted border-gray-300 pb-1" vid="203">
+                                    <span vid="204">UI Polish</span> <span class="bg-orange/20 text-orange px-1 border border-orange" vid="205">IN_PROGRESS</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="bg-orange text-text p-3 font-mono text-sm flex justify-between items-center border-t-3 border-text font-bold z-10" vid="206">
+                            <div class="flex items-center gap-2" vid="207">
+                                <div class="w-2 h-2 bg-text rounded-full animate-pulse" vid="208"></div>
+                                STATUS: JAM_READY
+                            </div>
+                            <button class="bg-white text-text px-3 py-1 brutal-border shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] hover:bg-gray-100 active:translate-y-[2px] active:translate-x-[2px] active:shadow-none transition-all flex items-center gap-1 font-normal" vid="209">
+                                EXPLORE DAY_03 <i data-lucide="arrow-right" class="w-4 h-4" vid="210"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="py-24 px-6 md:px-12 bg-white brutal-border-y-4 border-text" vid="211">
+            <div class="max-w-6xl mx-auto" vid="212">
+                <div class="text-center mb-16" vid="213">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase mb-4" vid="214">How They Connect</h2>
+                    <p class="font-mono text-gray-600" vid="215">Hover over the execution path to inspect stage capabilities.</p>
+                </div>
+
+                
+                <div class="relative flex flex-col md:flex-row items-stretch justify-between gap-4 md:gap-0 h-auto md:h-64" vid="216">
+                    
+                    
+                    <div class="absolute top-1/2 left-0 right-0 h-2 bg-text -translate-y-1/2 hidden md:block z-0" vid="217"></div>
+                    <div class="absolute top-0 bottom-0 left-1/2 w-2 bg-text -translate-x-1/2 md:hidden z-0" vid="218"></div>
+
+                    
+                    <div class="relative z-10 flex-1 flex justify-center group" vid="219">
+                        <div class="w-full max-w-[220px] bg-bg brutal-border p-4 text-center cursor-pointer brutal-transition group-hover:-translate-y-4 shadow-brutal bg-white hover:bg-purple hover:text-white" vid="220">
+                            <div class="font-mono text-xs mb-2 opacity-70 border-b border-current pb-1" vid="221">DAY_01</div>
+                            <div class="text-2xl font-bold font-mono" vid="222">PLAN</div>
+                            
+                            
+                            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-text text-white p-4 font-mono text-sm opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity brutal-border shadow-brutal-sm z-50" vid="223">
+                                Gain the capability to dissect a problem and architect a robust solution before writing a single line of code.
+                                
+                                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-text rotate-45 border-l-3 border-t-3 border-text" vid="224"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="hidden md:flex items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 my-auto shadow-brutal-active" vid="225">
+                        <i data-lucide="arrow-right" class="w-5 h-5" vid="226"></i>
+                    </div>
+                    <div class="flex md:hidden items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 mx-auto shadow-brutal-active my-2" vid="227">
+                        <i data-lucide="arrow-down" class="w-5 h-5" vid="228"></i>
+                    </div>
+
+                    
+                    <div class="relative z-10 flex-1 flex justify-center group" vid="229">
+                        <div class="w-full max-w-[220px] bg-bg brutal-border p-4 text-center cursor-pointer brutal-transition group-hover:-translate-y-4 shadow-brutal bg-white hover:bg-teal hover:text-white" vid="230">
+                            <div class="font-mono text-xs mb-2 opacity-70 border-b border-current pb-1" vid="231">DAY_02</div>
+                            <div class="text-2xl font-bold font-mono" vid="232">BUILD<br vid="233"><span class="text-lg" vid="234">+ DEBUG</span></div>
+                            
+                            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-text text-white p-4 font-mono text-sm opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity brutal-border shadow-brutal-sm z-50" vid="235">
+                                Connect the pieces. Build the logic, manage state, and deploy systematic debugging techniques when issues arise.
+                                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-text rotate-45 border-l-3 border-t-3 border-text" vid="236"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:flex items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 my-auto shadow-brutal-active" vid="237">
+                        <i data-lucide="arrow-right" class="w-5 h-5" vid="238"></i>
+                    </div>
+                    <div class="flex md:hidden items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 mx-auto shadow-brutal-active my-2" vid="239">
+                        <i data-lucide="arrow-down" class="w-5 h-5" vid="240"></i>
+                    </div>
+
+                    
+                    <div class="relative z-10 flex-1 flex justify-center group" vid="241">
+                        <div class="w-full max-w-[220px] bg-bg brutal-border p-4 text-center cursor-pointer brutal-transition group-hover:-translate-y-4 shadow-brutal bg-white hover:bg-orange hover:text-white" vid="242">
+                            <div class="font-mono text-xs mb-2 opacity-70 border-b border-current pb-1" vid="243">DAY_03</div>
+                            <div class="text-2xl font-bold font-mono" vid="244">REFINE</div>
+                            
+                            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-text text-white p-4 font-mono text-sm opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity brutal-border shadow-brutal-sm z-50" vid="245">
+                                Polish the application. Finalize integrations and ensure the system is robust enough for competition conditions.
+                                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-text rotate-45 border-l-3 border-t-3 border-text" vid="246"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:flex items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 my-auto shadow-brutal-active" vid="247">
+                        <i data-lucide="arrow-right" class="w-5 h-5" vid="248"></i>
+                    </div>
+                    <div class="flex md:hidden items-center justify-center z-10 bg-bg brutal-border rounded-full w-10 h-10 mx-auto shadow-brutal-active my-2" vid="249">
+                        <i data-lucide="arrow-down" class="w-5 h-5" vid="250"></i>
+                    </div>
+
+                    
+                    <div class="relative z-10 flex-1 flex justify-center group" vid="251">
+                        <div class="w-full max-w-[220px] bg-bg brutal-border p-4 text-center cursor-pointer brutal-transition group-hover:-translate-y-4 shadow-[8px_8px_0px_0px_rgba(255,92,53,1)] bg-text text-white hover:bg-text hover:text-orange" vid="252">
+                            <div class="font-mono text-xs mb-2 opacity-70 border-b border-current pb-1" vid="253">PROGRAMMING JAM</div>
+                            <div class="text-2xl font-bold font-mono" vid="254">SHIP</div>
+                            
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 bg-white text-text p-4 font-mono text-sm opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity brutal-border shadow-brutal-sm z-50 text-left" vid="255">
+                                Put it all together in a high-stakes environment. Build a working product from scratch without the tutorial wheels.
+                                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-r-3 border-b-3 border-text" vid="256"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto" vid="257">
+            <h2 class="text-4xl md:text-5xl font-black uppercase mb-2 max-w-2xl" vid="258">Not just three workshops.</h2>
+            <h3 class="text-2xl md:text-3xl font-bold text-purple mb-12 uppercase border-b-4 border-text inline-block pb-2" vid="259">A Development Workflow.</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" vid="260">
+                
+                
+                <div class="bg-white brutal-border p-6 shadow-brutal flex flex-col hover-lift brutal-transition" vid="261">
+                    <div class="w-12 h-12 bg-purple text-white flex items-center justify-center brutal-border mb-6" vid="262">
+                        <i data-lucide="file-symlink" class="w-6 h-6" vid="263"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 uppercase" vid="264">Plan</h4>
+                    <p class="font-mono text-sm text-gray-700 leading-relaxed border-l-2 border-purple pl-3" vid="265">Turn requirements into an actionable development strategy.</p>
+                </div>
+
+                
+                <div class="bg-white brutal-border p-6 shadow-brutal flex flex-col hover-lift brutal-transition" vid="266">
+                    <div class="w-12 h-12 bg-teal text-text flex items-center justify-center brutal-border mb-6" vid="267">
+                        <i data-lucide="blocks" class="w-6 h-6" vid="268"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 uppercase" vid="269">Build</h4>
+                    <p class="font-mono text-sm text-gray-700 leading-relaxed border-l-2 border-teal pl-3" vid="270">Translate that plan into a working web application.</p>
+                </div>
+
+                
+                <div class="bg-white brutal-border p-6 shadow-brutal flex flex-col hover-lift brutal-transition" vid="271">
+                    <div class="w-12 h-12 bg-orange text-text flex items-center justify-center brutal-border mb-6" vid="272">
+                        <i data-lucide="bug" class="w-6 h-6" vid="273"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 uppercase" vid="274">Debug</h4>
+                    <p class="font-mono text-sm text-gray-700 leading-relaxed border-l-2 border-orange pl-3" vid="275">Investigate problems systematically instead of guessing.</p>
+                </div>
+
+                
+                <div class="bg-text text-white brutal-border p-6 shadow-brutal flex flex-col hover-lift brutal-transition shadow-[8px_8px_0px_0px_#6C4DFF]" vid="276">
+                    <div class="w-12 h-12 bg-white text-text flex items-center justify-center brutal-border mb-6" vid="277">
+                        <i data-lucide="rocket" class="w-6 h-6" vid="278"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 uppercase" vid="279">Ship</h4>
+                    <p class="font-mono text-sm text-gray-300 leading-relaxed border-l-2 border-white pl-3" vid="280">Finish and present something that actually works.</p>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="bg-text text-bg py-24 px-6 md:px-12 border-t-8 border-purple relative overflow-hidden" vid="281">
+            
+            <div class="absolute inset-0 pointer-events-none z-0 bg-grid-dark opacity-10" vid="282"></div>
+            
+            <div class="max-w-4xl mx-auto relative z-10" vid="283">
+                
+                
+                <div class="bg-[#1a1a1a] brutal-border border-gray-600 shadow-[16px_16px_0px_0px_rgba(108,77,255,0.4)] mb-16" vid="284">
+                    <div class="bg-[#2d2d2d] border-b-3 border-gray-600 p-3 flex items-center gap-2" vid="285">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]" vid="286"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]" vid="287"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]" vid="288"></div>
+                        <span class="ml-4 font-mono text-xs text-gray-400" vid="289">deployment_terminal - bash</span>
+                    </div>
+                    
+                    <div class="p-6 md:p-8 font-mono text-sm md:text-base text-green-400 leading-relaxed" vid="290">
+                        <div class="mb-4" vid="291">jam26@sys:~$ <span class="text-white" vid="292">./run_training_sequence.sh</span></div>
+                        
+                        <div class="space-y-2 mb-6" vid="293">
+                            <div class="flex items-center gap-3" vid="294"><span class="text-purple-400" vid="295">[✓]</span> <span vid="296">DAY_01 — COMPLETE</span></div>
+                            <div class="flex items-center gap-3" vid="297"><span class="text-teal-400" vid="298">[✓]</span> <span vid="299">DAY_02 — COMPLETE</span></div>
+                            <div class="flex items-center gap-3" vid="300"><span class="text-orange-400" vid="301">[✓]</span> <span vid="302">DAY_03 — COMPLETE</span></div>
+                        </div>
+                        
+                        <div class="text-gray-500 mb-6" vid="303">----------------------------------------</div>
+                        
+                        <div class="space-y-2 mb-8" vid="304">
+                            <div vid="305">BUILD STATUS: <span class="text-white font-bold bg-green-900/50 px-2 py-0.5 border border-green-700" vid="306">READY</span></div>
+                            <div vid="307">TEAM STATUS:  <span class="text-white font-bold bg-green-900/50 px-2 py-0.5 border border-green-700" vid="308">READY</span></div>
+                            <div class="animate-pulse text-yellow-400" vid="309">JAM STATUS:   WAITING...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center" vid="310">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase mb-4 leading-tight" vid="311">
+                        You've learned the workflow.<br vid="312">
+                        <span class="text-purple" vid="313">Now build without the tutorial.</span>
+                    </h2>
+                    
+                    <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6" vid="314">
+                        <button class="w-full md:w-auto bg-purple text-white text-xl font-bold uppercase px-8 py-4 brutal-border shadow-[8px_8px_0px_0px_#00C2A8] hover:translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_#00C2A8] active:translate-y-2 active:translate-x-2 active:shadow-none brutal-transition flex items-center justify-center gap-3" vid="315">
+                            Enter the Competition <i data-lucide="arrow-right" class="w-6 h-6" vid="316"></i>
+                        </button>
+                        
+                        <button class="w-full md:w-auto bg-transparent text-white text-xl font-bold uppercase px-8 py-4 brutal-border border-white hover:bg-white hover:text-text active:translate-y-1 active:translate-x-1 brutal-transition" vid="317">
+                            View the Challenge
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer class="bg-bg border-t-4 border-text py-8 px-6 text-center font-mono text-sm font-bold flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full" vid="318">
+        <div vid="319">© 2026 ACM Programming Jam.</div>
+        <div class="mt-4 md:mt-0 flex gap-6" vid="320">
+            <a href="#" class="hover:text-purple underline decoration-2 underline-offset-4" vid="321">Terms</a>
+            <a href="#" class="hover:text-teal underline decoration-2 underline-offset-4" vid="322">Privacy</a>
+            <a href="#" class="hover:text-orange underline decoration-2 underline-offset-4" vid="323">Contact</a>
+        </div>
+    </footer>
+
+    
+    <script vid="324">
+        lucide.createIcons();
+    </script>
+
+</body></html>
