@@ -730,7 +730,10 @@
             const navLinks = document.querySelectorAll('.sidebar-link');
             const onScroll = () => {
                 const navbar = document.getElementById('navbar');
-                const activationLine = (navbar?.getBoundingClientRect().height || 0) + 80;
+                const activationLine = Math.max(
+                    (navbar?.getBoundingClientRect().height || 0) + 48,
+                    window.innerHeight * 0.33
+                );
                 let current = sections[0]?.id || '';
 
                 sections.forEach(section => {
