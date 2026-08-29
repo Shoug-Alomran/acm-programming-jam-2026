@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM | JAM.26</title>
+    <link rel="canonical" href="https://ai-programming-jam.shoug-tech.com/team.html">
     <meta name="description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <!-- JAM.26 icons / social -->
     <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -23,7 +24,8 @@
     <meta name="twitter:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <meta name="twitter:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
     <!-- /JAM.26 -->
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="assets/styles/site.css">
+    <script>window.tailwind = { config: {} };</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
@@ -371,7 +373,7 @@
                 </div>
 
                 
-                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full">
+                <div class="hidden bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex-col h-full">
                     <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold">
                         <span>ID: ORG_03</span>
                         <span class="flex items-center gap-2"><span class="w-2 h-2 bg-teal rounded-full animate-pulse"></span>ACTIVE</span>
@@ -389,7 +391,7 @@
                 </div>
 
                 
-                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full">
+                <div class="hidden bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex-col h-full">
                     <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold">
                         <span>ID: ORG_04</span>
                         <span class="flex items-center gap-2"><span class="w-2 h-2 bg-teal rounded-full animate-pulse"></span>ACTIVE</span>
@@ -407,7 +409,7 @@
                 </div>
 
                 
-                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full">
+                <div class="hidden bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex-col h-full">
                     <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold">
                         <span>ID: ORG_05</span>
                         <span class="flex items-center gap-2"><span class="w-2 h-2 bg-teal rounded-full animate-pulse"></span>ACTIVE</span>
@@ -425,7 +427,7 @@
                 </div>
 
                 
-                <div class="bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex flex-col h-full">
+                <div class="hidden bg-white brutal-border shadow-brutal transition-all duration-200 hover:-translate-y-2 hover:shadow-brutal-lg group flex-col h-full">
                     <div class="flex justify-between items-center border-b-4 border-base p-3 bg-purple text-white font-mono text-xs font-bold">
                         <span>ID: ORG_06</span>
                         <span class="flex items-center gap-2"><span class="w-2 h-2 bg-teal rounded-full animate-pulse"></span>ACTIVE</span>
@@ -620,8 +622,8 @@
                         </div>
                     </div>
 
-                    <a href="#" class="inline-block bg-teal brutal-border px-8 py-4 font-mono font-bold text-lg shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all text-center">
-                        JOIN ACM CLUB <span class="text-sm ml-2 bg-white px-2 py-1 border-2 border-base">[LINK TBD]</span>
+                    <a href="https://www.acm.org/chapters/students" target="_blank" rel="noopener noreferrer" class="inline-block bg-teal brutal-border px-8 py-4 font-mono font-bold text-lg shadow-brutal hover:translate-y-1 hover:translate-x-1 hover:shadow-brutal-hover transition-all text-center">
+                        EXPLORE ACM STUDENT CHAPTERS <span class="text-sm ml-2 bg-white px-2 py-1 border-2 border-base">↗</span>
                     </a>
                 </div>
 
@@ -636,12 +638,12 @@
                         
                         <div class="space-y-4 font-mono border-t-4 border-base pt-6">
                             <div class="flex items-start flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                                <span class="bg-base text-white px-2 py-1 font-bold text-xs">EMAIL</span>
-                                <a href="#" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4">[TBD]</a>
+                                <span class="bg-base text-white px-2 py-1 font-bold text-xs">QUESTIONS</span>
+                                <a href="faq.html#askForm" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4">Ask the JAM.26 organizers</a>
                             </div>
                             <div class="flex items-start flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                                <span class="bg-base text-white px-2 py-1 font-bold text-xs">SOCIAL</span>
-                                <a href="#" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4">[TBD]</a>
+                                <span class="bg-base text-white px-2 py-1 font-bold text-xs">ACM</span>
+                                <a href="https://www.acm.org/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-purple hover:underline decoration-4 underline-offset-4">acm.org ↗</a>
                             </div>
                         </div>
                     </div>

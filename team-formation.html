@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Jam 2026 - Team Formation</title>
+    <link rel="canonical" href="https://ai-programming-jam.shoug-tech.com/team-formation.html">
     <meta name="description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <!-- JAM.26 icons / social -->
     <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -23,7 +24,8 @@
     <meta name="twitter:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <meta name="twitter:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
     <!-- /JAM.26 -->
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="assets/styles/site.css">
+    <script>window.tailwind = { config: {} };</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
@@ -124,11 +126,15 @@
             <div class="p-3 sm:p-5">
                 
                 <div class="mb-3 sm:mb-4">
-                    <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-tighter mb-1">Assemble Your <span class="text-brandPurple">Squad</span></h2>
+                    <h1 class="text-2xl sm:text-3xl font-bold uppercase tracking-tighter mb-1">Assemble Your <span class="text-brandPurple">Squad</span></h1>
                     <p class="font-mono text-[10px] sm:text-xs text-gray-500">&gt; Initializing collaborative workspace... Awaiting metadata.</p>
                 </div>
 
                 <form id="jamForm" class="space-y-2.5 sm:space-y-3" novalidate>
+                    <div class="absolute -left-[10000px]" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
 
                     <div class="space-y-1">
                         <label for="fullName" class="block font-mono text-xs font-bold uppercase text-gray-500">01 // Full Name</label>
@@ -162,6 +168,8 @@
                         </div>
                         <p class="font-mono text-xs leading-relaxed text-gray-500">Press Enter or comma after each address. Leave empty if you are registering alone.</p>
                     </div>
+
+                    <p class="font-mono text-[11px] leading-relaxed text-gray-500 border-l-4 border-brandPurple pl-3">By submitting, you authorize the JAM.26 organizers to use these details only for registration, team coordination, and event communication. Use the organizer contact form on the FAQ page to request a correction or removal.</p>
 
                     <p id="formError" class="hidden font-mono text-sm font-bold text-brandOrange border-4 border-brandOrange bg-brandOrange/10 p-3"></p>
 
@@ -314,7 +322,8 @@
                 universityEmail: val('universityEmail'),
                 phoneNumber:     val('phoneNumber'),
                 teamName:        val('teamName'),
-                teamMembers:     emails.join(', ')
+                teamMembers:     emails.join(', '),
+                website:         val('website')
             };
 
             for (const [k, label] of [['fullName','your full name'], ['universityId','your university ID'],
@@ -343,12 +352,30 @@
 
             btn.disabled = true;
             btn.textContent = 'SUBMITTING...';
-            sink.addEventListener('load', () => {
-                form.classList.add('hidden');
-                okEl.classList.remove('hidden');
-            }, { once: true });
+            let completed = false;
+            const receiveResult = event => {
+                if (event.source !== sink.contentWindow || !event.data || event.data.source !== 'jam26') return;
+                completed = true;
+                window.removeEventListener('message', receiveResult);
+                if (event.data.message === 'OK') {
+                    form.classList.add('hidden');
+                    okEl.classList.remove('hidden');
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'TRY REGISTRATION AGAIN';
+                    fail(event.data.message.replace(/^Error:\s*/i, ''));
+                }
+            };
+            window.addEventListener('message', receiveResult);
             relay.submit();
             relay.remove();
+            window.setTimeout(() => {
+                if (completed) return;
+                window.removeEventListener('message', receiveResult);
+                btn.disabled = false;
+                btn.textContent = 'TRY REGISTRATION AGAIN';
+                fail('The registration service did not respond. Check your connection and try again, or contact the organizers through the FAQ page.');
+            }, 20000);
         });
     })();
     </script>

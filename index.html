@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACM Programming Jam 2026 | JAM.26</title>
-    <meta name="description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <link rel="canonical" href="https://ai-programming-jam.shoug-tech.com/">
+    <meta name="description"
+        content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <!-- JAM.26 icons / social -->
     <link rel="icon" href="/assets/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -13,22 +17,27 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JAM.26">
     <meta property="og:title" content="ACM Programming Jam 2026 | JAM.26">
-    <meta property="og:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <meta property="og:description"
+        content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <meta property="og:url" content="https://ai-programming-jam.shoug-tech.com/">
     <meta property="og:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ACM Programming Jam 2026 | JAM.26">
-    <meta name="twitter:description" content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
+    <meta name="twitter:description"
+        content="JAM.26 is an AI-assisted web engineering event: plan, design, build, deploy and present a working web application.">
     <meta name="twitter:image" content="https://ai-programming-jam.shoug-tech.com/assets/banner.png">
     <!-- /JAM.26 -->
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="assets/styles/site.css">
+    <script>window.tailwind = { config: {} };</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -70,7 +79,7 @@
                         cursorMove: {
                             '0%': { top: '80%', left: '80%', transform: 'scale(1)' },
                             '20%': { top: '50%', left: '40%', transform: 'scale(1)' },
-                            '30%': { top: '50%', left: '40%', transform: 'scale(0.9)' }, 
+                            '30%': { top: '50%', left: '40%', transform: 'scale(0.9)' },
                             '35%': { top: '50%', left: '40%', transform: 'scale(1)' },
                             '60%': { top: '30%', left: '70%', transform: 'scale(1)' },
                             '80%': { top: '70%', left: '20%', transform: 'scale(1)' },
@@ -94,19 +103,19 @@
         }
     </script>
     <style>
-        body {
+        html, body {
             background-color: #F7F7F2;
             color: #111111;
             overflow-x: hidden;
         }
-        
-        
+
+
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .reveal.is-visible {
             opacity: 1;
             transform: translateY(0);
@@ -145,167 +154,235 @@
             transform: scale(1);
         }
 
-        
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
 
-        
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+
         ::-webkit-scrollbar {
             width: 12px;
         }
+
         ::-webkit-scrollbar-track {
             background: #F7F7F2;
             border-left: 2px solid #111111;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #6C4DFF;
             border: 2px solid #111111;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #111111;
         }
 
-        
-        .shadow-brutal-purple { box-shadow: 6px 6px 0px 0px #6C4DFF; }
-        .shadow-brutal-teal { box-shadow: 6px 6px 0px 0px #00C2A8; }
-        .shadow-brutal-orange { box-shadow: 6px 6px 0px 0px #FF5C35; }
-        .shadow-brutal-dark { box-shadow: 6px 6px 0px 0px #111111; }
-        
+
+        .shadow-brutal-purple {
+            box-shadow: 6px 6px 0px 0px #6C4DFF;
+        }
+
+        .shadow-brutal-teal {
+            box-shadow: 6px 6px 0px 0px #00C2A8;
+        }
+
+        .shadow-brutal-orange {
+            box-shadow: 6px 6px 0px 0px #FF5C35;
+        }
+
+        .shadow-brutal-dark {
+            box-shadow: 6px 6px 0px 0px #111111;
+        }
+
         .hover-lift:hover {
             transform: translate(-4px, -4px);
             box-shadow: 10px 10px 0px 0px #111111;
         }
 
-        
+
         .map-path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
             transition: stroke-dashoffset 2s ease-out;
         }
+
         .map-path.is-visible {
             stroke-dashoffset: 0;
         }
     </style>
     <!-- EN/AR language support -->
-    <script>try{if(localStorage.getItem("jam-lang")==="ar"){document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","ar");}}catch(e){}</script>
+    <script>try { if (localStorage.getItem("jam-lang") === "ar") { document.documentElement.setAttribute("dir", "rtl"); document.documentElement.setAttribute("lang", "ar"); } } catch (e) { }</script>
     <script defer src="i18n.js"></script>
 </head>
-<body class="font-sans antialiased relative">
 
-    
+<body class="font-sans antialiased relative overflow-x-hidden">
+
+
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-[15%] left-[5%] text-brandPurple/20 font-mono text-4xl animate-float parallax" data-speed="0.2">{ }</div>
-        <div class="absolute top-[45%] right-[10%] text-brandTeal/20 font-mono text-6xl animate-float-delayed parallax" data-speed="0.3"></div>
-        <div class="absolute bottom-[20%] left-[15%] text-brandOrange/20 font-mono text-5xl animate-float parallax" data-speed="0.1">++</div>
-        <div class="absolute top-[70%] right-[25%] text-textDark/5 font-bold text-8xl animate-float-delayed parallax" data-speed="0.4">#</div>
-        
-        
-        <div class="absolute top-[30%] right-[5%] w-32 h-32 border-4 border-brandPurple/10 rounded-full animate-pulse-glow parallax" data-speed="0.15"></div>
-        <div class="absolute top-[80%] left-[8%] w-24 h-24 border-4 border-brandOrange/10 transform rotate-45 parallax" data-speed="0.25"></div>
+        <div class="absolute top-[15%] left-[5%] text-brandPurple/20 font-mono text-4xl animate-float parallax"
+            data-speed="0.2">{ }</div>
+        <div class="absolute top-[45%] right-[10%] text-brandTeal/20 font-mono text-6xl animate-float-delayed parallax"
+            data-speed="0.3"></div>
+        <div class="absolute bottom-[20%] left-[15%] text-brandOrange/20 font-mono text-5xl animate-float parallax"
+            data-speed="0.1">++</div>
+        <div class="absolute top-[70%] right-[25%] text-textDark/5 font-bold text-8xl animate-float-delayed parallax"
+            data-speed="0.4">#</div>
+
+
+        <div class="absolute top-[30%] right-[5%] w-32 h-32 border-4 border-brandPurple/10 rounded-full animate-pulse-glow parallax"
+            data-speed="0.15"></div>
+        <div class="absolute top-[80%] left-[8%] w-24 h-24 border-4 border-brandOrange/10 transform rotate-45 parallax"
+            data-speed="0.25"></div>
     </div>
 
-    
+
     <nav id="navbar" class="sticky top-0 z-50 w-full bg-[#F7F7F2] border-b-4 border-[#111111]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group shrink-0">
-                <span class="w-8 h-8 shrink-0 flex items-center justify-center"><svg viewBox="0 0 64 64" class="w-8 h-8" aria-hidden="true"><rect x="3" y="3" width="58" height="58" fill="#6C4DFF" stroke="#111111" stroke-width="5" class="group-hover:fill-[#111111] transition-colors"/><path d="M20 13 C12 13 18 28 10 32 C18 36 12 51 20 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M44 13 C52 13 46 28 54 32 C46 36 52 51 44 51" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round"/><path d="M32 18 C33.5 27.5 36.5 30.5 46 32 C36.5 33.5 33.5 36.5 32 46 C30.5 36.5 27.5 33.5 18 32 C27.5 30.5 30.5 27.5 32 18Z" fill="#FFFFFF"/></svg></span>
+                <span class="w-8 h-8 shrink-0 flex items-center justify-center"><svg viewBox="0 0 64 64" class="w-8 h-8"
+                        aria-hidden="true">
+                        <rect x="3" y="3" width="58" height="58" fill="#6C4DFF" stroke="#111111" stroke-width="5"
+                            class="group-hover:fill-[#111111] transition-colors" />
+                        <path d="M20 13 C12 13 18 28 10 32 C18 36 12 51 20 51" fill="none" stroke="#00C2A8"
+                            stroke-width="6" stroke-linecap="round" />
+                        <path d="M44 13 C52 13 46 28 54 32 C46 36 52 51 44 51" fill="none" stroke="#00C2A8"
+                            stroke-width="6" stroke-linecap="round" />
+                        <path
+                            d="M32 18 C33.5 27.5 36.5 30.5 46 32 C36.5 33.5 33.5 36.5 32 46 C30.5 36.5 27.5 33.5 18 32 C27.5 30.5 30.5 27.5 32 18Z"
+                            fill="#FFFFFF" />
+                    </svg></span>
                 <span class="font-bold text-2xl tracking-tighter text-[#111111]">JAM.26</span>
             </a>
 
             <div class="hidden lg:flex items-center gap-8 font-mono text-sm font-bold text-[#111111]">
-                <a href="index.html" aria-current="page" class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">HOME</a>
-                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
-                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
+                <a href="index.html" aria-current="page"
+                    class="text-[#6C4DFF] border-b-2 border-[#6C4DFF] pb-1">HOME</a>
+                <a href="workshops.html"
+                    class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
+                <a href="competition.html"
+                    class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
                 <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">RULES</a>
                 <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
                 <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">TEAM</a>
             </div>
 
             <div class="flex items-center gap-3">
-                <a href="team-formation.html" class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
-                <button type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('jam-nav-mobile');var o=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!o));" class="lg:hidden border-[3px] border-[#111111] bg-white p-2 text-[#111111]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <a href="team-formation.html"
+                    class="hidden sm:inline-block bg-[#00C2A8] text-[#111111] font-mono font-bold text-sm px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">REGISTER_</a>
+                <button type="button" aria-label="Toggle navigation" aria-expanded="false"
+                    onclick="var m=document.getElementById('jam-nav-mobile');var o=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!o));"
+                    class="lg:hidden border-[3px] border-[#111111] bg-white p-2 text-[#111111]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="square">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
                 </button>
             </div>
         </div>
 
-        <div id="jam-nav-mobile" class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
+        <div id="jam-nav-mobile"
+            class="hidden lg:hidden border-t-4 border-[#111111] bg-[#F7F7F2] px-6 py-5 font-mono text-sm font-bold text-[#111111] space-y-4">
             <a href="index.html" aria-current="page" class="block py-1 text-[#6C4DFF]">HOME</a>
             <a href="workshops.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">WORKSHOPS</a>
             <a href="competition.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">COMPETITION</a>
             <a href="rules.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">RULES</a>
             <a href="faq.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">FAQ</a>
             <a href="team.html" class="block py-1 hover:text-[#6C4DFF] transition-colors">TEAM</a>
-            <a href="team-formation.html" class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
+            <a href="team-formation.html"
+                class="block sm:hidden bg-[#00C2A8] text-[#111111] text-center px-6 py-2 border-[3px] border-[#111111] shadow-[4px_4px_0px_0px_#111111]">REGISTER_</a>
         </div>
     </nav>
 
-    
+
     <section class="min-h-screen pt-24 pb-20 px-6 flex items-center justify-center relative z-10">
         <div class="w-full max-w-5xl mx-auto relative parallax" data-speed="0.05">
-            
-            
-            <div class="w-full rounded-xl border-4 border-textDark bg-white shadow-[20px_20px_0px_0px_#6C4DFF] overflow-hidden relative">
-                
+
+
+            <div
+                class="w-full rounded-xl border-4 border-textDark bg-white shadow-[20px_20px_0px_0px_#6C4DFF] overflow-hidden relative">
+
                 <div class="h-14 border-b-4 border-textDark bg-[#E8E8E8] flex items-center px-4 justify-between">
                     <div class="flex gap-2">
                         <div class="w-4 h-4 rounded-full bg-[#FF5F56] border-2 border-textDark"></div>
                         <div class="w-4 h-4 rounded-full bg-[#FFBD2E] border-2 border-textDark"></div>
                         <div class="w-4 h-4 rounded-full bg-[#27C93F] border-2 border-textDark"></div>
                     </div>
-                    <div class="bg-white border-2 border-textDark rounded-md px-6 py-1 font-mono text-sm w-1/2 text-center truncate shadow-[2px_2px_0px_0px_#111111]">
+                    <div
+                        class="bg-white border-2 border-textDark rounded-md px-6 py-1 font-mono text-sm w-1/2 text-center truncate shadow-[2px_2px_0px_0px_#111111]">
                         <i class="ph ph-lock-key mr-2 text-green-600"></i> https://programmingjam.2026/live
                     </div>
-                    <div class="w-16"></div> 
+                    <div class="w-16"></div>
                 </div>
 
-                
+
                 <div class="flex flex-col md:flex-row h-auto md:h-[500px]">
-                    
-                    <div class="w-full md:w-5/12 border-b-4 md:border-b-0 md:border-r-4 border-textDark bg-textDark p-6 font-mono text-sm overflow-hidden relative flex flex-col justify-end">
-                        <div class="absolute top-4 right-4 text-gray-600"><i class="ph ph-terminal-window text-2xl"></i></div>
-                        
+
+                    <div
+                        class="w-full md:w-5/12 border-b-4 md:border-b-0 md:border-r-4 border-textDark bg-textDark p-6 font-mono text-sm overflow-hidden relative flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 text-gray-600"><i class="ph ph-terminal-window text-2xl"></i>
+                        </div>
+
                         <div class="text-brandTeal space-y-2 mb-4">
                             <p class="text-brandPurple font-bold">jam@2026:~$</p>
-                            <p class="text-white overflow-hidden whitespace-nowrap border-r-4 border-brandTeal animate-terminal-type pr-2 inline-block">
+                            <p
+                                class="text-white overflow-hidden whitespace-nowrap border-r-4 border-brandTeal animate-terminal-type pr-2 inline-block">
                                 ./start_jam.sh
                             </p>
-                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_2s_forwards]">&gt; Loading modules...</p>
-                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_2.5s_forwards]">&gt; Loading requirements...</p>
-                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_3s_forwards]">&gt; Preparing workshop modules...</p>
+                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_2s_forwards]">&gt; Loading
+                                modules...</p>
+                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_2.5s_forwards]">&gt; Loading
+                                requirements...</p>
+                            <p class="text-gray-400 opacity-0 animate-[opacity_0s_step-end_3s_forwards]">&gt; Preparing
+                                workshop modules...</p>
                             <p class="text-brandTeal font-bold opacity-0 animate-[opacity_0s_step-end_3.5s_forwards]">
                                 <i class="ph-fill ph-check-circle mr-2"></i> System Online.
                             </p>
                         </div>
-                        
-                        <div class="mt-auto border-t border-gray-700 pt-4 flex items-center justify-between opacity-0 animate-[opacity_0s_step-end_4s_forwards]">
+
+                        <div
+                            class="mt-auto border-t border-gray-700 pt-4 flex items-center justify-between opacity-0 animate-[opacity_0s_step-end_4s_forwards]">
                             <span class="text-brandOrange flex items-center">
-                                Awaiting user input <span class="w-2 h-4 bg-brandOrange animate-blink ml-2 inline-block"></span>
+                                Awaiting user input <span
+                                    class="w-2 h-4 bg-brandOrange animate-blink ml-2 inline-block"></span>
                             </span>
                             <span class="text-xs text-gray-500">v2.0.26</span>
                         </div>
                     </div>
 
-                    
-                    <div class="w-full md:w-7/12 p-10 bg-bgLight relative overflow-hidden flex flex-col justify-center bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
-                        
-                        
-                        <div class="hidden md:block absolute top-8 right-8 bg-white border-2 border-textDark p-3 shadow-brutal-orange rotate-3">
+
+                    <div
+                        class="w-full md:w-7/12 p-10 bg-bgLight relative overflow-hidden flex flex-col justify-center bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+
+
+                        <div
+                            class="hidden md:block absolute top-8 right-8 bg-white border-2 border-textDark p-3 shadow-brutal-orange rotate-3">
                             <div class="font-mono text-xs font-bold flex items-center gap-2">
                                 <span class="w-2 h-2 bg-brandTeal rounded-full animate-ping"></span> Live Sync
                             </div>
                         </div>
 
-                        <div class="hidden md:block absolute bottom-8 left-8 bg-brandPurple text-white border-2 border-textDark p-4 shadow-brutal-dark -rotate-2">
+                        <div
+                            class="hidden md:block absolute bottom-8 left-8 bg-brandPurple text-white border-2 border-textDark p-4 shadow-brutal-dark -rotate-2">
                             <i class="ph-fill ph-chalkboard-teacher text-2xl mb-2"></i>
                             <div class="font-bold text-xl">03</div>
                             <div class="font-mono text-xs">Workshop Days</div>
                         </div>
 
-                        
+
                         <div class="relative z-10 max-w-md mx-auto text-center md:text-left">
-                            <div class="inline-block px-3 py-1 bg-brandTeal/20 border-2 border-brandTeal text-brandTeal font-mono text-xs font-bold mb-4 rounded-full">
+                            <div
+                                class="inline-block px-3 py-1 bg-brandTeal/20 border-2 border-brandTeal text-brandTeal font-mono text-xs font-bold mb-4 rounded-full">
                                 SEASON 2026
                             </div>
                             <h1 class="text-5xl md:text-6xl font-bold leading-none mb-6 tracking-tighter uppercase">
@@ -313,48 +390,58 @@
                                 Construct.<br>
                                 <span class="text-brandPurple relative inline-block">
                                     Create.
-                                    <svg class="absolute -bottom-2 left-0 w-full h-3 text-brandOrange" viewBox="0 0 100 20" preserveAspectRatio="none">
-                                        <path d="M0,10 Q50,20 100,10" fill="none" stroke="currentColor" stroke-width="4"></path>
+                                    <svg class="absolute -bottom-2 left-0 w-full h-3 text-brandOrange"
+                                        viewBox="0 0 100 20" preserveAspectRatio="none">
+                                        <path d="M0,10 Q50,20 100,10" fill="none" stroke="currentColor"
+                                            stroke-width="4"></path>
                                     </svg>
                                 </span>
                             </h1>
-                            
-                            <a href="team-formation.html" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-textDark border-2 border-textDark overflow-hidden transition-all hover:bg-brandOrange">
+
+                            <a href="team-formation.html"
+                                class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-textDark border-2 border-textDark overflow-hidden transition-all hover:bg-brandOrange">
                                 <span class="relative z-10 flex items-center gap-2 font-mono text-lg">
-                                    JOIN THE JAM <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                    JOIN THE JAM <i
+                                        class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                                 </span>
                             </a>
                         </div>
 
-                        
-                        <div class="hidden md:block absolute w-8 h-8 z-50 pointer-events-none animate-cursor-move" style="filter: drop-shadow(3px 3px 0px rgba(17,17,17,1));">
-                            <svg viewBox="0 0 24 24" fill="white" stroke="#111111" stroke-width="2" class="w-full h-full">
-                                <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.8c.45 0 .67-.54.35-.85L5.5 3.21z" stroke-linejoin="round"></path>
+
+                        <div class="hidden md:block absolute w-8 h-8 z-50 pointer-events-none animate-cursor-move"
+                            style="filter: drop-shadow(3px 3px 0px rgba(17,17,17,1));">
+                            <svg viewBox="0 0 24 24" fill="white" stroke="#111111" stroke-width="2"
+                                class="w-full h-full">
+                                <path
+                                    d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.8c.45 0 .67-.54.35-.85L5.5 3.21z"
+                                    stroke-linejoin="round"></path>
                             </svg>
                         </div>
 
                     </div>
                 </div>
             </div>
-            
-            
-            <div class="absolute -bottom-6 right-0 sm:-right-6 md:-right-12 w-24 h-24 sm:w-32 sm:h-32 bg-brandOrange rounded-full border-4 border-textDark hidden sm:flex items-center justify-center text-center font-bold text-white shadow-brutal-dark rotate-12 parallax" data-speed="0.1">
+
+
+            <div class="absolute -bottom-6 right-0 sm:-right-6 md:-right-12 w-24 h-24 sm:w-32 sm:h-32 bg-brandOrange rounded-full border-4 border-textDark hidden sm:flex items-center justify-center text-center font-bold text-white shadow-brutal-dark rotate-12 parallax"
+                data-speed="0.1">
                 <span class="transform -rotate-12 leading-tight">PLAN<br>BUILD<br>SHIP</span>
             </div>
         </div>
     </section>
 
-    
+
     <div class="w-full overflow-hidden bg-textDark border-y-4 border-brandTeal py-4 relative z-20 flex">
-        <div class="flex whitespace-nowrap animate-marquee font-bold text-4xl md:text-6xl text-bgLight uppercase tracking-widest">
+        <div
+            class="flex whitespace-nowrap animate-marquee font-bold text-4xl md:text-6xl text-bgLight uppercase tracking-widest">
             <span class="mx-4">PROGRAMMING JAM 2026</span>
             <span class="mx-4 text-textDark">///</span>
             <span class="mx-4">CODE CONSTRUCT CREATE</span>
             <span class="mx-4 text-textDark">///</span>
             <span class="mx-4 text-brandOrange stroke-text">AI-ASSISTED WEB ENGINEERING</span>
             <span class="mx-4 text-textDark">///</span>
-            
-            
+
+
             <span class="mx-4">PROGRAMMING JAM 2026</span>
             <span class="mx-4 text-textDark">///</span>
             <span class="mx-4">CODE CONSTRUCT CREATE</span>
@@ -364,37 +451,45 @@
         </div>
     </div>
 
-    
+
     <!-- Organizing bodies -->
     <section id="organizers-logos" class="py-16 px-6 bg-white border-y-4 border-textDark relative z-10">
         <div class="max-w-5xl mx-auto">
-            <h2 class="font-mono text-xs md:text-sm font-bold uppercase tracking-widest text-gray-500 text-center mb-10">Organized by</h2>
+            <h2
+                class="font-mono text-xs md:text-sm font-bold uppercase tracking-widest text-gray-500 text-center mb-10">
+                Organized by</h2>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-14">
-                <img src="assets/acm-logo.png" alt="ACM — Association for Computing Machinery" width="512" height="512" loading="lazy" decoding="async" class="h-16 md:h-20 w-auto object-contain">
+                <img src="assets/acm-logo.png" alt="ACM — Association for Computing Machinery" width="512" height="512"
+                    loading="lazy" decoding="async" class="h-16 md:h-20 w-auto object-contain">
                 <span class="hidden sm:block shrink-0 w-1 h-16 bg-textDark" aria-hidden="true"></span>
-                <img src="assets/ccis-logo.png" alt="College of Computer &amp; Information Sciences" width="447" height="113" loading="lazy" decoding="async" class="h-12 md:h-14 w-auto object-contain">
+                <img src="assets/ccis-logo.png" alt="College of Computer &amp; Information Sciences" width="447"
+                    height="113" loading="lazy" decoding="async" class="h-12 md:h-14 w-auto object-contain">
                 <span class="hidden sm:block shrink-0 w-1 h-16 bg-textDark" aria-hidden="true"></span>
-                <img src="assets/prince-sultan-univeristy.png" alt="Prince Sultan University" width="1023" height="321" loading="lazy" decoding="async" class="h-12 md:h-16 w-auto object-contain">
+                <img src="assets/prince-sultan-univeristy.png" alt="Prince Sultan University" width="1023" height="321"
+                    loading="lazy" decoding="async" class="h-12 md:h-16 w-auto object-contain">
             </div>
         </div>
     </section>
 
     <section id="about" class="py-32 px-6 relative z-10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            
-            
+
+
             <div class="md:col-span-5 md:col-start-2 reveal-left">
                 <div class="bg-white border-2 border-textDark p-6 font-mono text-sm leading-relaxed shadow-brutal-dark">
                     <div class="flex items-center gap-2 mb-4 pb-2 border-b border-gray-200 text-gray-400">
                         <i class="ph ph-book-open text-brandTeal"></i> README.md
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-textDark"># Programming Jam 2026</h2>
-                    <p class="mb-4">An AI-assisted web engineering event. Every team receives the same application brief, then plans it, designs it, builds it, deploys it, and presents it.</p>
+                    <p class="mb-4">An AI-assisted web engineering event. Every team receives the same application
+                        brief, then plans it, designs it, builds it, deploys it, and presents it.</p>
                     <h3 class="text-xl font-bold mb-2 text-brandPurple">## Format</h3>
                     <ul class="list-disc list-inside mb-4 text-gray-600 space-y-1">
                         <li>Brief: One shared application challenge</li>
                         <li>Preparation: 3 workshop days</li>
-                        <li>Duration: TBD</li>
+                        <li>Workshops: 15, 16 &amp; 17 September 2026</li>
+                        <li>Competition: 19 September 2026</li>
+                        <li>Time &amp; location: To be announced</li>
                     </ul>
                     <h3 class="text-xl font-bold mb-2 text-brandTeal">## Toolchain</h3>
                     <div class="flex gap-2 flex-wrap">
@@ -408,22 +503,26 @@
                 </div>
             </div>
 
-            
-            <div class="md:col-span-6 relative mt-16 md:mt-0 h-[500px] reveal-right">
-                
-                
-                <div class="absolute top-10 right-10 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl parallax" data-speed="0.15"></div>
 
-                
-                <div class="absolute top-0 right-0 w-4/5 h-80 bg-white border-4 border-textDark shadow-brutal-purple -rotate-3 overflow-hidden z-20 hover:rotate-0 transition-transform duration-500">
-                    <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PHBhdGggZD0iTTAsMGg0MDB2NDAwSDBWMEoiIGZpbGw9IiNlNWU3ZWIiLz48cGF0aCBkPSJNMjAwLDE1MCBMMjUwLDI1MCBMMTUwLDI1MCBaIiBmaWxsPSIjNmM0ZGZmIi8+PC9zdmc+')] bg-cover bg-center border-b-4 border-textDark relative filter grayscale hover:grayscale-0 transition-all duration-500">
-                        
+            <div class="md:col-span-6 relative mt-16 md:mt-0 h-[500px] reveal-right">
+
+
+                <div class="absolute top-10 right-10 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl parallax"
+                    data-speed="0.15"></div>
+
+
+                <div
+                    class="absolute top-0 right-0 w-4/5 h-80 bg-white border-4 border-textDark shadow-brutal-purple -rotate-3 overflow-hidden z-20 hover:rotate-0 transition-transform duration-500">
+                    <div
+                        class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PHBhdGggZD0iTTAsMGg0MDB2NDAwSDBWMEoiIGZpbGw9IiNlNWU3ZWIiLz48cGF0aCBkPSJNMjAwLDE1MCBMMjUwLDI1MCBMMTUwLDI1MCBaIiBmaWxsPSIjNmM0ZGZmIi8+PC9zdmc+')] bg-cover bg-center border-b-4 border-textDark relative filter grayscale hover:grayscale-0 transition-all duration-500">
+
                         <div class="absolute inset-0 bg-textDark/10"></div>
                     </div>
                 </div>
 
-                
-                <div class="absolute bottom-10 left-0 w-3/4 bg-textDark text-brandTeal border-4 border-brandTeal p-6 font-mono text-sm shadow-[8px_8px_0px_0px_rgba(0,194,168,0.5)] z-30 rotate-2 parallax" data-speed="0.2">
+
+                <div class="absolute bottom-10 left-0 w-3/4 bg-textDark text-brandTeal border-4 border-brandTeal p-6 font-mono text-sm shadow-[8px_8px_0px_0px_rgba(0,194,168,0.5)] z-30 rotate-2 parallax"
+                    data-speed="0.2">
                     <div class="flex gap-2 mb-4">
                         <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                         <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -440,8 +539,9 @@
                     </code>
                 </div>
 
-                
-                <div class="absolute top-1/2 -left-8 bg-brandPurple text-white px-4 py-2 border-2 border-textDark font-bold shadow-brutal-dark z-40 animate-float">
+
+                <div
+                    class="absolute top-1/2 -left-8 bg-brandPurple text-white px-4 py-2 border-2 border-textDark font-bold shadow-brutal-dark z-40 animate-float">
                     ACM CLUB
                 </div>
             </div>
@@ -449,144 +549,180 @@
         </div>
     </section>
 
-    
+
     <section id="journey" class="py-32 bg-white border-y-4 border-textDark relative overflow-hidden">
-        
-        <div class="absolute inset-0 opacity-[0.03] parallax" data-speed="0.1" style="background-image: radial-gradient(#111 2px, transparent 2px); background-size: 30px 30px;"></div>
-        
+
+        <div class="absolute inset-0 opacity-[0.03] parallax" data-speed="0.1"
+            style="background-image: radial-gradient(#111 2px, transparent 2px); background-size: 30px 30px;"></div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center mb-16 reveal-scale">
-                <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">The <span class="text-brandOrange">Journey</span></h2>
+                <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">The <span
+                        class="text-brandOrange">Journey</span></h2>
                 <p class="font-mono mt-4 text-xl">One brief. Four phases. A working application.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-purple transition-all duration-300 reveal delay-100">
-                    <div class="w-12 h-12 bg-brandPurple text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">01</div>
+                <div
+                    class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-purple transition-all duration-300 reveal delay-100">
+                    <div
+                        class="w-12 h-12 bg-brandPurple text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">
+                        01</div>
                     <h3 class="text-2xl font-bold mb-2 uppercase">Understand &amp; Plan</h3>
-                    <p class="text-sm font-mono text-gray-600 mb-2">15 September 2026</p>
-                    <p class="text-sm">Read the requirements, map how the system works in Excalidraw, and design the interface in Variant.</p>
+                    <p class="text-sm font-mono text-gray-600 mb-2">15 September 2026 // TIME &amp; LOCATION TBD</p>
+                    <p class="text-sm">Read the requirements, map how the system works in Excalidraw, and design the
+                        interface in Variant.</p>
                 </div>
-                <div class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-teal transition-all duration-300 reveal delay-200">
-                    <div class="w-12 h-12 bg-brandTeal text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">02</div>
+                <div
+                    class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-teal transition-all duration-300 reveal delay-200">
+                    <div
+                        class="w-12 h-12 bg-brandTeal text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">
+                        02</div>
                     <h3 class="text-2xl font-bold mb-2 uppercase">Build &amp; Connect</h3>
-                    <p class="text-sm font-mono text-gray-600 mb-2">16 September 2026</p>
-                    <p class="text-sm">Develop in VS Code with Codex and Claude Code. Add authentication and persistent data with Firebase.</p>
+                    <p class="text-sm font-mono text-gray-600 mb-2">16 September 2026 // TIME &amp; LOCATION TBD</p>
+                    <p class="text-sm">Develop in VS Code with Codex and Claude Code. Add authentication and persistent
+                        data with Firebase.</p>
                 </div>
-                <div class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-orange transition-all duration-300 reveal delay-300">
-                    <div class="w-12 h-12 bg-brandOrange text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">03</div>
+                <div
+                    class="bg-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-orange transition-all duration-300 reveal delay-300">
+                    <div
+                        class="w-12 h-12 bg-brandOrange text-white flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">
+                        03</div>
                     <h3 class="text-2xl font-bold mb-2 uppercase">Deploy &amp; Measure</h3>
-                    <p class="text-sm font-mono text-gray-600 mb-2">17 September 2026</p>
-                    <p class="text-sm">Version with GitHub, deploy to Vercel, configure the domain in Cloudflare, then measure with PageSpeed Insights.</p>
+                    <p class="text-sm font-mono text-gray-600 mb-2">17 September 2026 // TIME &amp; LOCATION TBD</p>
+                    <p class="text-sm">Version with GitHub, deploy to Vercel, configure the domain in Cloudflare, then
+                        measure with PageSpeed Insights.</p>
                 </div>
-                <div class="bg-brandPurple text-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-dark transition-all duration-300 reveal delay-400">
-                    <div class="w-12 h-12 bg-white text-brandPurple flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">04</div>
+                <div
+                    class="bg-brandPurple text-white border-4 border-textDark p-6 hover:-translate-y-2 hover:shadow-brutal-dark transition-all duration-300 reveal delay-400">
+                    <div
+                        class="w-12 h-12 bg-white text-brandPurple flex items-center justify-center font-bold text-xl border-2 border-textDark mb-4">
+                        04</div>
                     <h3 class="text-2xl font-bold mb-2 uppercase">Adapt &amp; Present</h3>
-                    <p class="text-sm font-mono text-gray-300 mb-2">19 September 2026</p>
-                    <p class="text-sm">Respond to the unexpected change request, then demonstrate and explain what you built.</p>
+                    <p class="text-sm font-mono text-gray-300 mb-2">19 September 2026 // TIME &amp; LOCATION TBD</p>
+                    <p class="text-sm">Respond to the unexpected change request, then demonstrate and explain what you
+                        built.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    
+
     <section id="workshops" class="py-32 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
-            
+
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
-                    <div class="inline-block px-4 py-2 bg-white border-2 border-textDark font-mono text-sm font-bold mb-4">
+                    <div
+                        class="inline-block px-4 py-2 bg-white border-2 border-textDark font-mono text-sm font-bold mb-4">
                         /WORKSHOPS
                     </div>
                     <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">Learn the <br>Workflow.</h2>
                 </div>
                 <div class="mt-6 md:mt-0 max-w-sm">
-                    <p class="font-mono text-sm text-gray-600">Three workshop days that walk through the same workflow you will use on competition day.</p>
+                    <p class="font-mono text-sm text-gray-600">Three workshop days that walk through the same workflow
+                        you will use on competition day.</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                
-                <div class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#6C4DFF] reveal delay-100 flex flex-col h-full">
+
+
+                <div
+                    class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#6C4DFF] reveal delay-100 flex flex-col h-full">
                     <div class="flex justify-between items-start mb-12">
-                        <div class="w-16 h-16 rounded-full bg-brandPurple/10 border-2 border-brandPurple flex items-center justify-center text-brandPurple group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-16 h-16 rounded-full bg-brandPurple/10 border-2 border-brandPurple flex items-center justify-center text-brandPurple group-hover:scale-110 transition-transform">
                             <i class="ph ph-compass-tool text-3xl"></i>
                         </div>
-                        <span class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
+                        <span
+                            class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
                     </div>
                     <h3 class="text-3xl font-bold mb-2 uppercase">Planning &amp; Workflow</h3>
                     <p class="text-gray-600 font-mono text-sm mb-4">Day 01 // 15 September 2026</p>
-                    
-                    
+
+
                     <div class="mt-auto overflow-hidden">
                         <div class="pt-4 border-t-2 border-dashed border-gray-300">
-                            <p class="text-sm mb-4">Turn requirements into a plan: understand the brief, map the system in Excalidraw, design the UI in Variant.</p>
-                            <a href="workshop-day-01.html" class="inline-flex items-center gap-2 font-bold text-brandPurple hover:underline">
+                            <p class="text-sm mb-4">Turn requirements into a plan: understand the brief, map the system
+                                in Excalidraw, design the UI in Variant.</p>
+                            <a href="workshop-day-01.html"
+                                class="inline-flex items-center gap-2 font-bold text-brandPurple hover:underline">
                                 Explore Day 01 <i class="ph-bold ph-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                
-                <div class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#00C2A8] reveal delay-200 flex flex-col h-full">
+
+                <div
+                    class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#00C2A8] reveal delay-200 flex flex-col h-full">
                     <div class="flex justify-between items-start mb-12">
-                        <div class="w-16 h-16 rounded-full bg-brandTeal/10 border-2 border-brandTeal flex items-center justify-center text-brandTeal group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-16 h-16 rounded-full bg-brandTeal/10 border-2 border-brandTeal flex items-center justify-center text-brandTeal group-hover:scale-110 transition-transform">
                             <i class="ph ph-code text-3xl"></i>
                         </div>
-                        <span class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
+                        <span
+                            class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
                     </div>
                     <h3 class="text-3xl font-bold mb-2 uppercase">Build &amp; Debug</h3>
                     <p class="text-gray-600 font-mono text-sm mb-4">Day 02 // 16 September 2026</p>
-                    
+
                     <div class="mt-auto overflow-hidden">
                         <div class="pt-4 border-t-2 border-dashed border-gray-300">
-                            <p class="text-sm mb-4">Develop in VS Code with AI assistants, wire up Firebase auth and data, and debug systematically.</p>
-                            <a href="workshop-day-02.html" class="inline-flex items-center gap-2 font-bold text-brandTeal hover:underline">
+                            <p class="text-sm mb-4">Develop in VS Code with AI assistants, wire up Firebase auth and
+                                data, and debug systematically.</p>
+                            <a href="workshop-day-02.html"
+                                class="inline-flex items-center gap-2 font-bold text-brandTeal hover:underline">
                                 Explore Day 02 <i class="ph-bold ph-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                
-                <div class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#FF5C35] reveal delay-300 flex flex-col h-full">
+
+                <div
+                    class="group relative bg-white border-4 border-textDark p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#FF5C35] reveal delay-300 flex flex-col h-full">
                     <div class="flex justify-between items-start mb-12">
-                        <div class="w-16 h-16 rounded-full bg-brandOrange/10 border-2 border-brandOrange flex items-center justify-center text-brandOrange group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-16 h-16 rounded-full bg-brandOrange/10 border-2 border-brandOrange flex items-center justify-center text-brandOrange group-hover:scale-110 transition-transform">
                             <i class="ph ph-rocket-launch text-3xl"></i>
                         </div>
-                        <span class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
+                        <span
+                            class="font-mono text-xs font-bold border border-textDark px-2 py-1 rounded-full">WORKSHOP</span>
                     </div>
                     <h3 class="text-3xl font-bold mb-2 uppercase">Deploy &amp; Measure</h3>
                     <p class="text-gray-600 font-mono text-sm mb-4">Day 03 // 17 September 2026</p>
-                    
+
                     <div class="mt-auto overflow-hidden">
                         <div class="pt-4 border-t-2 border-dashed border-gray-300">
-                            <p class="text-sm mb-4">Ship it: GitHub, Vercel, Cloudflare DNS, search-engine setup, and PageSpeed Insights.</p>
-                            <a href="workshop-day-03.html" class="inline-flex items-center gap-2 font-bold text-brandOrange hover:underline">
+                            <p class="text-sm mb-4">Ship it: GitHub, Vercel, Cloudflare DNS, search-engine setup, and
+                                PageSpeed Insights.</p>
+                            <a href="workshop-day-03.html"
+                                class="inline-flex items-center gap-2 font-bold text-brandOrange hover:underline">
                                 Explore Day 03 <i class="ph-bold ph-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                
+
 
 
             </div>
         </div>
     </section>
 
-    
+
     <div class="w-full overflow-hidden bg-textDark border-y-4 border-textDark py-6 relative z-20 flex">
-        <div class="flex whitespace-nowrap animate-marquee-reverse font-mono text-2xl md:text-3xl text-brandTeal uppercase">
+        <div
+            class="flex whitespace-nowrap animate-marquee-reverse font-mono text-2xl md:text-3xl text-brandTeal uppercase">
             <span class="mx-8">PLAN &rarr; BUILD &rarr; DEBUG &rarr; DEPLOY &rarr; ADAPT &rarr; PRESENT</span>
             <span class="mx-8 text-white">***</span>
             <span class="mx-8">git commit -m "understand, test, debug, improve"</span>
             <span class="mx-8 text-white">***</span>
-            
-            
+
+
             <span class="mx-8">PLAN &rarr; BUILD &rarr; DEBUG &rarr; DEPLOY &rarr; ADAPT &rarr; PRESENT</span>
             <span class="mx-8 text-white">***</span>
             <span class="mx-8">git commit -m "understand, test, debug, improve"</span>
@@ -594,89 +730,108 @@
         </div>
     </div>
 
-    
+
     <section id="challenge" class="py-32 px-6 bg-[#0a0a0a] relative overflow-hidden border-b-4 border-textDark">
-        
-        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(#00C2A8 1px, transparent 1px), linear-gradient(90deg, #00C2A8 1px, transparent 1px); background-size: 50px 50px;"></div>
-        
-        
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] pointer-events-none"></div>
+
+        <div class="absolute inset-0 opacity-20"
+            style="background-image: linear-gradient(#00C2A8 1px, transparent 1px), linear-gradient(90deg, #00C2A8 1px, transparent 1px); background-size: 50px 50px;">
+        </div>
+
+
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] pointer-events-none">
+        </div>
 
         <div class="max-w-4xl mx-auto relative z-10 text-center reveal-scale">
-            
+
             <i class="ph ph-lock-key text-6xl text-brandTeal mb-6 animate-pulse"></i>
-            
-            <h2 class="text-5xl md:text-7xl font-mono font-bold text-white mb-6 uppercase tracking-widest relative inline-block">
+
+            <h2
+                class="text-4xl sm:text-5xl md:text-7xl font-mono font-bold text-white mb-6 uppercase tracking-widest relative inline-block">
                 <span class="relative z-10">THE_CHALLENGE</span>
-                <span class="absolute top-0 left-[2px] text-brandOrange mix-blend-screen opacity-70 z-0 select-none">THE_CHALLENGE</span>
-                <span class="absolute top-0 -left-[2px] text-brandPurple mix-blend-screen opacity-70 z-0 select-none">THE_CHALLENGE</span>
+                <span
+                    class="absolute top-0 left-[2px] text-brandOrange mix-blend-screen opacity-70 z-0 select-none">THE_CHALLENGE</span>
+                <span
+                    class="absolute top-0 -left-[2px] text-brandPurple mix-blend-screen opacity-70 z-0 select-none">THE_CHALLENGE</span>
             </h2>
 
-            <div class="bg-black/50 border border-brandTeal/30 p-8 md:p-12 backdrop-blur-sm mt-8 max-w-2xl mx-auto text-left relative group">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brandTeal to-transparent opacity-50"></div>
-                
+            <div
+                class="bg-black/50 border border-brandTeal/30 p-8 md:p-12 backdrop-blur-sm mt-8 max-w-2xl mx-auto text-left relative group">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brandTeal to-transparent opacity-50">
+                </div>
+
                 <p class="font-mono text-brandTeal text-sm mb-4">&gt; STATUS: LOCKED UNTIL COMPETITION DAY</p>
                 <p class="text-gray-400 font-mono text-sm leading-relaxed mb-8">
-                    Every team receives the same application brief on competition day. It defines the target user, the core functionality, the required features, the technical requirements, and the final deliverables. How you build it is up to your team.
+                    Every team receives the same application brief on competition day. It defines the target user, the
+                    core functionality, the required features, the technical requirements, and the final deliverables.
+                    How you build it is up to your team.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="competition.html" class="flex-1 text-center bg-brandTeal text-black font-bold font-mono px-8 py-4 hover:bg-white transition-colors uppercase tracking-wider">
+                    <a href="competition.html"
+                        class="flex-1 text-center bg-brandTeal text-black font-bold font-mono px-8 py-4 hover:bg-white transition-colors uppercase tracking-wider">
                         How Competition Day Works
                     </a>
-                    <a href="rules.html" class="flex-1 text-center bg-transparent border border-gray-700 text-white font-bold font-mono px-8 py-4 hover:border-brandTeal transition-colors uppercase tracking-wider">
+                    <a href="rules.html"
+                        class="flex-1 text-center bg-transparent border border-gray-700 text-white font-bold font-mono px-8 py-4 hover:border-brandTeal transition-colors uppercase tracking-wider">
                         Read The Rules
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
-    
+
     <section id="register" class="py-32 px-6 bg-bgLight relative z-10">
         <div class="max-w-5xl mx-auto text-center">
-            
+
             <div class="mb-12 reveal">
                 <h2 class="text-6xl md:text-9xl font-bold uppercase tracking-tighter leading-none mb-6 relative">
                     <span class="text-brandPurple">git</span> <span class="text-brandTeal">add</span> .<br>
                     <span class="text-brandOrange">git</span> <span class="text-brandPurple">commit</span><br>
                     <span class="text-textDark">git</span> <span class="text-brandTeal">push</span> origin
                 </h2>
-                <p class="text-xl md:text-2xl font-mono mt-8">Workshops: 15–17 September 2026 // Competition: 19 September 2026 // Venue: TBD</p>
+                <p class="text-xl md:text-2xl font-mono mt-8">Workshops: 15, 16 &amp; 17 September 2026 // Competition:
+                    19 September 2026 // Time &amp; location: TBD</p>
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center gap-6 reveal delay-200">
-                <a href="team-formation.html" class="group relative px-12 py-6 bg-brandOrange text-white font-bold text-xl uppercase tracking-wider border-4 border-textDark shadow-[8px_8px_0px_0px_#111111] hover:-translate-y-2 hover:shadow-[16px_16px_0px_0px_#111111] transition-all duration-300">
+                <a href="team-formation.html"
+                    class="group relative px-12 py-6 bg-brandOrange text-white font-bold text-xl uppercase tracking-wider border-4 border-textDark shadow-[8px_8px_0px_0px_#111111] hover:-translate-y-2 hover:shadow-[16px_16px_0px_0px_#111111] transition-all duration-300">
                     <span class="relative z-10 flex items-center gap-2">
                         Register Now <i class="ph-bold ph-lightning group-hover:animate-bounce"></i>
                     </span>
-                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0 ease-out"></div>
-                    <span class="absolute inset-0 flex items-center justify-center text-textDark z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                    <div
+                        class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0 ease-out">
+                    </div>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-textDark z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                         LET'S GO <i class="ph-bold ph-rocket ml-2"></i>
                     </span>
                 </a>
             </div>
 
-            
+
         </div>
     </section>
 
     <script>
-        
+
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15 
+                threshold: 0.15
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        
-                        
+
+
                     }
                 });
             }, observerOptions);
@@ -685,20 +840,20 @@
             revealElements.forEach(el => observer.observe(el));
 
 
-            
+
             const parallaxElements = document.querySelectorAll('.parallax');
-            
+
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
-                
+
                 parallaxElements.forEach(el => {
                     const speed = el.dataset.speed || 0.1;
-                    
-                    const yPos = -(scrolled * speed); 
+
+                    const yPos = -(scrolled * speed);
                     el.style.transform = `translateY(${yPos}px)`;
                 });
 
-                
+
                 const navbar = document.getElementById('navbar');
                 if (scrolled > 50) {
                     navbar.classList.add('shadow-md');
@@ -706,19 +861,19 @@
                     navbar.classList.remove('shadow-md');
                 }
 
-                
+
                 const journeySection = document.getElementById('journey');
                 const timelineProgress = document.getElementById('timeline-progress');
-                
+
                 if (journeySection && timelineProgress) {
                     const sectionTop = journeySection.offsetTop;
                     const sectionHeight = journeySection.offsetHeight;
                     const viewportHeight = window.innerHeight;
-                    
-                    
+
+
                     if (scrolled > sectionTop - viewportHeight + 200) {
                         let progress = ((scrolled - (sectionTop - viewportHeight + 200)) / (sectionHeight)) * 100;
-                        progress = Math.max(0, Math.min(100, progress * 1.5)); 
+                        progress = Math.max(0, Math.min(100, progress * 1.5));
                         timelineProgress.style.width = `${progress}%`;
                     }
                 }
@@ -727,25 +882,33 @@
     </script>
 
     <footer class="border-t-4 border-[#111111] bg-white text-[#111111] py-10 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-sm font-bold">
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-sm font-bold">
             <div class="flex items-center gap-2">
                 <span class="inline-block w-4 h-4 bg-[#111111]"></span>
                 <span class="text-lg tracking-tight">JAM.26</span>
             </div>
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 uppercase">
                 <span class="inline-block py-1.5 text-[#6C4DFF]">Home</span>
-                <a href="workshops.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Workshops</a>
-                <a href="competition.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Competition</a>
+                <a href="workshops.html"
+                    class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Workshops</a>
+                <a href="competition.html"
+                    class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Competition</a>
                 <a href="rules.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Rules</a>
                 <a href="faq.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">FAQ</a>
                 <a href="team.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Team</a>
-                <a href="team-formation.html" class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Register</a>
+                <a href="team-formation.html"
+                    class="inline-block py-1.5 hover:text-[#6C4DFF] transition-colors">Register</a>
             </nav>
             <div class="flex flex-col items-center md:items-end gap-1">
                 <div class="text-gray-500">© 2026 ACM Programming Jam</div>
-                <div>Made by <a href="https://blueprint.shoug-tech.com/" target="_blank" rel="noopener" class="text-[#6C4DFF] underline decoration-2 underline-offset-4 hover:text-[#111111] transition-colors">Blueprint</a></div>
+                <div>Made by <a href="https://blueprint.shoug-tech.com/" target="_blank" rel="noopener"
+                        class="text-[#6C4DFF] underline decoration-2 underline-offset-4 hover:text-[#111111] transition-colors">Blueprint</a>
+                </div>
             </div>
         </div>
     </footer>
 
-</body></html>
+</body>
+
+</html>

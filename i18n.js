@@ -888,6 +888,18 @@
 "ACM — Association for Computing Machinery": "ACM — جمعية مكائن الحوسبة",
 "College of Computer & Information Sciences": "كلية علوم الحاسب والمعلومات",
 "Prince Sultan University": "جامعة الأمير سلطان",
+"TIME & LOCATION TBD": "الوقت والموقع سيُعلنان لاحقًا",
+"TIME TBD": "الوقت سيُعلن لاحقًا",
+"JUDGED LIVE": "تقييم مباشر",
+"University students who complete registration may participate. Final eligibility details will be confirmed by the organizers before the event.": "يمكن لطلاب الجامعات الذين يكملون التسجيل المشاركة. سيؤكد المنظمون تفاصيل الأهلية النهائية قبل الحدث.",
+"Yes. You may register alone. The team-formation process can also help individual participants join or create a team.": "نعم. يمكنك التسجيل بشكل فردي، ويمكن لعملية تكوين الفرق مساعدتك على الانضمام إلى فريق أو إنشاء فريق.",
+"A team may include the primary registrant and up to ten additional member email addresses. Only registered team members may collaborate on the competition solution.": "يمكن أن يضم الفريق المسجل الأساسي وما يصل إلى عشرة أعضاء إضافيين. يحق لأعضاء الفريق المسجلين فقط التعاون في حل المسابقة.",
+"Request team changes through the organizer contact form before competition day. Changes are valid only after the organizers confirm the updated roster.": "اطلب تغييرات الفريق عبر نموذج التواصل مع المنظمين قبل يوم المسابقة. لا تصبح التغييرات معتمدة إلا بعد تأكيد المنظمين للقائمة المحدّثة.",
+"Workshop attendance is strongly recommended because the competition assumes familiarity with the full workflow. Participants remain responsible for learning the published presentation material and completing the handout checklists before competition day.": "يوصى بشدة بحضور الورش لأن المسابقة تفترض الإلمام بسير العمل الكامل. يتحمل المشاركون مسؤولية دراسة العروض المنشورة وإكمال قوائم التحقق قبل يوم المسابقة.",
+"DOWNLOAD CHECKLIST (PDF)": "حمّل قائمة التحقق (PDF)",
+"PDF CHECKLIST ↓": "قائمة التحقق PDF ↓",
+"Ask the JAM.26 organizers": "اسأل منظمي JAM.26",
+"open": "مفتوح",
     };
 
     var STORAGE_KEY = "jam-lang";

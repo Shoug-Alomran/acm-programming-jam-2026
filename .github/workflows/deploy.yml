@@ -24,6 +24,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Build production CSS
+        run: npm ci && npm run build:css
+
       - uses: actions/configure-pages@v6
 
       - name: Upload site

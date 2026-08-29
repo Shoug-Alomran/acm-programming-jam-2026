@@ -1,0 +1,11 @@
+{
+  "name": "acm-programming-jam-2026",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/styles/tailwind-input.css -o ./assets/styles/site.css --minify",
+    "watch:css": "tailwindcss -i ./assets/styles/tailwind-input.css -o ./assets/styles/site.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
