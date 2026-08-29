@@ -728,18 +728,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.rule-section');
             const navLinks = document.querySelectorAll('.sidebar-link');
-            
-            
-            const offset = 150; 
-
             const onScroll = () => {
-                let current = '';
-                
+                const navbar = document.getElementById('navbar');
+                const activationLine = (navbar?.getBoundingClientRect().height || 0) + 80;
+                let current = sections[0]?.id || '';
+
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    
-                    if (window.scrollY >= sectionTop - offset) {
-                        current = section.getAttribute('id');
+                    if (section.getBoundingClientRect().top <= activationLine) {
+                        current = section.id;
                     }
                 });
 
@@ -751,7 +747,8 @@
                 });
             };
 
-            window.addEventListener('scroll', onScroll);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
             
             onScroll();
         });
