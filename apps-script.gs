@@ -15,7 +15,7 @@
  * TEST: open the /exec URL in a browser -> "JAM.26 endpoint is live".
  */
 
-var SHEET_NAME     = 'Sheet1';    // registration tab
+var SHEET_NAME     = 'Registrations'; // registration tab
 var MESSAGES_SHEET = 'Messages';  // created automatically on the first question
 var ORGANIZER_EMAIL = 'shoug.alomran@shoug-tech.com';   // where FAQ questions are sent
 
