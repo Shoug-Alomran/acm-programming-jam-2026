@@ -1382,36 +1382,53 @@
           <p>Every person signs in as a user, but what they can see and do depends on their role.</p>
           <div class="req-grid">
             <div class="req-box">
-              <div class="label">Users</div>
+              <div class="label">User Classes</div>
               <ul>
+                <li>User: shared parent class for every account</li>
                 <li>Student</li>
                 <li>Instructor</li>
                 <li>Administrator</li>
               </ul>
             </div>
             <div class="req-box">
-              <div class="label">Data</div>
+              <div class="label">User Data</div>
               <ul>
-                <li>User: name, ID, email, role</li>
-                <li>Student: enrolled courses, credit limit</li>
-                <li>Course: name, code, instructor, schedule, capacity, description</li>
-                <li>Grades and exam type</li>
+                <li>User: name, ID, password, email, phone number, role, and address</li>
+                <li>Student: enrolled courses and credit limit</li>
+                <li>All user information uses getters, setters, and validation</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Domain Classes</div>
+              <ul>
+                <li>Course: name, code, instructor, schedule, capacity, description, and enrollment status</li>
+                <li>ExamType: grades and exam type</li>
+                <li>Course and ExamType information uses getters, setters, and validation</li>
               </ul>
             </div>
             <div class="req-box">
               <div class="label">Required Actions</div>
               <ul>
                 <li>Sign in and out</li>
-                <li>Student: view courses, enroll, drop, view grades</li>
+                <li>Student: view available and enrolled courses, enroll, drop, view grades, and update personal information</li>
                 <li>Instructor: view enrolled students, grade assignments, update course info</li>
-                <li>Admin: manage accounts and courses, set capacity and credit limit, view enrollment statistics</li>
+                <li>Administrator: manage student and instructor accounts, create and manage courses, view enrollment statistics, and generate reports</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Controls &amp; Relationships</div>
+              <ul>
+                <li>Administrator controls student credit limits and course capacity</li>
+                <li>Instructor is assigned to courses and controls the course information they are allowed to update</li>
+                <li>Instructor assigns grades and exam types</li>
+                <li>Student can view course information, exam types, and grades</li>
               </ul>
             </div>
             <div class="req-box">
               <div class="label">Scope</div>
               <ul>
                 <li>Each role sees only what it is allowed to see</li>
-                <li>Capacity decides whether a course is full</li>
+                <li>Course capacity and enrollment status determine whether a course is full</li>
                 <li>A student cannot enroll past the credit limit</li>
                 <li>Focus on the workflow</li>
               </ul>
