@@ -582,6 +582,56 @@
       max-width: 520px;
     }
 
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .screenshot-card {
+      margin: 0;
+      border: 3px solid var(--ink);
+      background: var(--panel);
+      box-shadow: var(--shadow-ink-sm);
+      overflow: hidden;
+    }
+
+    .screenshot-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .screenshot-card figcaption {
+      padding: 10px 12px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .screenshot-card.missing {
+      min-height: 145px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px;
+      background: repeating-linear-gradient(135deg, #fff, #fff 10px, #EFEDE4 10px, #EFEDE4 20px);
+    }
+
+    .screenshot-card.missing figcaption {
+      padding: 0;
+    }
+
+    .screenshot-card.missing code {
+      display: block;
+      margin-top: 7px;
+      color: var(--indigo);
+      overflow-wrap: anywhere;
+    }
+
     .video-placeholder {
       min-height: 280px;
     }
@@ -1094,12 +1144,23 @@
         <li>How to respond when sign-up or sign-in fails</li>
       </ul>
 
-      <div class="img-placeholder">
-        <div class="icon">IMAGE</div>
-        <div class="label">Firebase Authentication Screenshot</div>
-        <div class="hint">
-          Add a screenshot showing Email/Password authentication enabled in the Firebase console.
-        </div>
+      <div class="screenshot-grid">
+        <figure class="screenshot-card">
+          <img src="assets/03-firebase-authentication-overview.png" alt="Firebase Authentication overview" loading="lazy">
+          <figcaption>Firebase Authentication overview</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/04-firebase-authentication-sign-in-methods.png" alt="Firebase Authentication sign-in methods" loading="lazy">
+          <figcaption>Choose a sign-in provider</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/05-firebase-enable-email-password.png" alt="Email and Password enabled in Firebase Authentication" loading="lazy">
+          <figcaption>Email/Password enabled</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/06-firebase-authentication-users.png" alt="Firebase Authentication users list" loading="lazy">
+          <figcaption>Authentication users</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -1518,13 +1579,21 @@ Developer reviews result</pre>
         <li>Commit the working result to GitHub.</li>
       </ol>
 
-      <div class="img-placeholder">
-        <div class="icon">IMAGES</div>
-        <div class="label">Worked Example Screenshots</div>
-        <div class="hint">
-          Add screenshots showing Authentication, Firestore data, Security Rules,
-          DevTools evidence, and the working Study Task Tracker.
-        </div>
+      <div class="screenshot-grid">
+        <figure class="screenshot-card"><img src="assets/01-firebase-create-project.png" alt="Create Firebase project" loading="lazy"><figcaption>Create a Firebase project</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/02-firebase-verify-project-creation.png" alt="Firebase project creation verification" loading="lazy"><figcaption>Verify project creation</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/07-firebase-project-dashboard.png" alt="Firebase project dashboard" loading="lazy"><figcaption>Firebase project dashboard</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/08-firebase-project-dashboard-get-started.png" alt="Firebase project dashboard getting started" loading="lazy"><figcaption>Firebase setup starting point</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/09-firebase-register-web-app.png" alt="Register a Firebase web app" loading="lazy"><figcaption>Register the web application</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/10-firebase-analytics-dashboard.png" alt="Firebase Analytics dashboard" loading="lazy"><figcaption>Firebase Analytics dashboard</figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/11-firebase-project-overview.png" alt="Firebase project overview" loading="lazy"><figcaption>Firebase project overview</figcaption></figure>
+
+        <!-- Add these files to assets/ with these exact names; they will display automatically. -->
+        <figure class="screenshot-card"><img src="assets/12-firestore-create-database.png" alt="Firestore database created" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')"><figcaption>Firestore database created<code>12-firestore-create-database.png</code></figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/13-firestore-task-document-owner-id.png" alt="Firestore task document with owner ID" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')"><figcaption>Task collection, document fields, and ownerId<code>13-firestore-task-document-owner-id.png</code></figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/14-firestore-security-rules.png" alt="Firestore Security Rules" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')"><figcaption>Firestore Security Rules for user-owned tasks<code>14-firestore-security-rules.png</code></figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/15-devtools-debugging-evidence.png" alt="Browser DevTools debugging evidence" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')"><figcaption>Browser DevTools evidence for a real failure<code>15-devtools-debugging-evidence.png</code></figcaption></figure>
+        <figure class="screenshot-card"><img src="assets/16-study-task-tracker-working.png" alt="Working Study Task Tracker" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')"><figcaption>Finished Study Task Tracker: signed in with persistent tasks<code>16-study-task-tracker-working.png</code></figcaption></figure>
       </div>
 
       <div class="img-placeholder video-placeholder">
