@@ -548,6 +548,63 @@
       border-bottom: 3px solid var(--ink);
     }
 
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .img-grid .img-figure {
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .img-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .img-figure.is-pending {
+      border-style: dashed;
+      box-shadow: none;
+      background: repeating-linear-gradient(135deg, #fff, #fff 10px, #EFEDE4 10px, #EFEDE4 20px);
+    }
+
+    .img-figure.is-pending img {
+      display: none;
+    }
+
+    .img-figure .pending-box {
+      padding: 30px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 3px dashed var(--ink);
+    }
+
+    .img-figure .pending-box .icon {
+      font-size: 22px;
+    }
+
+    .img-figure .pending-box .label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .img-figure .pending-box code {
+      font-size: 11px;
+      color: var(--sub);
+      background: #fff;
+      border: 1px solid var(--cream-line);
+      padding: 3px 7px;
+      word-break: break-all;
+    }
+
     .img-figure figcaption {
       padding: 10px 14px;
       font-size: 11.5px;
@@ -1055,9 +1112,10 @@
       <div class="flow-strip">User → Interface → Action → Application Logic → Data → Result</div>
       <figure class="img-figure">
         <img src="assets/excalidraw-diagram-example.jpeg"
-          alt="Excalidraw functional diagram for the Study Task Tracker, showing the user flow from sign in through tasks to stored data."
+          alt="Excalidraw diagram for the University Portal, showing the User class with the Student, Instructor, and Administrator roles and how they connect to the Course and ExamType classes."
           loading="lazy">
-        <figcaption>Example Excalidraw diagram — the Study Task Tracker functional flow.</figcaption>
+        <figcaption>Example Excalidraw diagram — the University Portal: roles, the data each role owns, and who controls
+          what.</figcaption>
       </figure>
     </section>
 
@@ -1079,33 +1137,32 @@
       <h4 class="mini-title">Example design prompt</h4>
       <div class="prompt-card">
         <div class="head">UI PLANNING PROMPT</div>
-        <div class="term">Design a simple web application dashboard for university students to manage study tasks.
+        <div class="term">Design a simple web application for a university portal with three roles: student, instructor, and administrator.
 
-          The interface should allow the user to:
-          - view current tasks
-          - add a new task
-          - see the course and due date
-          - mark tasks as complete
-          - delete tasks
+          The interface should allow:
+          - a student to browse available courses, enroll or drop, and see their credit limit
+          - an instructor to view the students enrolled in their courses and enter grades
+          - an administrator to manage accounts, courses, capacity, and the credit limit
 
           Prioritize clarity and usability.
 
           Include:
-          - a clear page hierarchy
-          - an obvious primary action for adding a task
-          - readable task cards or rows
-          - clear completed and incomplete states
+          - a clear page hierarchy for each role
+          - an obvious primary action on every screen
+          - readable course cards or rows showing code, schedule, and remaining capacity
+          - clear enrolled, full, and unavailable states
           - a useful empty state
 
           Keep the design simple enough to implement during a beginner workshop.</div>
         <div class="purpose"><b>Remember:</b> the generated interface is a proposal. You decide whether the navigation,
           hierarchy, actions, and feedback actually make sense.</div>
       </div>
-      <div class="img-placeholder">
-        <div class="icon">IMAGE</div>
-        <div class="label">Example Variant Design</div>
-        <div class="hint">Add a screenshot of the Study Task Tracker Variant output here.</div>
-      </div>
+      <figure class="img-figure">
+        <img src="assets/variant-example.png"
+          alt="Variant-generated interface concept for the University Portal, showing the course list and enrollment actions."
+          loading="lazy">
+        <figcaption>Example Variant output — an interface concept for the University Portal.</figcaption>
+      </figure>
     </section>
 
     <section class="block" id="devenv">
@@ -1315,44 +1372,47 @@
         <h2 class="sec-title"><span class="hash">##</span> Worked Example</h2>
       </div>
       <p class="lead">Your instructor will demonstrate the complete workflow using a small application called the
-        <b>Study Task Tracker</b>.</p>
+        <b>University Portal</b>.</p>
       <div class="requirement-card">
         <div class="req-head">Instructor Example / Requirement Brief</div>
         <div class="req-body">
-          <h3>Study Task Tracker</h3>
-          <p>Build a small web application that helps university students keep track of academic tasks.</p>
-          <p>A student should be able to view current tasks, add a new task, mark a task as completed, and delete a
-            task.</p>
+          <h3>University Portal</h3>
+          <p>Build a small web application where students sign up for courses, instructors manage the courses they
+            teach, and administrators oversee the whole system.</p>
+          <p>Every person signs in as a user, but what they can see and do depends on their role.</p>
           <div class="req-grid">
             <div class="req-box">
-              <div class="label">User</div>
+              <div class="label">Users</div>
               <ul>
-                <li>University student</li>
+                <li>Student</li>
+                <li>Instructor</li>
+                <li>Administrator</li>
               </ul>
             </div>
             <div class="req-box">
-              <div class="label">Task Data</div>
+              <div class="label">Data</div>
               <ul>
-                <li>Task title</li>
-                <li>Course</li>
-                <li>Due date</li>
-                <li>Completion status</li>
+                <li>User: name, ID, email, role</li>
+                <li>Student: enrolled courses, credit limit</li>
+                <li>Course: name, code, instructor, schedule, capacity, description</li>
+                <li>Grades and exam type</li>
               </ul>
             </div>
             <div class="req-box">
               <div class="label">Required Actions</div>
               <ul>
-                <li>View tasks</li>
-                <li>Add task</li>
-                <li>Complete task</li>
-                <li>Delete task</li>
+                <li>Sign in and out</li>
+                <li>Student: view courses, enroll, drop, view grades</li>
+                <li>Instructor: view enrolled students, grade assignments, update course info</li>
+                <li>Admin: manage accounts and courses, set capacity and credit limit, view enrollment statistics</li>
               </ul>
             </div>
             <div class="req-box">
               <div class="label">Scope</div>
               <ul>
-                <li>No authentication required</li>
-                <li>No database required</li>
+                <li>Each role sees only what it is allowed to see</li>
+                <li>Capacity decides whether a course is full</li>
+                <li>A student cannot enroll past the credit limit</li>
                 <li>Focus on the workflow</li>
               </ul>
             </div>
@@ -1361,13 +1421,13 @@
       </div>
       <h3 class="sub-title">Before building, ask questions</h3>
       <ul class="bullet-list">
-        <li>What should happen when there are no tasks?</li>
-        <li>Can a task be created without a title?</li>
-        <li>Is the due date required?</li>
-        <li>Should completed tasks remain visible?</li>
-        <li>Should overdue tasks look different?</li>
-        <li>Can a task be edited?</li>
-        <li>What feedback appears after an action?</li>
+        <li>What should each role see immediately after signing in?</li>
+        <li>What happens when a student tries to enroll in a course that is already at capacity?</li>
+        <li>What happens when enrolling would push the student over their credit limit?</li>
+        <li>Can a student drop a course at any time?</li>
+        <li>Who is allowed to change a course schedule — the instructor, the administrator, or both?</li>
+        <li>Should a student see a grade before the instructor has finished entering grades?</li>
+        <li>What feedback appears after enrolling, dropping, or grading?</li>
       </ul>
       <div class="note-callout">The requirement tells you what the application needs to accomplish. It does not
         automatically answer every product and implementation decision.</div>
@@ -1375,7 +1435,7 @@
       <ol class="stepper">
         <li>Read the requirement and identify the user, behavior, pages, actions, and data.</li>
         <li>Use the first AI prompt to identify unclear requirements and implementation decisions.</li>
-        <li>Sketch the Study Task Tracker flow in Excalidraw.</li>
+        <li>Sketch the University Portal in Excalidraw: the roles, what each one can do, and the data behind it.</li>
         <li>Turn the functional plan into an initial interface concept in Variant.</li>
         <li>Open the project in VS Code and explain the project structure.</li>
         <li>Run <b>npm install</b> if dependencies need to be installed.</li>
@@ -1393,11 +1453,29 @@
       </ol>
       <div class="flow-strip"><b>Requirement → Plan → Diagram → Design → Project → AI Implementation → Review → Run →
           Test → Debug → Verify → Commit</b></div>
-      <div class="img-placeholder">
-        <div class="icon">IMAGES</div>
-        <div class="label">Worked Example Screenshots</div>
-        <div class="hint">Add screenshots showing the Study Task Tracker progression: Excalidraw → Variant → VS Code →
-          Running App → GitHub.</div>
+      <div class="img-grid">
+        <figure class="img-figure" data-pending-label="VS Code Project Structure">
+          <img src="assets/walkthrough-01-vscode.png"
+            alt="The University Portal project opened in Visual Studio Code, showing the project folder structure."
+            loading="lazy">
+          <figcaption>1 — The project open in VS Code.</figcaption>
+        </figure>
+        <figure class="img-figure" data-pending-label="Terminal / npm run dev">
+          <img src="assets/walkthrough-02-terminal.png"
+            alt="The terminal running npm run dev and printing the local development server address." loading="lazy">
+          <figcaption>2 — Running the local development server.</figcaption>
+        </figure>
+        <figure class="img-figure" data-pending-label="Running Application">
+          <img src="assets/walkthrough-03-running-app.png"
+            alt="The University Portal running in the browser, showing the course list for a signed-in student."
+            loading="lazy">
+          <figcaption>3 — The application running in the browser.</figcaption>
+        </figure>
+        <figure class="img-figure" data-pending-label="Committed to GitHub">
+          <img src="assets/walkthrough-04-github.png"
+            alt="The University Portal repository on GitHub, showing the committed implementation." loading="lazy">
+          <figcaption>4 — The working implementation committed to GitHub.</figcaption>
+        </figure>
       </div>
       <div class="img-placeholder video-placeholder">
         <div class="icon">VIDEO</div>
@@ -1413,8 +1491,8 @@
       <div class="sec-head"><span class="sec-num">09</span>
         <h2 class="sec-title"><span class="hash">##</span> Your Exercise</h2>
       </div>
-      <p class="lead">Now repeat the same workflow yourself, but with a different application. Do not copy the Study
-        Task Tracker implementation.</p>
+      <p class="lead">Now repeat the same workflow yourself, but with a different application. Do not copy the University
+        Portal implementation.</p>
       <div class="requirement-card">
         <div class="req-head">Participant Exercise / Requirement Brief</div>
         <div class="req-body">
@@ -1633,6 +1711,26 @@
     <div>Programming Jam 2026</div>
     <div>Day 1 / Planning and Development Workflow</div>
   </footer>
+
+  <script>
+    // Screenshots that have not been added yet fall back to a labelled placeholder
+    // naming the exact file to drop into assets/.
+    document.querySelectorAll('.img-figure img').forEach(function (img) {
+      function markPending() {
+        var fig = img.closest('.img-figure');
+        if (!fig || fig.classList.contains('is-pending')) return;
+        fig.classList.add('is-pending');
+        var box = document.createElement('div');
+        box.className = 'pending-box';
+        box.innerHTML = '<div class="icon">IMAGE</div>' +
+          '<div class="label">' + (fig.dataset.pendingLabel || 'Screenshot pending') + '</div>' +
+          '<code>' + img.getAttribute('src') + '</code>';
+        fig.insertBefore(box, fig.firstChild);
+      }
+      img.addEventListener('error', markPending);
+      if (img.complete && img.naturalWidth === 0) markPending();
+    });
+  </script>
 
 </body>
 

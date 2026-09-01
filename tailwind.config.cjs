@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         bg: '#F7F7F2',
         bgLight: '#F7F7F2',
-        base: '#F7F7F2',
+        cream: '#F7F7F2',
         ink: '#111111',
         text: '#111111',
         textDark: '#111111',
