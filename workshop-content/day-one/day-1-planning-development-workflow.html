@@ -1508,99 +1508,139 @@
       <div class="sec-head"><span class="sec-num">09</span>
         <h2 class="sec-title"><span class="hash">##</span> Your Exercise</h2>
       </div>
-      <p class="lead">Now repeat the same workflow yourself, but with a different application. Do not copy the University
-        Portal implementation.</p>
+      <p class="lead">Now apply the complete workflow to the <b>University Portal</b>. Use the requirement and
+        Excalidraw diagram below as the authoritative specification. Preserve every class, role, relationship, and
+        constraint shown in the diagram.</p>
       <div class="requirement-card">
         <div class="req-head">Participant Exercise / Requirement Brief</div>
         <div class="req-body">
-          <h3>Campus Event Board</h3>
-          <p>Build a small web application that helps university students discover campus events.</p>
-          <p>A student should be able to view available events and filter them by category. The interface should also
-            allow a new event to be added.</p>
+          <h3>University Portal</h3>
+          <p>Build a role-based university portal where students manage course enrollment, instructors manage their
+            assigned courses and grades, and administrators oversee accounts, courses, capacity, credit limits, and
+            enrollment information.</p>
+          <p>Every person is represented by the shared User class. Their available information and actions depend on
+            whether they are a Student, Instructor, or Administrator.</p>
           <div class="req-grid">
             <div class="req-box">
-              <div class="label">User</div>
+              <div class="label">User Classes</div>
               <ul>
-                <li>University student</li>
+                <li>User: shared parent class for every account</li>
+                <li>Student</li>
+                <li>Instructor</li>
+                <li>Administrator</li>
               </ul>
             </div>
             <div class="req-box">
-              <div class="label">Event Data</div>
+              <div class="label">User Data</div>
               <ul>
-                <li>Event name</li>
-                <li>Category</li>
-                <li>Date</li>
-                <li>Location</li>
-                <li>Short description</li>
+                <li>User: name, ID, password, email, phone number, role, and address</li>
+                <li>Student: enrolled courses and credit limit</li>
+                <li>User information uses getters, setters, and validation</li>
               </ul>
             </div>
             <div class="req-box">
-              <div class="label">Required Actions</div>
+              <div class="label">Domain Classes</div>
               <ul>
-                <li>View events</li>
-                <li>Add an event</li>
-                <li>Filter by category</li>
+                <li>Course: name, code, instructor, schedule, capacity, description, and enrollment status</li>
+                <li>ExamType: grades and exam type</li>
+                <li>Course and ExamType use getters, setters, and validation</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Student Actions</div>
+              <ul>
+                <li>Log in and log out</li>
+                <li>View available and enrolled courses</li>
+                <li>Enroll in or drop courses</li>
+                <li>View grades and exam types</li>
+                <li>Update personal information</li>
+                <li>View the credit limit and never enroll over it</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Instructor Actions</div>
+              <ul>
+                <li>Log in and log out</li>
+                <li>View students enrolled in assigned courses</li>
+                <li>Grade assignments and assign exam types</li>
+                <li>Update permitted course information</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Administrator Actions</div>
+              <ul>
+                <li>Log in and log out</li>
+                <li>Manage student and instructor accounts</li>
+                <li>Create and manage courses</li>
+                <li>Set course capacity and student credit limits</li>
+                <li>View enrollment statistics and generate reports</li>
+              </ul>
+            </div>
+            <div class="req-box">
+              <div class="label">Controls &amp; Relationships</div>
+              <ul>
+                <li>Administrator controls course capacity and student credit limits</li>
+                <li>Instructor is assigned to courses and assigns grades and exam types</li>
+                <li>Student can view courses, exam types, and released grades</li>
+                <li>Course capacity determines whether a course is full</li>
               </ul>
             </div>
             <div class="req-box">
               <div class="label">Scope</div>
               <ul>
-                <li>No authentication required</li>
-                <li>No database required</li>
-                <li>Data may exist only while the page is running</li>
+                <li>Each role sees and changes only what it is allowed to access</li>
+                <li>A student cannot enroll in a full course</li>
+                <li>A student cannot enroll beyond the credit limit</li>
+                <li>Validation protects all important updates</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <h3 class="sub-title">Decisions you need to make</h3>
-      <p class="sec-sub">The requirement intentionally leaves some details open. You must decide how your application
-        should behave.</p>
+      <p class="sec-sub">The diagram defines the system structure, but you still need to decide how important user
+        interactions behave.</p>
       <ul class="bullet-list">
-        <li>Which event categories will exist?</li>
-        <li>What should the empty state look like?</li>
-        <li>Which fields are required when creating an event?</li>
-        <li>How should events be ordered?</li>
-        <li>What should happen after an event is added?</li>
-        <li>How should an active filter be communicated to the user?</li>
-        <li>What happens if no events match the selected category?</li>
+        <li>What should each role see immediately after signing in?</li>
+        <li>What feedback appears when enrollment succeeds?</li>
+        <li>What happens when a course is full or the credit limit would be exceeded?</li>
+        <li>Can a student drop a course at any time?</li>
+        <li>Which course fields may an instructor update?</li>
+        <li>When does an instructor-entered grade become visible to the student?</li>
+        <li>Which fields are required when an administrator creates a course or account?</li>
+        <li>How should validation errors be communicated?</li>
       </ul>
       <h3 class="sub-title">Your workflow</h3>
       <ol class="stepper">
-        <li>Read the Campus Event Board requirement.</li>
-        <li>Identify the users, pages or areas, features, actions, and data.</li>
-        <li>Identify unclear requirements and make reasonable decisions.</li>
-        <li>Create a functional diagram in Excalidraw.</li>
-        <li>Create or refine an interface concept in Variant.</li>
-        <li>Open or create your project in Visual Studio Code.</li>
-        <li>Install dependencies if required.</li>
-        <li>Verify that the project runs locally.</li>
+        <li>Read the University Portal requirement and inspect the complete Excalidraw diagram.</li>
+        <li>Identify the User, Student, Instructor, Administrator, Course, and ExamType classes.</li>
+        <li>Identify each class's attributes, methods, relationships, and validation responsibilities.</li>
+        <li>Identify unclear interaction decisions without removing anything from the diagram.</li>
+        <li>Create or refine the interface concept in Variant for all three roles.</li>
+        <li>Open or create the project in Visual Studio Code.</li>
+        <li>Install dependencies and verify that the project runs locally.</li>
         <li>Create or connect the project to a GitHub repository.</li>
         <li>Make an initial commit before major implementation begins.</li>
-        <li>Choose one small feature to implement first.</li>
-        <li>Write down its expected behavior.</li>
+        <li>Choose one small University Portal feature to implement first.</li>
+        <li>Write down its expected behavior and relevant constraints.</li>
         <li>Use Codex or Claude Code to assist with implementation.</li>
-        <li>Review what the AI changed.</li>
-        <li>Run the application.</li>
-        <li>Test the implemented behavior.</li>
+        <li>Review every generated change and confirm it matches the diagram.</li>
+        <li>Run the application and test the implemented behavior.</li>
         <li>Investigate and debug anything that does not work.</li>
-        <li>Verify the feature behaves as expected.</li>
-        <li>Commit your working checkpoint.</li>
+        <li>Verify the feature, then commit the working checkpoint.</li>
       </ol>
       <h3 class="sub-title">You are done when...</h3>
       <ul class="check-list">
-        <li><span class="box"></span>You can explain what your application is supposed to do</li>
-        <li><span class="box"></span>You can explain at least one decision that was not explicitly stated in the
-          requirement</li>
-        <li><span class="box"></span>You have a functional Excalidraw diagram</li>
-        <li><span class="box"></span>You have an initial interface design</li>
-        <li><span class="box"></span>Your project runs locally</li>
-        <li><span class="box"></span>Your project is connected to GitHub</li>
+        <li><span class="box"></span>You preserved all six classes from the diagram</li>
+        <li><span class="box"></span>You can explain what each role is allowed to see and do</li>
+        <li><span class="box"></span>You can explain the Course and ExamType relationships</li>
+        <li><span class="box"></span>You identified at least one unclear interaction decision</li>
+        <li><span class="box"></span>You have an interface design covering Student, Instructor, and Administrator</li>
+        <li><span class="box"></span>Your project runs locally and is connected to GitHub</li>
         <li><span class="box"></span>You have at least one meaningful Git commit</li>
         <li><span class="box"></span>You used Codex or Claude Code during implementation</li>
-        <li><span class="box"></span>You reviewed the generated changes</li>
-        <li><span class="box"></span>You tested the result yourself</li>
-        <li><span class="box"></span>You committed a working checkpoint</li>
+        <li><span class="box"></span>You reviewed and tested the generated changes yourself</li>
+        <li><span class="box"></span>You committed a verified working checkpoint</li>
       </ul>
     </section>
 
