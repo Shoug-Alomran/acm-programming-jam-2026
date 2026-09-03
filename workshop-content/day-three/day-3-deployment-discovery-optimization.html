@@ -587,6 +587,10 @@
       margin: 20px 0;
     }
 
+    .screenshot-grid.single {
+      grid-template-columns: minmax(0, 460px);
+    }
+
     .screenshot-card {
       background: #fff;
       border: 3px solid var(--ink);
@@ -629,6 +633,64 @@
     }
 
     .screenshot-card.missing figcaption { padding: 0; }
+
+    .host-choice {
+      margin: 18px 0 6px;
+    }
+
+    .host-card {
+      background: #fff;
+      border: 3px solid var(--ink);
+      box-shadow: var(--shadow-ink-sm);
+      padding: 18px 20px;
+    }
+
+    .host-card .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--indigo);
+      padding: 4px 9px;
+      margin-bottom: 10px;
+    }
+
+    .host-card.github .badge {
+      background: var(--ink);
+    }
+
+    .host-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0 0 8px;
+    }
+
+    .host-card p {
+      font-size: 13px;
+      color: var(--sub);
+      margin: 0 0 12px;
+    }
+
+    .host-card .dns-line {
+      border: 2px dashed var(--ink);
+      background: #F8F7FF;
+      font-size: 12px;
+      padding: 10px 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .host-card .dns-line b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .host-card .dns-line code {
+      color: var(--indigo);
+      overflow-wrap: anywhere;
+    }
 
     .gallery-image {
       cursor: zoom-in;
@@ -1354,7 +1416,8 @@
         <li>Open the Vercel production URL and test key functionality, including Firebase auth and data.</li>
         <li>Review the production browser console.</li>
         <li>Add a custom domain to the Vercel project.</li>
-        <li>Open Cloudflare DNS management and configure the required records.</li>
+        <li>Open Cloudflare DNS management and configure the required records (which records you add depends on
+          whether the site is hosted on Vercel or GitHub Pages — see the comparison below).</li>
         <li>Verify the domain connects, then open the app using the custom domain.</li>
         <li>Verify HTTPS and re-test app functionality.</li>
         <li>Review robots.txt and the sitemap.</li>
@@ -1365,6 +1428,7 @@
         <li>Let Vercel redeploy, verify the change in production, and rerun PageSpeed Insights to compare.</li>
       </ol>
 
+      <h4 class="mini-title">Deploy the application on Vercel</h4>
       <div class="screenshot-grid">
         <figure class="screenshot-card">
           <img src="assets/01-vercel-import-repository.png" alt="Importing the University Portal repository into Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
@@ -1372,24 +1436,104 @@
         </figure>
         <figure class="screenshot-card">
           <img src="assets/02-vercel-environment-variables.png" alt="Firebase environment variables configured in Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
-          <figcaption>Configure production environment variables<code>02-vercel-environment-variables.png</code></figcaption>
+          <figcaption>Add every environment variable for Production and Preview<code>02-vercel-environment-variables.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/02-vercel-environment-variables-2.png" alt="The local .env file the Vercel environment variables are copied from" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Copy the keys and values from your local .env file<code>02-vercel-environment-variables-2.png</code></figcaption>
         </figure>
         <figure class="screenshot-card">
           <img src="assets/03-vercel-deployment-success.png" alt="Successful University Portal deployment in Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
           <figcaption>Verify the successful Vercel deployment<code>03-vercel-deployment-success.png</code></figcaption>
         </figure>
+      </div>
+
+      <h4 class="mini-title">Choose where the site is hosted before touching DNS</h4>
+      <p class="lead">Vercel is not the only option. A repository can also be published straight from GitHub with GitHub
+        Pages, and both routes can sit behind the same Cloudflare domain. The DNS records you add are different for each
+        one, so decide the host first, then add only that host's records.</p>
+
+      <div class="cols-2 host-choice">
+        <div class="host-card vercel">
+          <span class="badge">Use Vercel when</span>
+          <h4>The project has a build step or secrets</h4>
+          <p>Anything built with Vite, React, Next.js or a framework, anything that reads environment variables such as
+            the Firebase keys from Day&nbsp;2, anything with server routes or API functions, or when you want an
+            automatic preview deployment for every push. This is the route the Jam projects take.</p>
+          <div class="dns-line"><b>Cloudflare record</b>CNAME &nbsp;<code>your-subdomain</code> &nbsp;&rarr;&nbsp; the
+            <code>&hellip;.vercel-dns-017.com</code> value Vercel shows you &middot; Proxy status: <strong>DNS only</strong></div>
+        </div>
+        <div class="host-card github">
+          <span class="badge">Use GitHub Pages when</span>
+          <h4>The site is plain static files</h4>
+          <p>Hand-written HTML, CSS and JavaScript, or a pre-built folder committed to the repository, with no
+            environment variables and no server code. It is free, it publishes directly from a branch, and it is the
+            simplest option for a portfolio page or documentation site &mdash; but it cannot hide secrets or run a
+            backend.</p>
+          <div class="dns-line"><b>Cloudflare records</b>Root domain: four A records &rarr; <code>185.199.108.153</code>,
+            <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code><br>Subdomain: CNAME
+            &rarr; <code>your-username.github.io</code> &middot; Proxy status: <strong>DNS only</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-callout">Both routes start in the same place: Cloudflare &rarr; <b>DNS</b> &rarr; <b>Records</b>.
+        And both need <b>Proxy status set to DNS only</b> (grey cloud, not orange) &mdash; leaving Cloudflare's proxy on
+        stops Vercel and GitHub from issuing the HTTPS certificate for your domain.</div>
+
+      <div class="screenshot-grid single">
         <figure class="screenshot-card">
-          <img src="assets/04-cloudflare-dns-records.png" alt="Cloudflare DNS records for the University Portal custom domain" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
-          <figcaption>Configure the custom domain DNS records<code>04-cloudflare-dns-records.png</code></figcaption>
+          <img src="assets/04-cloudflare-dns-records.png" alt="The DNS Records screen in the Cloudflare dashboard" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Find DNS → Records in Cloudflare (shared starting point)<code>04-cloudflare-dns-records.png</code></figcaption>
+        </figure>
+      </div>
+
+      <h4 class="mini-title">Path A &mdash; hosting on Vercel</h4>
+      <div class="screenshot-grid">
+        <figure class="screenshot-card">
+          <img src="assets/04-cloudflare-dns-records-for-vercel-1.png" alt="Adding an existing domain to a Vercel project and copying the CNAME target" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Vercel → Domains → Add Existing, then copy the CNAME value<code>04-cloudflare-dns-records-for-vercel-1.png</code></figcaption>
         </figure>
         <figure class="screenshot-card">
-          <img src="assets/05-custom-domain-https-working.png" alt="University Portal working through its HTTPS custom domain" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <img src="assets/04-cloudflare-dns-records-for-vercel-2.png" alt="Creating the matching CNAME record in Cloudflare with the proxy disabled" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Paste it into a Cloudflare CNAME record with the proxy off<code>04-cloudflare-dns-records-for-vercel-2.png</code></figcaption>
+        </figure>
+      </div>
+
+      <h4 class="mini-title">Path B &mdash; hosting on GitHub Pages</h4>
+      <div class="screenshot-grid single">
+        <figure class="screenshot-card">
+          <img src="assets/04-cloudflare-dns-records-for-github.png" alt="Cloudflare A records pointing an apex domain at GitHub Pages" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Add GitHub's four A records for the root domain<code>04-cloudflare-dns-records-for-github.png</code></figcaption>
+        </figure>
+      </div>
+
+      <h4 class="mini-title">Verify the live domain (both paths)</h4>
+      <div class="screenshot-grid single">
+        <figure class="screenshot-card">
+          <img src="assets/05-custom-domain-https-working.png" alt="The application working through its HTTPS custom domain" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
           <figcaption>Verify the custom domain and HTTPS<code>05-custom-domain-https-working.png</code></figcaption>
         </figure>
+      </div>
+
+      <h4 class="mini-title">Make the site discoverable</h4>
+      <div class="screenshot-grid">
         <figure class="screenshot-card">
-          <img src="assets/06-google-search-console-sitemap.png" alt="University Portal sitemap submitted in Google Search Console" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
-          <figcaption>Submit and verify the sitemap<code>06-google-search-console-sitemap.png</code></figcaption>
+          <img src="assets/06-google-search-console-sitemap.png" alt="Adding a new property in Google Search Console" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Google Search Console → Add property<code>06-google-search-console-sitemap.png</code></figcaption>
         </figure>
+        <figure class="screenshot-card">
+          <img src="assets/06-google-search-console-sitemap-2.png" alt="Choosing the URL prefix property type and entering the production URL" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Pick URL prefix and paste the production URL<code>06-google-search-console-sitemap-2.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/06-google-search-console-sitemap-3.png" alt="Submitting sitemap.xml in Google Search Console and seeing it succeed" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Submit sitemap.xml and confirm the Success status<code>06-google-search-console-sitemap-3.png</code></figcaption>
+        </figure>
+      </div>
+
+      <h4 class="mini-title">Measure, improve, redeploy</h4>
+      <div class="screenshot-grid">
         <figure class="screenshot-card">
           <img src="assets/07-pagespeed-before-optimization.png" alt="PageSpeed Insights result before optimization" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
           <figcaption>Measure performance before improvement<code>07-pagespeed-before-optimization.png</code></figcaption>
