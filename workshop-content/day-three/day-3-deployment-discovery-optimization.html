@@ -580,6 +580,130 @@
       max-width: 420px;
     }
 
+    .screenshot-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin: 20px 0;
+    }
+
+    .screenshot-card {
+      background: #fff;
+      border: 3px solid var(--ink);
+      box-shadow: var(--shadow-ink-sm);
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .screenshot-card img {
+      aspect-ratio: 16 / 9;
+      border-bottom: 2px solid var(--ink);
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+    }
+
+    .screenshot-card figcaption {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 10px 12px;
+    }
+
+    .screenshot-card figcaption code {
+      color: var(--indigo);
+      display: block;
+      margin-top: 6px;
+      overflow-wrap: anywhere;
+    }
+
+    .screenshot-card.missing {
+      background: repeating-linear-gradient(135deg, #fff, #fff 10px, #EFEDE4 10px, #EFEDE4 20px);
+      border-style: dashed;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 235px;
+      padding: 20px;
+    }
+
+    .screenshot-card.missing figcaption { padding: 0; }
+
+    .gallery-image {
+      cursor: zoom-in;
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .gallery-image:hover {
+      filter: brightness(.92);
+      transform: scale(1.01);
+    }
+
+    .image-lightbox {
+      align-items: center;
+      background: rgba(10, 10, 12, .92);
+      display: none;
+      inset: 0;
+      justify-content: center;
+      padding: 64px 82px;
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .image-lightbox.open { display: flex; }
+
+    .lightbox-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+      max-width: min(1200px, 100%);
+    }
+
+    .lightbox-content img {
+      background: #fff;
+      border: 3px solid #fff;
+      box-shadow: 10px 10px 0 var(--indigo);
+      max-height: calc(100vh - 150px);
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      margin: 18px 0 0;
+      text-align: center;
+    }
+
+    .lightbox-close, .lightbox-nav {
+      align-items: center;
+      background: #fff;
+      border: 3px solid var(--ink);
+      color: var(--ink);
+      display: flex;
+      font-family: inherit;
+      font-weight: 900;
+      justify-content: center;
+      position: absolute;
+    }
+
+    .lightbox-close { font-size: 26px; height: 46px; right: 22px; top: 20px; width: 46px; }
+    .lightbox-nav { font-size: 34px; height: 58px; top: 50%; transform: translateY(-50%); width: 52px; }
+    .lightbox-nav:hover, .lightbox-close:hover { background: var(--teal); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    @media (max-width: 640px) {
+      .image-lightbox { padding: 70px 14px 90px; }
+      .lightbox-nav { bottom: 18px; top: auto; transform: none; }
+      .lightbox-prev { left: calc(50% - 62px); }
+      .lightbox-next { right: calc(50% - 62px); }
+      .lightbox-content img { max-height: calc(100vh - 210px); }
+    }
+
     ol.stepper {
       counter-reset: step;
       list-style: none;
@@ -1241,11 +1365,39 @@
         <li>Let Vercel redeploy, verify the change in production, and rerun PageSpeed Insights to compare.</li>
       </ol>
 
-      <div class="img-placeholder">
-        <div class="icon">IMAGES</div>
-        <div class="label">Worked Example Screenshots</div>
-        <div class="hint">Drop in screenshots of the Vercel deployment, the Cloudflare DNS setup, and a before/after
-          PageSpeed report.</div>
+      <div class="screenshot-grid">
+        <figure class="screenshot-card">
+          <img src="assets/01-vercel-import-repository.png" alt="Importing the University Portal repository into Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Import the GitHub repository into Vercel<code>01-vercel-import-repository.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/02-vercel-environment-variables.png" alt="Firebase environment variables configured in Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Configure production environment variables<code>02-vercel-environment-variables.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/03-vercel-deployment-success.png" alt="Successful University Portal deployment in Vercel" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Verify the successful Vercel deployment<code>03-vercel-deployment-success.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/04-cloudflare-dns-records.png" alt="Cloudflare DNS records for the University Portal custom domain" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Configure the custom domain DNS records<code>04-cloudflare-dns-records.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/05-custom-domain-https-working.png" alt="University Portal working through its HTTPS custom domain" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Verify the custom domain and HTTPS<code>05-custom-domain-https-working.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/06-google-search-console-sitemap.png" alt="University Portal sitemap submitted in Google Search Console" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Submit and verify the sitemap<code>06-google-search-console-sitemap.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/07-pagespeed-before-optimization.png" alt="PageSpeed Insights result before optimization" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Measure performance before improvement<code>07-pagespeed-before-optimization.png</code></figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="assets/08-pagespeed-after-optimization.png" alt="PageSpeed Insights result after optimization" loading="lazy" onerror="this.hidden=true;this.closest('figure').classList.add('missing')">
+          <figcaption>Compare performance after improvement<code>08-pagespeed-after-optimization.png</code></figcaption>
+        </figure>
       </div>
 
       <div class="img-placeholder" style="min-height:260px;">
@@ -1442,10 +1594,90 @@
 
   </main>
 
+  <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Enlarged workshop screenshot">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-content">
+      <img src="" alt="">
+      <p class="lightbox-caption" aria-live="polite"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
+  </div>
+
   <footer>
     <div class="foot-mark">✦ JAM.26</div>
     Programming Jam 2026 | Day 3 | Deployment, Discovery &amp; Optimization
   </footer>
+
+  <script>
+    (() => {
+      const allImages = Array.from(document.querySelectorAll('.screenshot-card img'));
+      const lightbox = document.getElementById('imageLightbox');
+      const enlargedImage = lightbox.querySelector('.lightbox-content img');
+      const caption = lightbox.querySelector('.lightbox-caption');
+      const closeButton = lightbox.querySelector('.lightbox-close');
+      let currentImage = null;
+
+      const availableImages = () => allImages.filter((image) =>
+        !image.hidden && image.naturalWidth > 0 && getComputedStyle(image).display !== 'none'
+      );
+
+      const showImage = (image) => {
+        currentImage = image;
+        const figureCaption = image.closest('figure')?.querySelector('figcaption');
+        enlargedImage.src = image.currentSrc || image.src;
+        enlargedImage.alt = image.alt;
+        caption.textContent = figureCaption?.childNodes[0]?.textContent?.trim() || image.alt;
+      };
+
+      const move = (direction) => {
+        const images = availableImages();
+        if (!images.length) return;
+        const currentIndex = Math.max(0, images.indexOf(currentImage));
+        showImage(images[(currentIndex + direction + images.length) % images.length]);
+      };
+
+      const openLightbox = (image) => {
+        showImage(image);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        currentImage?.focus();
+      };
+
+      allImages.forEach((image) => {
+        image.classList.add('gallery-image');
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `Enlarge image: ${image.alt}`);
+        image.addEventListener('click', () => openLightbox(image));
+        image.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(image);
+          }
+        });
+      });
+
+      lightbox.querySelector('.lightbox-prev').addEventListener('click', () => move(-1));
+      lightbox.querySelector('.lightbox-next').addEventListener('click', () => move(1));
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') move(-1);
+        if (event.key === 'ArrowRight') move(1);
+      });
+    })();
+  </script>
 
 </body>
 
