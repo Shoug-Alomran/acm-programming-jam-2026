@@ -632,6 +632,101 @@
       overflow-wrap: anywhere;
     }
 
+    .screenshot-card img {
+      cursor: zoom-in;
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .screenshot-card:hover img {
+      filter: brightness(.92);
+      transform: scale(1.015);
+    }
+
+    .image-lightbox {
+      align-items: center;
+      background: rgba(10, 10, 12, .92);
+      display: none;
+      inset: 0;
+      justify-content: center;
+      padding: 64px 82px;
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+      max-width: min(1200px, 100%);
+    }
+
+    .lightbox-content img {
+      background: #fff;
+      border: 3px solid #fff;
+      box-shadow: 10px 10px 0 var(--indigo);
+      max-height: calc(100vh - 150px);
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      margin: 18px 0 0;
+      text-align: center;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      align-items: center;
+      background: #fff;
+      border: 3px solid var(--ink);
+      color: var(--ink);
+      display: flex;
+      font-family: inherit;
+      font-weight: 900;
+      justify-content: center;
+      position: absolute;
+    }
+
+    .lightbox-close {
+      font-size: 26px;
+      height: 46px;
+      right: 22px;
+      top: 20px;
+      width: 46px;
+    }
+
+    .lightbox-nav {
+      font-size: 34px;
+      height: 58px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+    }
+
+    .lightbox-nav:hover,
+    .lightbox-close:hover {
+      background: var(--teal);
+    }
+
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    @media (max-width: 640px) {
+      .image-lightbox { padding: 70px 14px 90px; }
+      .lightbox-nav { bottom: 18px; top: auto; transform: none; }
+      .lightbox-prev { left: calc(50% - 62px); }
+      .lightbox-next { right: calc(50% - 62px); }
+      .lightbox-content img { max-height: calc(100vh - 210px); }
+    }
+
     .video-placeholder {
       min-height: 280px;
     }
@@ -1869,11 +1964,85 @@ Developer reviews result</pre>
 
   </main>
 
+  <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Enlarged workshop screenshot">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-content">
+      <img src="" alt="">
+      <p class="lightbox-caption" aria-live="polite"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
+  </div>
+
   <footer>
     <div class="foot-mark">✦ JAM.26</div>
     <div>Programming Jam 2026</div>
     <div>Day 2 / Full-Stack Development &amp; Debugging</div>
   </footer>
+
+  <script>
+    (() => {
+      const images = Array.from(document.querySelectorAll('.screenshot-card img'))
+        .filter((image) => !image.hidden && image.getAttribute('src'));
+      const lightbox = document.getElementById('imageLightbox');
+      const enlargedImage = lightbox.querySelector('.lightbox-content img');
+      const caption = lightbox.querySelector('.lightbox-caption');
+      const closeButton = lightbox.querySelector('.lightbox-close');
+      const previousButton = lightbox.querySelector('.lightbox-prev');
+      const nextButton = lightbox.querySelector('.lightbox-next');
+      let currentIndex = 0;
+
+      const showImage = (index) => {
+        currentIndex = (index + images.length) % images.length;
+        const selected = images[currentIndex];
+        const figureCaption = selected.closest('figure')?.querySelector('figcaption');
+        enlargedImage.src = selected.currentSrc || selected.src;
+        enlargedImage.alt = selected.alt;
+        caption.textContent = figureCaption?.childNodes[0]?.textContent?.trim() || selected.alt;
+      };
+
+      const openLightbox = (index) => {
+        if (!images.length) return;
+        showImage(index);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        images[currentIndex]?.focus();
+      };
+
+      images.forEach((image, index) => {
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `Enlarge image: ${image.alt}`);
+        image.addEventListener('click', () => openLightbox(index));
+        image.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+
+      previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+      nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (event.key === 'ArrowRight') showImage(currentIndex + 1);
+      });
+    })();
+  </script>
 
 </body>
 
