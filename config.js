@@ -4,20 +4,15 @@
  * The Apps Script Web App URL is public by design. Registration submissions
  * must be acknowledged by the server before the UI may display success.
  */
-<<<<<<< HEAD
-window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK_a8kSAIB7fIL9JD1q0WbejcqSbaIE9gEC9TboORCTUkHwW-D12/exec";
+window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp6PAcBImrtQpEW-Wzo8qzlzXUS-i8INjMfHs_CqoRsuYKIHd-9U/exec";
 
 /*
  * Reliability guard for team-formation.html.
  *
- * The page previously used fetch(..., {mode: 'no-cors'}). An opaque no-cors
- * response cannot reveal whether Apps Script accepted or rejected a
- * registration, so the page could show TEAM REGISTERED after a server error.
- *
- * This capture-phase handler deliberately runs before the page's legacy submit
- * listener. It posts through a hidden iframe and waits for the Apps Script
- * postMessage acknowledgement used by the CTF registration flow. Success is
- * shown only after the server explicitly returns message === 'OK'.
+ * The page still contains a legacy no-cors submit listener. This capture-phase
+ * handler runs first, stops that legacy handler, posts through a hidden iframe,
+ * and waits for the Apps Script acknowledgement. Success is shown only after
+ * the server explicitly returns message === 'OK'.
  */
 (function () {
   'use strict';
@@ -86,6 +81,13 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
       return members;
     }
 
+    function makeRequestId() {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+        return window.crypto.randomUUID();
+      }
+      return 'jam26-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+    }
+
     function submitReliably(event) {
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -97,6 +99,7 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
         return;
       }
 
+      var requestId = makeRequestId();
       var payload;
       try {
         payload = {
@@ -108,7 +111,8 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
           major: value('major'),
           teamName: value('teamName'),
           teamMembers: collectTeamMembers().join(', '),
-          website: value('website')
+          website: value('website'),
+          requestId: requestId
         };
       } catch (err) {
         showError(err && err.message ? err.message : 'Please check the team-member emails.');
@@ -171,6 +175,8 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
       function receive(message) {
         if (!GOOGLE_ORIGIN.test(message.origin)) return;
         if (!message.data || message.data.source !== 'acm-event-registration') return;
+        if (message.data.event && message.data.event !== 'jam26') return;
+        if (message.data.requestId && message.data.requestId !== requestId) return;
 
         completed = true;
         window.removeEventListener('message', receive);
@@ -197,12 +203,9 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
         window.removeEventListener('message', receive);
         idle();
         showError('The registration service did not respond. Check your connection and try again, or contact the organizers through the FAQ page.');
-      }, 20000);
+      }, 30000);
     }
 
     form.addEventListener('submit', submitReliably, true);
   });
 }());
-=======
-window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp6PAcBImrtQpEW-Wzo8qzlzXUS-i8INjMfHs_CqoRsuYKIHd-9U/exec";
->>>>>>> f17d92d (Update JAM endpoint URL in configuration file)
