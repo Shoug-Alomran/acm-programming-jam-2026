@@ -32,6 +32,11 @@ jobs:
       - name: Build production CSS
         run: npm ci && npm run build:css
 
+      - name: Trim files that are not part of the published site
+        # apps-script.gs is server-side source (it names the Club Records
+        # workbook); node_modules is only needed to build the CSS above.
+        run: rm -rf node_modules apps-script.gs
+
       - uses: actions/configure-pages@v6
 
       - name: Upload site

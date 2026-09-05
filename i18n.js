@@ -845,8 +845,10 @@
 "03 // University Email": "03 // الإيميل الجامعي",
 "04 // Phone Number": "04 // رقم الجوال",
 "e.g. 05XXXXXXXX": "مثال: 0512345678",
-"05 // Team Name": "05 // اسم الفريق",
-"06 // Team Members (Emails)": "06 // أعضاء الفريق (الإيميلات)",
+"05 // Major": "05 // التخصص",
+"e.g. Software Engineering": "مثال: هندسة البرمجيات",
+"06 // Team Name": "06 // اسم الفريق",
+"07 // Team Members (Emails)": "07 // أعضاء الفريق (الإيميلات)",
 "Press Enter or comma after each address. Leave empty if you are registering alone.": "اضغط Enter أو فاصلة بعد كل عنوان. اتركه فاضي إذا كنت مسجّل لحالك.",
 
 /* ---- ask-an-organizer form (faq.html) ---- */
