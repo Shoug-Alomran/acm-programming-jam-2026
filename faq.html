@@ -892,7 +892,6 @@
                                 reply at the address you provided.</p>
                         </div>
 
-                        <iframe name="askSink" id="askSink" class="hidden" title="form target"></iframe>
                     </div>
                 </div>
 
@@ -1175,7 +1174,6 @@
             var errorEl = document.getElementById('askError');
             var okEl = document.getElementById('askSuccess');
             var btn = document.getElementById('askBtn');
-            var sink = document.getElementById('askSink');
             var VALID = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             function fail(msg) { errorEl.textContent = msg; errorEl.classList.remove('hidden'); }
@@ -1199,43 +1197,28 @@
                 var endpoint = window.JAM_ENDPOINT || '';
                 if (!endpoint) return fail('Messaging is not set up yet. Please ask an organizer directly.');
 
-                var relay = document.createElement('form');
-                relay.action = endpoint;
-                relay.method = 'POST';
-                relay.target = 'askSink';
-                Object.keys(payload).forEach(function (name) {
-                    var f = document.createElement('input');
-                    f.type = 'hidden'; f.name = name; f.value = payload[name];
-                    relay.appendChild(f);
-                });
-                document.body.appendChild(relay);
+                btn.disabled = true;
+                btn.textContent = 'SENDING...';
 
-            btn.disabled = true;
-            btn.textContent = 'SENDING...';
-            var completed = false;
-            var receiveResult = function (event) {
-                if (event.source !== sink.contentWindow || !event.data || event.data.source !== 'jam26') return;
-                completed = true;
-                window.removeEventListener('message', receiveResult);
-                if (event.data.message === 'OK') {
+                // Apps Script sends no CORS headers, so its reply can never be
+                // read from the browser. A no-cors POST still resolves once the
+                // request was really delivered and rejects when it was not.
+                var abort = new AbortController();
+                var timer = window.setTimeout(function () { abort.abort(); }, 20000);
+
+                fetch(endpoint, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams(payload),
+                    signal: abort.signal
+                }).then(function () {
                     form.classList.add('hidden');
                     okEl.classList.remove('hidden');
-                } else {
+                })['catch'](function () {
                     btn.disabled = false;
                     btn.textContent = 'TRY SENDING AGAIN';
-                    fail(event.data.message.replace(/^Error:\s*/i, ''));
-                }
-            };
-            window.addEventListener('message', receiveResult);
-            relay.submit();
-            relay.remove();
-            window.setTimeout(function () {
-                if (completed) return;
-                window.removeEventListener('message', receiveResult);
-                btn.disabled = false;
-                btn.textContent = 'TRY SENDING AGAIN';
-                fail('The messaging service did not respond. Check your connection and try again.');
-            }, 20000);
+                    fail('The messaging service could not be reached. Check your connection and try again.');
+                }).then(function () { window.clearTimeout(timer); });
             });
         })();
     </script>

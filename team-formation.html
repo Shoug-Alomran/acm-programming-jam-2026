@@ -255,7 +255,6 @@
                         TO JAM.26</a>
                 </div>
 
-                <iframe name="jamSink" id="jamSink" class="hidden" title="form target"></iframe>
             </div>
 
 
@@ -335,7 +334,6 @@
             const errorEl = document.getElementById('formError');
             const okEl = document.getElementById('jamSuccess');
             const btn = document.getElementById('submitBtn');
-            const sink = document.getElementById('jamSink');
             const emails = [];
             const VALID = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const COLORS = ['bg-brandTeal text-textDark', 'bg-brandPurple text-white', 'bg-brandOrange text-white'];
@@ -415,45 +413,31 @@
                     return fail('Registration is not open yet. Please check back soon.');
                 }
 
-                // Post into a hidden iframe so the browser never needs a CORS
-                // preflight; the iframe load event confirms it went through.
-                const relay = document.createElement('form');
-                relay.action = ENDPOINT;
-                relay.method = 'POST';
-                relay.target = 'jamSink';
-                Object.entries(payload).forEach(([name, value]) => {
-                    const f = document.createElement('input');
-                    f.type = 'hidden'; f.name = name; f.value = value;
-                    relay.appendChild(f);
-                });
-                document.body.appendChild(relay);
-
                 btn.disabled = true;
                 btn.textContent = 'SUBMITTING...';
-                let completed = false;
-                const receiveResult = event => {
-                    if (event.source !== sink.contentWindow || !event.data || event.data.source !== 'jam26') return;
-                    completed = true;
-                    window.removeEventListener('message', receiveResult);
-                    if (event.data.message === 'OK') {
-                        form.classList.add('hidden');
-                        okEl.classList.remove('hidden');
-                    } else {
-                        btn.disabled = false;
-                        btn.textContent = 'TRY REGISTRATION AGAIN';
-                        fail(event.data.message.replace(/^Error:\s*/i, ''));
-                    }
-                };
-                window.addEventListener('message', receiveResult);
-                relay.submit();
-                relay.remove();
-                window.setTimeout(() => {
-                    if (completed) return;
-                    window.removeEventListener('message', receiveResult);
+
+                // Apps Script sends no CORS headers, so its reply can never be
+                // read from the browser. A no-cors POST still settles the only
+                // question that matters: it resolves once the request was really
+                // delivered, and rejects when the network never carried it.
+                // (A hidden-iframe POST cannot tell those apart - a refused
+                // connection fires "load" exactly like a real reply.)
+                const abort = new AbortController();
+                const timer = window.setTimeout(() => abort.abort(), 20000);
+
+                fetch(ENDPOINT, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams(payload),
+                    signal: abort.signal
+                }).then(() => {
+                    form.classList.add('hidden');
+                    okEl.classList.remove('hidden');
+                }).catch(() => {
                     btn.disabled = false;
                     btn.textContent = 'TRY REGISTRATION AGAIN';
-                    fail('The registration service did not respond. Check your connection and try again, or contact the organizers through the FAQ page.');
-                }, 20000);
+                    fail('The registration service could not be reached. Check your connection and try again, or contact the organizers through the FAQ page.');
+                }).then(() => window.clearTimeout(timer));
             });
         })();
     </script>
