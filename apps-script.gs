@@ -1,40 +1,33 @@
 /**
- * JAM.26 — one endpoint for both the registration form and the FAQ contact form.
+ * JAM.26 — one endpoint for registration and FAQ contact messages.
  *
- *   team-formation.html  ->  appends a row to the registration sheet
- *   faq.html             ->  appends a row to "Messages" AND emails you the question
- *
- * SETUP
- *   1. Extensions > Apps Script, paste this in, Save.
- *   2. Deploy > New deployment > Web app
- *        Execute as:      Me
- *        Who has access:  Anyone     <- must be "Anyone", not "Anyone with a Google account"
- *   3. Authorize (Advanced > Go to project > Allow — the "unverified" warning is expected).
- *   4. Copy the Web app URL ending in /exec and put it in config.js.
- *
- * TEST: open the /exec URL in a browser -> "JAM.26 endpoint is live".
+ * Registration rows are written to the ACM PSU Club Records workbook, tab
+ * "jam26". FAQ messages remain in the spreadsheet this Apps Script project is
+ * attached to so changing registration storage does not disrupt contact mail.
  */
 
-var SHEET_NAME     = 'Registrations'; // registration tab
-var MESSAGES_SHEET = 'Messages';  // created automatically on the first question
-var ORGANIZER_EMAIL = 'shoug.alomran@shoug-tech.com';   // where FAQ questions are sent
+var REGISTRATION_SPREADSHEET_ID = '1WtNGmVYO8hk_w3I37n1T6wS9_z_dTyTPW4fTHZ4lW3s';
+var SHEET_NAME = 'jam26';
+var MESSAGES_SHEET = 'Messages';
+var ORGANIZER_EMAIL = 'shoug.alomran@shoug-tech.com';
 
-// registration form field -> column header text in row 1
 var FIELD_TO_HEADER = {
   fullName:        'Full Name',
   universityId:    'University ID',
   universityEmail: 'University Email',
   phoneNumber:     'Phone Number',
+  major:           'Major',
   teamName:        'Team Name',
   teamMembers:     'Team Members'
 };
 
-var REQUIRED = ['fullName', 'universityId', 'universityEmail', 'phoneNumber', 'teamName'];
+var REQUIRED = ['fullName', 'universityId', 'universityEmail', 'phoneNumber', 'major', 'teamName'];
 var LIMITS = {
   fullName: 120,
   universityId: 40,
   universityEmail: 254,
   phoneNumber: 40,
+  major: 120,
   teamName: 120,
   teamMembers: 1500,
   name: 120,
@@ -59,19 +52,20 @@ function doPost(e) {
   }
 }
 
-/* ------------------------------------------------------------------ */
-
 function handleRegistration(form) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  var workbook = SpreadsheetApp.openById(REGISTRATION_SPREADSHEET_ID);
+  var sheet = workbook.getSheetByName(SHEET_NAME);
   if (!sheet) return page('Error: no sheet named "' + SHEET_NAME + '"');
 
   if (form.website) return page('OK');
 
   for (var i = 0; i < REQUIRED.length; i++) {
-    if (!form[REQUIRED[i]]) return page('Error: missing ' + REQUIRED[i]);
+    if (!String(form[REQUIRED[i]] || '').trim()) return page('Error: missing ' + REQUIRED[i]);
   }
 
-  var validationError = validateLengths(form, ['fullName', 'universityId', 'universityEmail', 'phoneNumber', 'teamName', 'teamMembers']);
+  var validationError = validateLengths(form, [
+    'fullName', 'universityId', 'universityEmail', 'phoneNumber', 'major', 'teamName', 'teamMembers'
+  ]);
   if (validationError) return page('Error: ' + validationError);
   if (!isEmail(form.universityEmail)) return page('Error: invalid universityEmail');
 
@@ -79,8 +73,8 @@ function handleRegistration(form) {
   if (!allowRequest('registration', identity, 300)) return page('Error: please wait before submitting again');
 
   var headers = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1))
-                     .getValues()[0]
-                     .map(function (h) { return String(h).trim(); });
+    .getValues()[0]
+    .map(function (h) { return String(h).trim(); });
 
   var emailCol = headers.indexOf('University Email');
   var idCol = headers.indexOf('University ID');
@@ -95,7 +89,7 @@ function handleRegistration(form) {
   });
 
   var tsCol = headers.indexOf('Timestamp');
-  if (tsCol !== -1) { row[tsCol] = new Date(); } else { row.push(new Date()); }
+  if (tsCol !== -1) row[tsCol] = new Date();
 
   sheet.appendRow(row);
   return page('OK');
@@ -124,15 +118,13 @@ function handleContact(form) {
   }
   sheet.appendRow([new Date(), safeCell(form.name), safeCell(form.email), safeCell(form.message)]);
 
-  // Email you the question. replyTo is the asker, so hitting Reply answers them.
   var to = ORGANIZER_EMAIL || Session.getEffectiveUser().getEmail();
   MailApp.sendEmail({
     to: to,
     replyTo: form.email,
     subject: 'JAM.26 question from ' + form.name,
     body: 'From: ' + form.name + ' <' + form.email + '>\n\n' +
-          form.message + '\n\n' +
-          '— Reply to this email to answer them directly.'
+      form.message + '\n\n— Reply to this email to answer them directly.'
   });
 
   return page('OK');
