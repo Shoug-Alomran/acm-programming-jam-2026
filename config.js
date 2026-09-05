@@ -4,6 +4,7 @@
  * The Apps Script Web App URL is public by design. Registration submissions
  * must be acknowledged by the server before the UI may display success.
  */
+<<<<<<< HEAD
 window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK_a8kSAIB7fIL9JD1q0WbejcqSbaIE9gEC9TboORCTUkHwW-D12/exec";
 
 /*
@@ -202,3 +203,6 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycby-JG2gKExXqhLTcK
     form.addEventListener('submit', submitReliably, true);
   });
 }());
+=======
+window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp6PAcBImrtQpEW-Wzo8qzlzXUS-i8INjMfHs_CqoRsuYKIHd-9U/exec";
+>>>>>>> f17d92d (Update JAM endpoint URL in configuration file)
