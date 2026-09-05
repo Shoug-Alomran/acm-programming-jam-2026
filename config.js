@@ -81,13 +81,6 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
       return members;
     }
 
-    function makeRequestId() {
-      if (window.crypto && typeof window.crypto.randomUUID === 'function') {
-        return window.crypto.randomUUID();
-      }
-      return 'jam26-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-    }
-
     function submitReliably(event) {
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -99,7 +92,6 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
         return;
       }
 
-      var requestId = makeRequestId();
       var payload;
       try {
         payload = {
@@ -111,8 +103,7 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
           major: value('major'),
           teamName: value('teamName'),
           teamMembers: collectTeamMembers().join(', '),
-          website: value('website'),
-          requestId: requestId
+          website: value('website')
         };
       } catch (err) {
         showError(err && err.message ? err.message : 'Please check the team-member emails.');
@@ -176,7 +167,6 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
         if (!GOOGLE_ORIGIN.test(message.origin)) return;
         if (!message.data || message.data.source !== 'acm-event-registration') return;
         if (message.data.event && message.data.event !== 'jam26') return;
-        if (message.data.requestId && message.data.requestId !== requestId) return;
 
         completed = true;
         window.removeEventListener('message', receive);
