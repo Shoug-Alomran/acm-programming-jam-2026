@@ -164,7 +164,13 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
       var timer;
 
       function receive(message) {
-        if (!GOOGLE_ORIGIN.test(message.origin)) return;
+        /*
+         * Apps Script HtmlService responses normally arrive from a Google
+         * origin, but its sandbox can surface as the opaque origin "null".
+         * In either case we still require our private response tag before
+         * accepting the message as a registration acknowledgement.
+         */
+        if (message.origin !== 'null' && !GOOGLE_ORIGIN.test(message.origin)) return;
         if (!message.data || message.data.source !== 'acm-event-registration') return;
         if (message.data.event && message.data.event !== 'jam26') return;
 
@@ -192,7 +198,7 @@ window.JAM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvLmzRRi2vB-D3Wp
         if (completed) return;
         window.removeEventListener('message', receive);
         idle();
-        showError('The registration service did not respond. Check your connection and try again, or contact the organizers through the FAQ page.');
+        showError('The registration service did not respond. Your submission may still have been received; please contact the organizers before submitting again.');
       }, 30000);
     }
 
